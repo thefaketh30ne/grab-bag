@@ -17,6 +17,3 @@ As of the latest update, this mod contains 5 Common and 5 Uncommon Jokers.
 - Hot Potato
 - Impostor
 - Boing Ball
-  
-![image](https://github.com/user-attachments/assets/a1b491d8-5dc5-4b80-8577-8fece5bec69c)
-
