@@ -1,5 +1,5 @@
 # Grab Bag
-Grab Bag is a Balatro mod that currently adds 10 Jokers.
+Grab Bag is a Balatro mod that currently adds 15 Jokers.
 
 The Jokers in this mod are supposed to feel vanilla, and I designed them according to the rules that localthunk follows when making Jokers. 
 
