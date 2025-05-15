@@ -6,14 +6,20 @@ The Jokers in this mod are supposed to feel vanilla, and I designed them accordi
 ## Jokers
 As of the latest update, this mod contains 5 Common and 5 Uncommon Jokers.
 ### Common
-- Morose Joker
+- Boring Joker
 - Counterfeit Joker
-- Wild Joker
-- Postage Stamp
+- Gasoline
 - Jackpot
+- Morose Joker
+- Postage Stamp
+- Sketchy Joker
+- Wild Joker
 ### Uncommon
-- Wheel of Misfortune
-- Knight
+- Boing Ball
 - Hot Potato
 - Impostor
-- Boing Ball
+- Knight
+- Wheel of Misfortune
+- Polariser
+### Rare
+- Double King
