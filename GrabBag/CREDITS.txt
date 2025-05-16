@@ -1,1 +1,1 @@
-Thank you to basil_squared for the recursive file-loading implementation!
+Thanks to basil_squared for the recursive file-loading implementation!
