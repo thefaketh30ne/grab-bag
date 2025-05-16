@@ -6,12 +6,12 @@ The Jokers in this mod are supposed to feel vanilla, and I designed them to be m
 ## Jokers
 As of the latest update, this mod contains 8 Common, 10 Uncommon, and 2 Rare Jokers.
 ### Common
-- Boring Joker
 - Counterfeit Joker
 - Gasoline
 - Jackpot
 - Morose Joker
 - Postage Stamp
+- Receipt
 - Sketchy Joker
 - Wild Joker
 ### Uncommon
