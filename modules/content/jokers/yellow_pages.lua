@@ -24,16 +24,9 @@ SMODS.Joker {
             for _, playing_card in ipairs(context.scoring_hand) do
                 card.ability.extra.scoring_tally = card.ability.extra.scoring_tally + 1
                 return {
-                    mult = ID_TO_RANK(context.other_card:get_id())
+                    mult = context.other_card.base.nominal
                 } 
             end
         end
     end
 }
-
-ID_TO_RANK = function(id)
-    local ranks = {
-        0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11
-    }
-    return ranks[id]
-end

@@ -2,6 +2,9 @@ ASPL = {}
 ASPL.FUNC = {}
 ASPL.G = {}
 
+GB = {}
+GB.G = {}
+
 ASPL.G.MODPATH = SMODS.current_mod.path
 local NFS = require("nativefs")
 
@@ -40,5 +43,14 @@ function ASPL.FUNC.RequireFolderRecursive(path)
 	scan(path)  -- Start scanning from initial path
 end
 
-ASPL.FUNC.RequireFolderRecursive("modules/init/")
-ASPL.FUNC.RequireFolderRecursive("modules/content")
+ASPL.FUNC.RequireFolderRecursive("modules")
+
+GB.G.SHATTERED_TABLE = {
+	{"j_obelisk", "j_gb_monolith"},
+	{"j_flower_pot", "j_gb_ornate_vase"},
+	{"j_rough_gem", "j_gb_cosmic_diamond"},
+	{"j_splash", "j_gb_purple_rain"},
+    {"j_gb_polariser", "j_gb_supercharger"},
+    {"j_joker", "j_gb_jimbo"},
+	{"j_invisible", "j_gb_pure_essence"}
+}

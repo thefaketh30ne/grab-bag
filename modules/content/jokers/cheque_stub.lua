@@ -8,7 +8,7 @@ SMODS.Joker {
             "card held in hand"
 		}
 	},
-	config = { extra = { dollars = 6 } },
+	config = { extra = { dollars = 4 } },
     pixel_size = { w = 54 },
 	rarity = 2,
 	atlas = 'Jokers',
