@@ -16,6 +16,7 @@ SMODS.Joker {
 	pos = { x = 7, y = 2 },
 	cost = 5,
 	blueprint_compat = true,
+    eternal_compat = false,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.mult, card.ability.extra.mult_mod, G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
 	end,

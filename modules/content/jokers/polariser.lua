@@ -14,6 +14,8 @@ SMODS.Joker {
 	cost = 6,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = G.P_CENTERS.m_bonus
+		info_queue[#info_queue + 1] = G.P_CENTERS.m_mult
 		return { vars = { card.ability.extra.mult, card.ability.extra.chips } }
 	end,
     calculate = function(self, card, context)

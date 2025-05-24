@@ -8,7 +8,7 @@ SMODS.Joker {
             "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips) (#3#/#4#)",
 		}
 	},
-	config = { extra = { chips = 0, chips_mod = 5, draw_tally = 0, draws = 7 } },
+	config = { extra = { chips = 0, chips_mod = 3, draw_tally = 0, draws = 7 } },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 3, y = 3 },
