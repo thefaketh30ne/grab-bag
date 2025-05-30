@@ -50,7 +50,8 @@ GB.G.SHATTERED_TABLE = {
 	{"j_flower_pot", "j_gb_ornate_vase"},
 	{"j_rough_gem", "j_gb_cosmic_diamond"},
 	{"j_splash", "j_gb_purple_rain"},
-    {"j_gb_polariser", "j_gb_supercharger"},
-    {"j_joker", "j_gb_jimbo"},
-	{"j_invisible", "j_gb_pure_essence"}
+    	{"j_gb_polariser", "j_gb_supercharger"},
+    	{"j_joker", "j_gb_jimbo"},
+	{"j_invisible", "j_gb_pure_essence"},
+	{"j_fibonacci", "j_gb_golden_ratio"}
 }
