@@ -1,4 +1,25 @@
 SMODS.Atlas {
+	key = "Cards",
+	path = "Cards.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
+	key = "Consumables",
+	path = "Consumables.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
+	key = "Enhancements",
+	path = "Enhancements.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
 	key = "Jokers",
 	path = "Jokers.png",
 	px = 71,
@@ -12,12 +33,6 @@ SMODS.Atlas {
 	py = 95
 }
 
-SMODS.Atlas {
-	key = "Consumables",
-	path = "Consumables.png",
-	px = 71,
-	py = 95
-}
 
 SMODS.Atlas({
 	key = "modicon",

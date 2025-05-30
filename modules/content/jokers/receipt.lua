@@ -19,7 +19,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.chips_mod, card.ability.extra.chips } }
 	end,
 	calculate = function(self, card, context)
-		if context.buying_card then
+		if context.buying_card and context.card ~= card then
 			card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
             return {
                 message = localize('k_upgrade_ex'),

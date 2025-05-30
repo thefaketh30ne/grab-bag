@@ -2,13 +2,13 @@
 	"id": "GrabBag",
 	"name": "Grab Bag",
 	"author": ["Th30ne"],
-	"description": "Adds 20+ new Jokers.",
+	"description": "Adds 30+ new Jokers, as well as other miscellaneous content.",
 	"prefix": "gb",
 	"main_file": "GrabBag.lua",
 	"priority": 0,
 	"badge_colour": "793A80",
 	"badge_text_colour": "FAD6B8",
 	"display_name": "Grab Bag",
-	"version": "0.1.6",
+	"version": "0.2.8",
 	"dependencies": []
 }

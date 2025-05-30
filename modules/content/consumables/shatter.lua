@@ -9,8 +9,7 @@ SMODS.Consumable {
     },
     hidden = true,
     soul_set = "Tarot",
-    soul_rate = 0.03,
-    can_repeat_soul = true,
+    soul_rate = 0.04,
     atlas = 'Consumables',
     pos = { x = 0, y = 0 },
     can_use = function(self, card)
@@ -77,6 +76,17 @@ SMODS.Consumable {
                 end
                 }))
                 break
+            end
+        end
+    end,
+    in_pool = function(self, args)
+        local eligible_jokers = {}
+        -- Check currently owned Jokers for eligibility
+        for i, joker in ipairs(G.jokers.cards) do
+            for i = 1, #GB.G.SHATTERED_TABLE do
+                if GB.G.SHATTERED_TABLE[i][1] == joker.config.center.key then
+                    table.insert(eligible_jokers, GB.G.SHATTERED_TABLE[i][1])
+                end
             end
         end
     end

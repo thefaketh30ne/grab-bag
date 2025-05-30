@@ -9,7 +9,7 @@ SMODS.Joker {
 			"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"
 		}
 	},
-	config = { extra = { xmult = 1, xmult_mod = 0.75, king_removed = false, activates = false } },
+	config = { extra = { xmult = 1, xmult_mod = 0.5, king_removed = false, activates = false } },
 	rarity = 3,
 	atlas = 'Jokers',
 	pos = { x = 5, y = 2 },

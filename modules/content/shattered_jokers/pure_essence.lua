@@ -4,7 +4,7 @@ SMODS.Joker {
 		name = 'Pure Essence',
 		text = {
 			"Sell this Joker to create",
-            "a random {C:G.C.RARITY.Legendary,E:1}Legendary{} Joker",
+            "a random {C:legendary,E:1}Legendary{} Joker",
 		}
 	},
 	blueprint_compat = false,
