@@ -6,7 +6,7 @@ Grab Bag is a Balatro mod that currently adds:
 - 2 Enhancements 
 - and 4 Decks.
 
-The content in this mod are supposed to feel vanilla, and I designed it to be mostly in line with the rules that localthunk follows when making Jokers. 
+The content in this mod is supposed to feel vanilla, and I created this new content to be largely in line with the rules and design philosophy that localthunk follows when making Jokers and other content. 
 
 ## Jokers
 As of the latest update, this mod contains 11 Common, 14 Uncommon, and 5 Rare Jokers.
