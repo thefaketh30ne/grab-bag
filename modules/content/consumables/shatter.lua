@@ -9,7 +9,7 @@ SMODS.Consumable {
     },
     hidden = true,
     soul_set = "Tarot",
-    soul_rate = 0.02,
+    soul_rate = 0.04,
     atlas = 'Consumables',
     pos = { x = 0, y = 0 },
     can_use = function(self, card)

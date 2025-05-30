@@ -14,7 +14,7 @@ SMODS.Enhancement {
         return { vars = { card.ability.extra.bonus_mod } }
     end,
     calculate = function(self, card, context)    
-        if context.before and context.cardarea == G.play.cards then
+        if context.before and context.cardarea == G.play then
             card.ability.bonus = card.ability.bonus + card.ability.extra.bonus_mod
             return {
                 message = localize('k_upgrade_ex'),

@@ -1,1 +1,4 @@
-Thank you to basil_squared for the recursive file-loading implementation!
+Thank you to:
+basil_squared for the recursive file-loading implementation,
+squidguset for the effect for Gem Deck
+and the modding community in the Balatro Discord for the continued support!

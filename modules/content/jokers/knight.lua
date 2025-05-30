@@ -4,7 +4,7 @@ SMODS.Joker {
 		name = 'Knight',
 		text = {
             "{C:attention}Steel Cards{} give",
-            "{X:mult,C:white}#1#X{} Mult when scored",
+            "{X:mult,C:white}X#1#{} Mult when scored",
 		}
 	},
 	config = { extra = { xmult = 1.5 } },
