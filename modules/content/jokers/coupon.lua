@@ -8,8 +8,8 @@ SMODS.Joker {
 		}
 	},
 	config = { extra = { odds = 3 } },
-	rarity = 2,
-	atlas = 'Jokers',
+	rarity = 1,
+	atlas = 'gb_Jokers',
 	pos = { x = 1, y = 1 },
 	cost = 6,
 	blueprint_compat = true,

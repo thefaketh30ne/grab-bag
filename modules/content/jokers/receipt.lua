@@ -11,7 +11,7 @@ SMODS.Joker {
 	},
 	config = { extra = { chips = 0, chips_mod = 5 } },
 	rarity = 1,
-	atlas = 'Jokers',
+	atlas = 'gb_Jokers',
 	pos = { x = 1, y = 2 },
 	cost = 4,
 	blueprint_compat = true,

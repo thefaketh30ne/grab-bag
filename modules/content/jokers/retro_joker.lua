@@ -3,13 +3,13 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Retro Joker',
 		text = {
-            "Scored {C:attention}Ace{}s, {C:attention}2{}s, {C:attention}4{}s and {C:attention}8{}s,",
+            "Scored {C:attention}2{}s, {C:attention}4{}s and {C:attention}8{}s",
             "give {X:mult,C:white}#1#X{} Mult",
 		}
 	},
 	config = { extra = { xmult = 1.6 } },
 	rarity = 3,
-	atlas = 'Jokers',
+	atlas = 'gb_Jokers',
 	pos = { x = 4, y = 3 },
     pixel_size = { w = 62, h = 94 },
 	cost = 8,
@@ -23,7 +23,6 @@ SMODS.Joker {
                 context.other_card:get_id() == 2
                 or context.other_card:get_id() == 4
                 or context.other_card:get_id() == 8
-                or context.other_card:get_id() == 14
             ) then
             return {
                 xmult = card.ability.extra.xmult

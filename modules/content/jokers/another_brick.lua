@@ -13,7 +13,7 @@ SMODS.Joker {
     eternal_compat = true,
     rarity = 2,
     cost = 6,
-    atlas = 'Jokers',
+    atlas = 'gb_Jokers',
     pos = { x = 3, y = 1 },
     config = { extra = { xmult = 1, xmult_mod = 0.1 } },
     loc_vars = function(self, info_queue, card)

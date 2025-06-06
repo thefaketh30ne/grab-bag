@@ -1,6 +1,6 @@
 SMODS.Back {
     key = "negative",
-    atlas = "Cards",
+    atlas = "gb_Cards",
     pos = { x = 4, y = 0 },
     loc_txt = {
         name = "Negative Deck",

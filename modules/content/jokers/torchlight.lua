@@ -11,7 +11,7 @@ SMODS.Joker {
     config = { extra = { mult = 0, mult_mod = 5 } },
     rarity = 1,
     cost = 4,
-    atlas = 'Jokers',
+    atlas = 'gb_Jokers',
     pos = { x = 5, y = 1 },
     blueprint_compat = true,
     loc_vars = function(self, info_queue, card)

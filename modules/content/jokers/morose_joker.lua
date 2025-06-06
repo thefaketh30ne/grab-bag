@@ -10,7 +10,7 @@ SMODS.Joker {
 	},
 	config = { extra = { mult = 8 } },
 	rarity = 1,
-	atlas = 'Jokers',
+	atlas = 'gb_Jokers',
 	pos = { x = 2, y = 0 },
 	cost = 4,
 	blueprint_compat = true,

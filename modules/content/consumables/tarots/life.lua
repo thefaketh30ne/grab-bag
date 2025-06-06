@@ -1,15 +1,15 @@
 SMODS.Consumable {
     key = 'life',
     set = 'Tarot',
-    atlas = "Consumables",
+    atlas = "gb_Consumables",
     pos = { x = 2, y = 0 },
     config = { max_highlighted = 1, mod_conv = 'm_gb_wooden' },
     loc_txt = {
         name = "Life",
         text = {
             "Enhances {C:attention}#1#{}",
-            "selected cards to",
-            "{C:attention}#2#s",
+            "selected card to a",
+            "{C:attention}#2#",
         },
     },
     loc_vars = function(self, info_queue, card)

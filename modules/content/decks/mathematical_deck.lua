@@ -7,7 +7,7 @@ SMODS.Back {
             "{C:red}X#1#{} base Blind size",
         }
     },
-    atlas = "Cards",
+    atlas = "gb_Cards",
     pos = { x = 0, y = 0 },
     config = { extra = { ante_scaling = 1.5 } },
     loc_vars = function(self, info_queue, back)

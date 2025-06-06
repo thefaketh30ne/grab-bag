@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = 'river',
     set = 'Tarot',
-    atlas = "Consumables",
+    atlas = "gb_Consumables",
     pos = { x = 1, y = 0 },
     loc_txt = {
         name = "The River",

@@ -9,10 +9,10 @@ SMODS.Joker {
 		}
 	},
 	config = { extra = { xmult = 2, odds = 3 } },
-	rarity = 2,
-	atlas = 'Jokers',
+	rarity = 3,
+	atlas = 'gb_Jokers',
 	pos = { x = 1, y = 0 },
-	cost = 6,
+	cost = 8,
 	blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.extra.odds, G.GAME.probabilities.normal } }

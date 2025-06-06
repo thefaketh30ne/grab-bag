@@ -9,7 +9,7 @@ SMODS.Joker {
 		}
 	},
     blueprint_compat = true,
-	atlas = 'ShatteredJokers',
+	atlas = 'gb_ShatteredJokers',
 	pos = { x = 6, y = 1 },
     rarity = "gb_shattered",
     cost = 10,

@@ -9,8 +9,8 @@ SMODS.Consumable {
     },
     hidden = true,
     soul_set = "Tarot",
-    soul_rate = 0.04,
-    atlas = 'Consumables',
+    soul_rate = 0.07,
+    atlas = 'gb_Consumables',
     pos = { x = 0, y = 0 },
     can_use = function(self, card)
         -- Check if the player has any eligible jokers to shatter
@@ -88,6 +88,11 @@ SMODS.Consumable {
                     table.insert(eligible_jokers, GB.G.SHATTERED_TABLE[i][1])
                 end
             end
+        end
+        if #eligible_jokers > 0 then
+            return true
+        else
+            return false
         end
     end
 }

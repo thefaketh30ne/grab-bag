@@ -10,11 +10,11 @@ SMODS.Joker {
 			"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 		}
 	},
-	config = { extra = { mult = 0, mult_mod = 12, odds = 8 } },
-	rarity = 2,
-	atlas = 'Jokers',
+	config = { extra = { mult = 0, mult_mod = 12, odds = 6 } },
+	rarity = 1,
+	atlas = 'gb_Jokers',
 	pos = { x = 7, y = 2 },
-	cost = 5,
+	cost = 4,
 	blueprint_compat = true,
     eternal_compat = false,
 	loc_vars = function(self, info_queue, card)

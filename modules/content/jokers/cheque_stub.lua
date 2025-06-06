@@ -11,7 +11,7 @@ SMODS.Joker {
 	config = { extra = { dollars = 4 } },
     pixel_size = { w = 54 },
 	rarity = 2,
-	atlas = 'Jokers',
+	atlas = 'gb_Jokers',
 	pos = { x = 7, y = 0 },
 	cost = 8,
 	blueprint_compat = true,

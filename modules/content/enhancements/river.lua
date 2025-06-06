@@ -7,7 +7,7 @@ SMODS.Enhancement {
 			"when played",
 		}
 	},
-    atlas = 'Enhancements',
+    atlas = 'gb_Enhancements',
     pos = { x = 0, y = 0 },
     config = { bonus = 0, extra = { bonus_mod = 10 } },
     loc_vars = function(self, info_queue, card)

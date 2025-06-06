@@ -8,7 +8,7 @@ SMODS.Joker {
 		}
 	},
 	blueprint_compat = false,
-	atlas = 'ShatteredJokers',
+	atlas = 'gb_ShatteredJokers',
 	pos = { x = 7, y = 0 },
     soul_pos = { x = 7, y = 1 },
     rarity = "gb_shattered",

@@ -12,7 +12,7 @@ SMODS.Joker {
 	config = { extra = { chips = 0, chip_mod = 6 } },
     pixel_size = { w = 45, h = 57 },
 	rarity = 1,
-	atlas = 'Jokers',
+	atlas = 'gb_Jokers',
 	pos = { x = 4, y = 1 },
 	cost = 4,
 	blueprint_compat = true,

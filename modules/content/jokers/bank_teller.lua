@@ -13,7 +13,7 @@ SMODS.Joker{
     cost = 8,
     blueprint_compat = false,
     eternal_compat = false,
-    atlas = 'Jokers',
+    atlas = 'gb_Jokers',
     pos = { x = 5, y = 0 },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.dollars, card.ability.extra.dollars_mod } }
