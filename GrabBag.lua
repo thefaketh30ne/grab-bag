@@ -1,3 +1,5 @@
+gb_config = SMODS.current_mod.config
+
 ASPL = {}
 ASPL.FUNC = {}
 ASPL.G = {}

@@ -20,21 +20,26 @@ SMODS.Enhancement {
                     if pseudorandom('gb_honey') < G.GAME.probabilities.normal / card.ability.extra.odds then
                         local honey_cards = {}
                         for _, playing_card in ipairs(G.deck.cards) do
-                            if SMODS.has_enhancement(playing_card, 'm_gb_honey') then
+                            if SMODS.has_enhancement(playing_card, 'm_gb_honey')
+                            and not playing_card.ability.honey_drawn then
                                 honey_cards[#honey_cards + 1] = playing_card
                             end
                         end
                         if honey_cards and #honey_cards > 0 then
                             local chosen_card = pseudorandom_element(honey_cards, pseudoseed('gb_honey'))
-                            if chosen_card and SMODS.has_enhancement(chosen_card, 'm_gb_honey') then
+                            if chosen_card then
+                                chosen_card.ability.honey_drawn = true
                                 draw_card(G.deck, G.hand, 100, 'up', true, chosen_card)
                                 SMODS.calculate_context({hand_drawn = { chosen_card }})
                             end
                         end
                     end
-                    break
+                break
                 end
             end
+        end
+        if context.end_of_round then
+            card.ability.already_drawn = false
         end
     end
 }

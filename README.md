@@ -1,67 +1,49 @@
 # Grab Bag
 Grab Bag is a Balatro mod that currently adds: 
-- 46 (+8) Jokers
-- 3 Tarots
+- 30 (+8) Jokers
+- 2 Tarots
 - 1 Spectral
-- 3 Enhancements 
-- 4 Blinds
+- 2 Enhancements 
 - and 4 Decks.
 
 The content in this mod is supposed to feel vanilla, and I created this new content to be largely in line with the rules and design philosophy that localthunk follows when making Jokers and other content. 
 
 ## Jokers
-As of the latest update, this mod contains 21 Common, 15 Uncommon, and 10 Rare Jokers.
+As of the latest update, this mod contains 11 Common, 14 Uncommon, and 5 Rare Jokers.
 ### Common
 - Bad Trip
 - Bait
-- Bullseye
 - Counterfeit Joker
-- Coupon
-- Dunce
 - Gasoline
-- Hadal Zone
 - Jackpot
 - Morose Joker
 - Patience
 - Postage Stamp
-- Qubits
 - Receipt
-- Revolution 9
 - Sketchy Joker
 - Torchlight
-- Waterfall
 - Wild Joker
-- Hot Potato
-- Polariser
-  
 ### Uncommon
 - Another Brick
 - Bank Teller
 - Boing Ball
 - Calculator
-- Candle
 - Cheque Stub
-- Double Gulp
-- First Strike
-- Honeycomb
+- Coupon
+- Hot Potato
 - Impostor
 - Knight
-- Lover's Locket
+- Polariser
+- Silver Hammer
 - Wax Joker
 - Wheel of Misfortune
 - Yellow Pages
-  
 ### Rare
 - Apparition
-- D20
 - Double King
 - Forest Fire
-- Golden Cookie
-- Lobster Claw
 - Pentagram
 - Retro Joker
-- Silver Hammer
-- The Moon's Oceans
 
 ## Enhancements
 As of the latest update, this mod contains 2 new enhancements.

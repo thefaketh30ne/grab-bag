@@ -1,0 +1,45 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# lance patch 1/2
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+match_indent = true
+pattern = '''G.hand.highlighted[i]:calculate_seal({discard = true})'''
+position = "after"
+payload = '''G.hand.highlighted[i].ability.discarded_this_ante = true'''
+
+# lance patch 2/2
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+match_indent = true
+pattern = '''v.ability.played_this_ante = nil'''
+position = "after"
+payload = '''v.ability.discarded_this_ante = nil'''
+
+# shame patch 1/2
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+match_indent = true
+pattern = '''G.CONTROLLER.locks.skip_blind = true'''
+position = "after"
+payload = '''blind_skipped_this_ante = true'''
+
+# shame patch 2/2
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+match_indent = true
+pattern = '''G.GAME.round_resets.blind_states.Boss = 'Defeated''''
+position = "after"
+payload = '''blind_skipped_this_ante = false'''
+
