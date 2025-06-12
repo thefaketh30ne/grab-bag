@@ -1,5 +1,6 @@
 music_pitch = 1
 
+print(gb_config.custom_music)
 if not gb_config.custom_music then
     return
 end
@@ -10,7 +11,7 @@ SMODS.Sound({
     key = "gb_music1",
     path = "gb_music1.ogg",
     select_music_track = function()
-        return (gb_config.custom_music) or false
+        return (gb_config.custom_music == "grab_bag") or false
     end,
 })
 
@@ -20,7 +21,7 @@ SMODS.Sound({
     key = "gb_music2",
     path = "gb_music2.ogg",
     select_music_track = function()
-        return (gb_config.custom_music and G.booster_pack_sparkles and not G.booster_pack_sparkles.REMOVED) or false
+        return (gb_config.custom_music == "grab_bag" and G.booster_pack_sparkles and not G.booster_pack_sparkles.REMOVED) or false
     end,
 })
 
@@ -30,7 +31,7 @@ SMODS.Sound({
     key = "gb_music3",
     path = "gb_music3.ogg",
     select_music_track = function()
-        return (gb_config.custom_music and G.booster_pack_meteors and not G.booster_pack_meteors.REMOVED) or false
+        return (gb_config.custom_music == "grab_bag" and G.booster_pack_meteors and not G.booster_pack_meteors.REMOVED) or false
     end,
 })
 
@@ -40,7 +41,7 @@ SMODS.Sound({
     key = "gb_music4",
     path = "gb_music4.ogg",
     select_music_track = function()
-        return (gb_config.custom_music and G.shop and not G.shop.REMOVED)or false
+        return (gb_config.custom_music == "grab_bag" and G.shop and not G.shop.REMOVED) or false
     end,
 })
 
@@ -50,7 +51,7 @@ SMODS.Sound({
     key = "gb_music5",
     path = "gb_music5.ogg",
     select_music_track = function()
-        return (gb_config.custom_music and G.GAME.blind and G.GAME.blind.boss) or false
+        return (gb_config.custom_music == "grab_bag" and G.GAME.blind and G.GAME.blind.boss) or false
     end,
 })
 
