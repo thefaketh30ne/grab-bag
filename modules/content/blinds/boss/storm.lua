@@ -13,12 +13,14 @@ SMODS.Blind {
     pos = { y = 11 },
     boss = { min = 2 },
     boss_colour = HEX("424d85"),
+    config = { extra = { ante_skipped = false } },
     calculate = function(self, blind, context)
         if not blind.disabled then
-            if context.end_of_round and context.main_eval and G.GAME.current_round.hands_left ~= 0 then
+            if context.end_of_round and G.GAME.current_round.hands_left ~= 0 and not self.config.extra.ante_skipped then
                 ease_ante(1)
                 G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante
                 G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante + 1
+                self.config.extra.ante_skipped = true
             end
         end
     end
