@@ -10,6 +10,8 @@ GB.G = {}
 ASPL.G.MODPATH = SMODS.current_mod.path
 local NFS = require("nativefs")
 
+to_big = to_big or function(a) return a end
+
 function ASPL.FUNC.RequireFolder(path)
 	local files = NFS.getDirectoryItemsInfo(ASPL.G.MODPATH .. "/" .. path)
 	for i = 1, #files do
