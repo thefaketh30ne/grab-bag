@@ -5,13 +5,13 @@ SMODS.Joker {
 		text = {
             "This Joker gains {C:chips}+#1#{} Chips",
             "for every scored {C:attention}numbered{} card",
-            "resets when {C:attention}Boss Blind{} is defeated",
+            "Resets when {C:attention}Boss Blind{} is defeated",
             "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
 		}
 	},
 	config = { extra = { chips = 0, chips_mod = 7 } },
 	rarity = 2,
-	atlas = 'gb_Jokers',
+	atlas = 'Jokers',
 	pos = { x = 6, y = 1 },
 	cost = 6,
 	blueprint_compat = true,

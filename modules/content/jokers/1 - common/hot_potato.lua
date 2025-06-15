@@ -10,9 +10,9 @@ SMODS.Joker {
 			"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 		}
 	},
-	config = { extra = { mult = 0, mult_mod = 12, odds = 6 } },
+	config = { extra = { mult = 0, mult_mod = 12, odds = 8 } },
 	rarity = 1,
-	atlas = 'gb_Jokers',
+	atlas = 'Jokers',
 	pos = { x = 7, y = 2 },
 	cost = 4,
 	blueprint_compat = true,

@@ -18,7 +18,7 @@ SMODS.Blind {
             if context.setting_blind then
                 blind.discards_sub = math.floor(G.GAME.current_round.discards_left / 2)
                 blind.hands_sub = math.floor(G.GAME.current_round.hands_left / 2)
-                ease_discard(-blind.discards_sub)
+                ease_hands_played(-blind.discards_sub)
                 ease_discard(-blind.hands_sub)
             end
         end

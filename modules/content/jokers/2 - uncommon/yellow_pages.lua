@@ -3,7 +3,7 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Yellow Pages',
 		text = {
-			"The first {C:attention}3{} scoring cards",
+			"The first {C:attention}3{} cards to score",
 			"give {C:mult}Mult{} equal to their rank",
 		}
 	},
@@ -22,10 +22,12 @@ SMODS.Joker {
         end
         if context.individual and context.cardarea == G.play and card.ability.extra.scoring_tally < 3 then
             for _, playing_card in ipairs(context.scoring_hand) do
-                card.ability.extra.scoring_tally = card.ability.extra.scoring_tally + 1
-                return {
-                    mult = context.other_card.base.nominal
-                } 
+				if not SMODS.has_no_rank(playing_card) then
+                	card.ability.extra.scoring_tally = card.ability.extra.scoring_tally + 1
+                	return {
+                    	mult = context.other_card.base.nominal
+                	} 
+				end
             end
         end
     end

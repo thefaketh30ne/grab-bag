@@ -15,6 +15,12 @@ SMODS.Joker {
     blueprint_compat = true,
     calculate = function(self, card, context)
         if context.other_joker then
+            valid_cards = {}
+            for _, playing_card in ipairs(context.scoring_hand) do
+                if SMODS.has_no_rank(playing_card) then
+                    table.insert(valid_cards, playing_card)
+                end
+            end
             local random_card = pseudorandom_element(context.scoring_hand, pseudoseed('gb_lobster_claw'))
             G.E_MANAGER:add_event(Event({
                 func = function()

@@ -10,7 +10,7 @@ SMODS.Joker {
 	},
 	config = { extra = { chips = 0, chips_mod = 3, draw_tally = 0, draws = 7 } },
 	rarity = 1,
-	atlas = 'gb_Jokers',
+	atlas = 'Jokers',
 	pos = { x = 3, y = 3 },
 	cost = 4,
 	blueprint_compat = true,
@@ -18,9 +18,9 @@ SMODS.Joker {
         return { vars = { card.ability.extra.chips_mod, card.ability.extra.chips, card.ability.extra.draw_tally, card.ability.extra.draws } }
 	end,
 	calculate = function(self, card, context)
-		if context.hand_drawn or context.other_drawn then
+		if context.hand_drawn then
 			local upgraded = false
-			for _, playing_card in ipairs(context.hand_drawn or context.other_drawn) do
+			for _, playing_card in ipairs(context.hand_drawn) do
 				card.ability.extra.draw_tally = card.ability.extra.draw_tally + 1
 				if card.ability.extra.draw_tally >= card.ability.extra.draws then
 					card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
@@ -34,6 +34,28 @@ SMODS.Joker {
                 	colour = G.C.CHIPS
 				}
 			end
+		end
+		if context.other_drawn then
+			local upgraded = false
+			for _, playing_card in ipairs(context.other_drawn) do
+				card.ability.extra.draw_tally = card.ability.extra.draw_tally + 1
+				if card.ability.extra.draw_tally >= card.ability.extra.draws then
+					card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
+					card.ability.extra.draw_tally = card.ability.extra.draw_tally - card.ability.extra.draws
+					upgraded = true
+				end
+			end
+			if upgraded == true then
+				return {
+					message = localize('k_upgrade_ex'),
+                	colour = G.C.CHIPS
+				}
+			end
+		end
+		if context.joker_main then
+			return {
+				chips = card.ability.extra.chips
+			}
 		end
 	end
 }

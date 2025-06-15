@@ -5,10 +5,10 @@ SMODS.Joker {
         text = {
             "{X:mult,C:white}X#1#{} Mult,",
             "decreases by {X:mult,C:white}X#2#{} Mult",
-            "at end of round",
+            "after hand scored",
         }
     },
-    config = { extra = { xmult = 7, xmult_mod = 1 } },
+    config = { extra = { xmult = 7, xmult_mod = 1.5 } },
     rarity = 3,
     atlas = 'gb_Jokers',
     pos = { x = 0, y = 4 },

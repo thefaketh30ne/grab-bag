@@ -16,7 +16,6 @@ SMODS.Blind {
     calculate = function(self, blind, context)
         if not blind.disabled then
             if context.before then
-                print("test3")
                 local chosen_card = pseudorandom_element(context.full_hand, pseudoseed("gb_piper"))
                 chosen_card.ability.piper_destroy = true
             end
