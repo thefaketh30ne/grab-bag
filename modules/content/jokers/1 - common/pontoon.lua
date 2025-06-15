@@ -24,7 +24,7 @@ SMODS.Joker{
             local rank_sum = 0
             local ace_count = 0
             for _, playing_card in pairs(context.full_hand) do
-                if SMODS.has_no_rank(playing_card) then
+                if not SMODS.has_no_rank(playing_card) then
                     rank_sum = rank_sum + playing_card.base.nominal
                 end
                 if playing_card:get_id() == 14 then

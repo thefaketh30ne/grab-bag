@@ -17,7 +17,7 @@ SMODS.Joker {
         if context.other_joker then
             valid_cards = {}
             for _, playing_card in ipairs(context.scoring_hand) do
-                if SMODS.has_no_rank(playing_card) then
+                if not SMODS.has_no_rank(playing_card) then
                     table.insert(valid_cards, playing_card)
                 end
             end
