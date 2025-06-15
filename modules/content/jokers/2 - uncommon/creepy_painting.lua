@@ -4,7 +4,7 @@ SMODS.Joker{
         name = 'Creepy Painting',
 		text = {
             "{X:mult,C:white}X#1#{} Mult",
-            "when {C:attention}Blind{} is selected, {C:green}#3# in #2# chance{}",
+            "When {C:attention}Blind{} is selected, {C:green}#3# in #2# chance{}",
             "to destroy a random {C:attention}Joker{}",
             "and gain its sell value"
 		}

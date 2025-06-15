@@ -17,7 +17,7 @@ SMODS.Joker {
 		return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
 	end,
     calculate = function(self, card, context)
-        if context.buying_card then
+        if context.buying_card and context.buying_card ~= card then
             if pseudorandom('gb_coupon') < G.GAME.probabilities.normal / card.ability.extra.odds then
                 return {
                     dollars = context.card.cost,
