@@ -1,4 +1,5 @@
 music_pitch = 1
+music_volume = 0.35
 
 print(gb_config.custom_music)
 if not gb_config.custom_music then
@@ -6,7 +7,7 @@ if not gb_config.custom_music then
 end
 
 SMODS.Sound({
-    vol = 0.45,
+    vol = music_volume,
     pitch = music_pitch,
     key = "gb_music1",
     path = "gb_music1.ogg",
@@ -16,7 +17,7 @@ SMODS.Sound({
 })
 
 SMODS.Sound({
-    vol = 0.45,
+    vol = music_volume,
     pitch = music_pitch,
     key = "gb_music2",
     path = "gb_music2.ogg",
@@ -26,7 +27,7 @@ SMODS.Sound({
 })
 
 SMODS.Sound({
-    vol = 0.45,
+    vol = music_volume,
     pitch = music_pitch,
     key = "gb_music3",
     path = "gb_music3.ogg",
@@ -36,7 +37,7 @@ SMODS.Sound({
 })
 
 SMODS.Sound({
-    vol = 0.45,
+    vol = music_volume,
     pitch = music_pitch,
     key = "gb_music4",
     path = "gb_music4.ogg",
@@ -46,7 +47,7 @@ SMODS.Sound({
 })
 
 SMODS.Sound({
-    vol = 0.45,
+    vol = music_volume,
     pitch = music_pitch,
     key = "gb_music5",
     path = "gb_music5.ogg",
