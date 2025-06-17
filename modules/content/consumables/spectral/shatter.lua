@@ -4,7 +4,8 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Shatter',
         text = {
-            "{C:attention}Shatters{} one random eligible Joker",
+            "{C:attention}Shatters{} one random",
+            "{C:attention}eligible{} Joker",
         }
     },
     hidden = true,

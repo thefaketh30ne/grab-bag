@@ -12,6 +12,7 @@ SMODS.Joker {
     cost = 8,
     atlas = 'gb_Jokers',
     pos = { x = 9, y = 4 },
+    blueprint_compat = true,
     soul_pos = { x = 8, y = 4 },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.odds, G.GAME.probabilities.normal or 1 } }
