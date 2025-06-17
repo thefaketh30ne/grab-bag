@@ -5,6 +5,7 @@ SMODS.Joker {
 		text = {
 			"If {C:attention}scoring hand{} contains 3 {C:attention}7{}s,",
 			"{C:attention}enhance{} all scoring {C:attention}7{}s",
+            "and earn {C:money}$#1#{}"
 		}
 	},
 	rarity = 1,
@@ -12,6 +13,10 @@ SMODS.Joker {
 	pos = { x = 1, y = 3 },
 	cost = 4,
 	blueprint_compat = false,
+    config = { extra = { dollars = 7 } },
+    loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.dollars } }
+	end,
     calculate = function(self, card, context)
         if context.before and context.main_eval then
             local sevens = {}
@@ -32,6 +37,7 @@ SMODS.Joker {
                     playing_card:juice_up()
                 end
                 return {
+                    dollars = card.ability.extra.dollars,
                     message = "Enhanced!",
                     colour = G.C.FILTER
                 }

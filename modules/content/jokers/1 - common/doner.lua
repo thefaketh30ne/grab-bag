@@ -3,40 +3,40 @@ SMODS.Joker {
     loc_txt = {
         name = 'Doner',
         text = {
-            "This Joker gains {C:mult}+#1#{} Mult",
+            "This Joker gains {C:chips}+#1#{} Chips",
             "after hand scored",
-            "{C:mult}-#2#{} Mult when {C:attention}Blind{} is selected",
-            "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)"
+            "{C:chips}-#2#{} chips when {C:attention}Blind{} is selected",
+            "{C:inactive}(Currently {C:chips}+#3#{C:inactive} Chips)"
         }
     },
-    config = { extra = { mult = 0, mult_gain = 2, mult_loss = 4 } },
+    config = { extra = { chips = 0, chips_gain = 10, chips_loss = 20 } },
 	rarity = 1,
 	atlas = 'gb_Jokers',
 	pos = { x = 5, y = 5 },
 	cost = 4,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult_gain, card.ability.extra.mult_loss, card.ability.extra.mult } }
+		return { vars = { card.ability.extra.chips_gain, card.ability.extra.chips_loss, card.ability.extra.chips } }
 	end,
     calculate = function(self, card, context)
         if context.joker_main then
             return {
-                mult = card.ability.extra.mult,
+                chips = card.ability.extra.chips,
             }
         end
         if context.after and not context.blueprint then
-            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_gain
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_gain
             return {
                 message = localize("k_upgrade_ex"),
-                colour = G.C.MULT
+                colour = G.C.CHIPS
             }
         end
         if context.setting_blind and not context.blueprint then
-            if card.ability.extra.mult > 0 then
-                card.ability.extra.mult = math.max(0, card.ability.extra.mult - card.ability.extra.mult_loss)
+            if card.ability.extra.chips > 0 then
+                card.ability.extra.chips = math.max(0, card.ability.extra.chips - card.ability.extra.chips_loss)
                 return {
                     message = "Carved!",
-                    colour = G.C.MULT
+                    colour = G.C.CHIPS
                 }
             end
         end

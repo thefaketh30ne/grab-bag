@@ -4,7 +4,7 @@ SMODS.Back {
         name = "Gem Deck",
         text = {
             "Start with an extra {C:money}$#1#{}",
-            "and {C:money}Clearance Sale{}",
+            "and {C:money,T:v_clearance_sale}Clearance Sale{}",
             "{s:0.85,C:inactive}Thank you to @squidguset",
             "{s:0.85,C:inactive} for the deck effect!",
 
