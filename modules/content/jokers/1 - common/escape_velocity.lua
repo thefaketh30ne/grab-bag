@@ -19,7 +19,7 @@ SMODS.Joker {
 	end,
     calculate = function(self, card, context)
 	    if context.before then
-            if G.GAME.hands[context.scoring_name].played <= 5 then
+            if G.GAME.hands[context.scoring_name].played <= play_threshold then
                 return {
                     level_up = true
                 }
