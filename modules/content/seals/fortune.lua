@@ -7,7 +7,7 @@ SMODS.Seal {
             "{C:green}#2# in #1#{} chance to",
             "give an {C:dark_edition}Edition{} to",
             "a random played card",
-            "when scored",
+            "if scoring",
         }
     },
     atlas = "gb_Cards",

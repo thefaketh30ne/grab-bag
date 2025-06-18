@@ -6,7 +6,7 @@ SMODS.Seal {
         text = {
             "{C:green}#2# in #1#{} chance to",
             "{C:attention}duplicate{} this card",
-            "to hand when scored",
+            "to hand if scoring",
         }
     },
     atlas = "gb_Cards",
