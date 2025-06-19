@@ -14,7 +14,7 @@ SMODS.Joker {
     cost = 4,
     atlas = 'Jokers',
     pos = { x = 6, y = 0 },
-    config = { extra = { base_chips = 150, chips_mod = -10, chips = 150 } },
+    config = { extra = { base_chips = 100, chips_mod = -10, chips = 100 } },
     loc_vars = function(self, info_queue, card)
         if G.GAME.hands then
             local unique_poker_hands = {}

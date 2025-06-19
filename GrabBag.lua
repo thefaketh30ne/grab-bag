@@ -65,4 +65,8 @@ GB.G.SHATTERED_TABLE = {
     {"j_joker", "j_gb_jimbo"},
 	{"j_invisible", "j_gb_pure_essence"},
 	{"j_fibonnaci", "j_gb_golden_ratio"},
+	{"j_scary_face", "j_gb_melting_face"},
+	{"j_smiley_face", "j_gb_melting_face"},
+	{"j_loyalty_card", "j_gb_phase_charts"},
+	{"j_gb_torchlight", "j_gb_lighthouse"},
 }
