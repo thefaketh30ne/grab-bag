@@ -4,14 +4,18 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Shatter',
         text = {
-            "{C:attention}Shatters{} one random eligible Joker",
+            "{C:attention}Shatters{} one random",
+            "{C:attention}eligible{} Joker",
         }
     },
     hidden = true,
     soul_set = "Tarot",
-    soul_rate = 0.05,
+    soul_rate = 0.04,
     atlas = 'gb_Consumables',
     pos = { x = 0, y = 0 },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { colours = { HEX("6A4C77") } } }
+    end,
     can_use = function(self, card)
         -- Check if the player has any eligible jokers to shatter
         for i, joker in ipairs(G.jokers.cards) do

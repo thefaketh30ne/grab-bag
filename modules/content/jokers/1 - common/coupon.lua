@@ -9,7 +9,7 @@ SMODS.Joker {
 	},
 	config = { extra = { odds = 3 } },
 	rarity = 1,
-	atlas = 'gb_Jokers',
+	atlas = 'Jokers',
 	pos = { x = 1, y = 1 },
 	cost = 6,
 	blueprint_compat = true,
@@ -17,7 +17,7 @@ SMODS.Joker {
 		return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
 	end,
     calculate = function(self, card, context)
-        if context.buying_card and context.card ~= card then
+        if context.buying_card and context.buying_card ~= card then
             if pseudorandom('gb_coupon') < G.GAME.probabilities.normal / card.ability.extra.odds then
                 return {
                     dollars = context.card.cost,

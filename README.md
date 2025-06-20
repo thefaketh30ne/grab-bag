@@ -1,12 +1,13 @@
 # Grab Bag
 Grab Bag is a Balatro mod that currently adds: 
-- 46 (+8) Jokers
+- 43 (+11) Jokers
 - 3 Tarots
-- 1 Spectral
-- 3 Enhancements 
+- 4 Spectrals
+- 3 Enhancements
+- 3 Seals
 - 15 Boss Blinds
 - 5 Showdown Boss Blinds
-- and 4 Decks.
+- and 7 Decks.
 
 The content in this mod is supposed to feel vanilla, and I created this new content to be largely in line with the rules and design philosophy that localthunk follows when making Jokers and other content. 
 
@@ -18,25 +19,23 @@ As of the latest update, this mod contains 21 Common, 15 Uncommon, and 10 Rare J
 - Bullseye
 - Counterfeit Joker
 - Coupon
+- Doner
 - Dunce
+- Escape Velocity
 - Gasoline
 - Hadal Zone
 - Jackpot
-- Morose Joker
 - Patience
-- Postage Stamp
 - Qubits
 - Receipt
-- Revolution 9
 - Sketchy Joker
 - Torchlight
 - Waterfall
-- Wild Joker
 - Hot Potato
 - Polariser
+- Pontoon
   
 ### Uncommon
-- Another Brick
 - Bank Teller
 - Boing Ball
 - Calculator
@@ -45,29 +44,19 @@ As of the latest update, this mod contains 21 Common, 15 Uncommon, and 10 Rare J
 - Double Gulp
 - First Strike
 - Honeycomb
-- Impostor
 - Knight
 - Lover's Locket
-- Wax Joker
 - Wheel of Misfortune
 - Yellow Pages
   
 ### Rare
-- Apparition
 - D20
 - Double King
 - Forest Fire
 - Golden Cookie
 - Lobster Claw
 - Pentagram
-- Retro Joker
-- Silver Hammer
 - The Moon's Oceans
-
-## Enhancements
-As of the latest update, this mod contains 2 new enhancements.
-- River (and The River Tarot)
-- Wooden (and The Life Tarot)
 
 ## Shattered Jokers
 Jokers can be shattered into more powerful Shattered jokers with the Shatter consumable, which may show up in Arcana and Spectral Packs.
@@ -80,10 +69,31 @@ Jokers can be shattered into more powerful Shattered jokers with the Shatter con
 - Splash
 - Joker
 - Invisible Joker
+- Loyalty Card
+- Smiley Face
+- Scary Face
+- Torchlight
 
 ## Decks
-There are 4 decks in the latest update of the mod.
+There are 7 decks in the latest update of the mod.
+- Enhanced Deck
 - Gem Deck
 - Mathematical Deck
+- Modulo Deck
 - Negative Deck
 - Tech Deck
+- Waxen Deck
+  
+## Enhancements
+As of the latest update, this mod contains 3 new enhancements.
+- River (and The River Tarot)
+- Wooden (and the Life Tarot)
+- Honey (and the Panacea Tarot)
+
+## Seals
+As of the latest update, this mod contains 3 new seals.
+- Dual (and the Dualism Tarot)
+- Fortune (and the Gambit Tarot)
+- Infinite (and the Lotus Tarot)
+
+

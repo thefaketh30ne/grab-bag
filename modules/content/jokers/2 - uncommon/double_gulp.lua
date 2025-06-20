@@ -17,7 +17,7 @@ SMODS.Joker {
         return { vars = { card.ability.extra.cards_left, card.ability.extra.copies } }
     end,
     calculate = function(self, card, context)
-        if context.remove_playing_cards then
+        if context.remove_playing_cards and not context.blueprint then
             for _, removed_card in ipairs(context.removed) do
                 card.ability.extra.cards_left = card.ability.extra.cards_left - 1
                 for i = 1, card.ability.extra.copies do

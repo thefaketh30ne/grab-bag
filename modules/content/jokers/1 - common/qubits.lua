@@ -13,7 +13,7 @@ SMODS.Joker {
 	pos = { x = 8, y = 1 },
     rarity = 1,
     cost = 4,
-    config = { extra = { mult = 4, scored_suits = {} } },
+    config = { extra = { mult = 6, scored_suits = {} } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult } }
     end,

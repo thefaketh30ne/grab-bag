@@ -3,7 +3,7 @@ SMODS.Blind {
     loc_txt = {
         name = "The Cross",
         text = {
-            "Divides all listed ",
+            "Divides all listed",
             "probabilities by 10",
         }
     },

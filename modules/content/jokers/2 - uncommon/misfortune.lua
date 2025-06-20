@@ -10,7 +10,7 @@ SMODS.Joker {
 	},
 	config = { extra = { xmult = 3, odds = 4 } },
 	rarity = 2,
-	atlas = 'gb_Jokers',
+	atlas = 'Jokers',
 	pos = { x = 0, y = 1 },
 	cost = 5,
 	blueprint_compat = true,
@@ -25,8 +25,8 @@ SMODS.Joker {
 		end
 		if context.final_scoring_step then
 			if pseudorandom('gb_misfortune') < G.GAME.probabilities.normal / card.ability.extra.odds then		
-				hand_chips = to_big(0)
-				mult = to_big(0)
+				hand_chips = 0
+				mult = 0
 				return {
 					message = localize('k_nope_ex'),
 					colour = G.C.SECONDARY_SET.Tarot,

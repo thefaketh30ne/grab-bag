@@ -19,9 +19,7 @@ SMODS.Blind {
             for _, playing_card in ipairs(context.scoring_hand) do
                 if pseudorandom("gb_final_pentacle") < 0.5 then
                     playing_card:juice_up()
-                    return {
-                        debuff = true
-                    }
+                    SMODS.debuff_card()
                 end
             end
         end

@@ -9,7 +9,7 @@ SMODS.Joker {
 		}
 	},
 	config = { extra = { dollars = 4 } },
-    pixel_size = { w = 54 },
+    pixel_size = { w = 49 },
 	rarity = 2,
 	atlas = 'gb_Jokers',
 	pos = { x = 7, y = 0 },

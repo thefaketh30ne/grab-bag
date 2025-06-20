@@ -3,19 +3,21 @@ SMODS.Back {
     loc_txt = {
         name = "Mathematical Deck",
         text = {
-            "Add {C:mult}Mult{} to {C:chips}Chips{}",
+            "Swap {C:chips}Chips{} and {C:mult}Mult{} before scoring",
             "{C:red}X#1#{} base Blind size",
         }
     },
     atlas = "gb_Cards",
     pos = { x = 0, y = 0 },
-    config = { extra = { ante_scaling = 1.5 } },
+    config = { extra = { ante_scaling = 2 } },
     loc_vars = function(self, info_queue, back)
         return { vars = { self.config.extra.ante_scaling } }
     end,
     calculate = function(self, back, context)
-        if context.final_scoring_step then
-            hand_chips = hand_chips + mult
+        if context.before then
+            local temp = mult
+            mult = hand_chips
+            hand_chips = temp
             update_hand_text({delay = 0}, {chips = hand_chips, mult = mult})
             G.E_MANAGER:add_event(Event({
                 func = function()
