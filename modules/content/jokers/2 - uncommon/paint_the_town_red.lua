@@ -48,7 +48,7 @@ SMODS.Joker {
                     cumulative_mult = cumulative_mult - card.ability.extra.mult_mod
                 end
             end
-            card.ability.extra.mult = cumulative_mult
+            card.ability.extra.mult = math.max(0, cumulative_mult)
             return {
                 mult = card.ability.extra.mult
             }

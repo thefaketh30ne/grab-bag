@@ -19,9 +19,8 @@ SMODS.Blind {
             if context.debuff_hand then
                 blind.triggered = false
                 if #G.play.cards > 3 then
-                    blind.triggered = true
-                    local half_dollars = math.floor(G.GAME.dollars / 2)
-                    if to_big(half_dollars) > to_big(0) then
+                    local half_dollars = math.floor(to_number(to_big(G.GAME.dollars)) / 2)
+                    if half_dollars > 0 then
                         ease_dollars(-half_dollars, true)
                     end
                 end
