@@ -57,6 +57,7 @@ SMODS.Back {
                     table.insert(G.playing_cards, card_to_add)
                     G.deck:emplace(card_to_add)
                 end
+                G.GAME.starting_deck_size = 40
                 return true
             end
         }))
