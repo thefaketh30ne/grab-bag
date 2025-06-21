@@ -14,7 +14,7 @@ SMODS.Back {
         return { vars = { self.config.extra.ante_scaling } }
     end,
     calculate = function(self, back, context)
-        if context.before then
+        if context.modify_hand then
             local temp = mult
             mult = hand_chips
             hand_chips = temp
