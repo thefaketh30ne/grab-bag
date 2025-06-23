@@ -1,6 +1,6 @@
 SMODS.Edition {
     key = 'temporary',
-    shader = 'booster',
+    shader = 'voucher',
     loc_txt = {
         name = "Temporary",
         text = {

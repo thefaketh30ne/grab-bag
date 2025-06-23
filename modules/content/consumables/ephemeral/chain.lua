@@ -1,24 +1,24 @@
 SMODS.Consumable {
-    key = "group",
+    key = "chain",
     set = "Ephemeral",
     loc_txt = {
-        name = 'Group',
+        name = 'Chain',
         text = {
             "Adds {C:attention}#1#{} {C:dark_edition}Temporary{}",
-            "same-suited cards to hand",
+            "{C:attention}ascending-rank{} cards to hand",
         }
     },
     config = {extra = { cards_to_create = 5 }},
     atlas = 'gb_Ephemerals',
-    pos = { x = 6, y = 0 },
+    pos = { x = 0, y = 1 },
     loc_vars = function(self, info_queue, card)
         return { vars = { self.config.extra.cards_to_create } }
     end,
     use = function(self, card, area, copier)
-        local suit = pseudorandom_element({"S", "H", "C", "D"}, pseudoseed("gb_collapse"))
+        local starting_id = pseudorandom_element({2, 3, 4, 5, 6, 7, 8, 9, 10}, pseudoseed("gb_group"))
         for k = 1, self.config.extra.cards_to_create do
             local playing_card = SMODS.create_card {
-                suit = suit,
+                rank = id_to_rank(starting_id),
                 set = "Base",
                 edition = "e_gb_temporary",
                 area = G.discard
@@ -30,6 +30,7 @@ SMODS.Consumable {
                     return true
                 end
             }))
+            starting_id = starting_id + 1
         end
     end,
     can_use = function(self, card)
