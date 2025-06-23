@@ -10,7 +10,7 @@ SMODS.Consumable {
     },
     config = {extra = { cards_to_create = 5 }},
     atlas = 'gb_Ephemerals',
-    pos = { x = 6, y = 0 },
+    pos = { x = 7, y = 0 },
     loc_vars = function(self, info_queue, card)
         return { vars = { self.config.extra.cards_to_create } }
     end,
