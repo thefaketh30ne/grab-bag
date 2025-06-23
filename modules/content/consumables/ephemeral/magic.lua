@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "magic",
     set = "Ephemeral",
     loc_txt = {
-        name = 'Nagic',
+        name = 'Magic',
         text = {
             "Adds {C:attention}#1#{} {C:dark_edition}Temporary{}",
             "{C:attention}Lucky Cards{} to hand",
