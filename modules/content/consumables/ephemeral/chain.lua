@@ -1,16 +1,16 @@
 SMODS.Consumable {
-    key = "portal",
+    key = "group",
     set = "Ephemeral",
     loc_txt = {
-        name = 'Portal',
+        name = 'Group',
         text = {
             "Adds {C:attention}#1#{} {C:dark_edition}Temporary{}",
-            "same-suited {C:attention}numbered{} cards to hand",
+            "same-suited cards to hand",
         }
     },
-    config = {extra = { cards_to_create = 4 }},
+    config = {extra = { cards_to_create = 5 }},
     atlas = 'gb_Ephemerals',
-    pos = { x = 1, y = 1 },
+    pos = { x = 6, y = 0 },
     loc_vars = function(self, info_queue, card)
         return { vars = { self.config.extra.cards_to_create } }
     end,
@@ -18,13 +18,9 @@ SMODS.Consumable {
         local suit = pseudorandom_element({"S", "H", "C", "D"}, pseudoseed("gb_collapse"))
         for k = 1, self.config.extra.cards_to_create do
             local playing_card = SMODS.create_card {
-                set = "Base",
                 suit = suit,
+                set = "Base",
                 edition = "e_gb_temporary",
-                rank = pseudorandom_element(
-                    {"2", "3", "4", "5", "6", "7", "8", "9", "10"},
-                    pseudoseed("gb_portal")
-                ),
                 area = G.discard
             }
             G.E_MANAGER:add_event(Event({
@@ -44,3 +40,27 @@ SMODS.Consumable {
         end
     end,
 }
+
+id_to_rank = function(id)
+    local conversion = {
+        {2, "2"},
+        {3, "3"},
+        {4, "4"},
+        {5, "5"},
+        {6, "6"},
+        {7, "7"},
+        {8, "8"},
+        {9, "9"},
+        {10, "10"},
+        {11, "J"},
+        {12, "Q"},
+        {13, "K"},
+        {14, "A"},
+    }
+    for k, v in ipairs(t) do
+        if id == v then
+            return conversion[k][2]
+        end
+    end
+end
+

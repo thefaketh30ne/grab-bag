@@ -5,7 +5,7 @@ SMODS.Consumable {
         name = 'Spirit',
         text = {
             "Adds {C:attention}#1#{} {C:dark_edition}Temporary{}",
-            "{C:attention}Face{} cards to hand",
+            "same-suited {C:attention}Face{} cards to hand",
         }
     },
     config = {extra = { cards_to_create = 3 }},
@@ -15,9 +15,11 @@ SMODS.Consumable {
         return { vars = { self.config.extra.cards_to_create } }
     end,
     use = function(self, card, area, copier)
+        local suit = pseudorandom_element({"S", "H", "C", "D"}, pseudoseed("gb_collapse"))
         for k = 1, self.config.extra.cards_to_create do
             local playing_card = SMODS.create_card {
                 set = "Base",
+                suit = suit,
                 edition = "e_gb_temporary",
                 rank = pseudorandom_element(
                     {"K", "Q", "J"},
