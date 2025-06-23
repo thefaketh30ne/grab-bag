@@ -2,7 +2,8 @@ gb_config = SMODS.current_mod.config
 
 SMODS.current_mod.optional_features = {
 	cardareas = {
-		deck = true
+		deck = true,
+		discard = true
 	}
 }
 

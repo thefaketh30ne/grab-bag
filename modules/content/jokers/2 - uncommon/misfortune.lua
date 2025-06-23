@@ -4,8 +4,8 @@ SMODS.Joker {
 		name = 'Wheel Of Misfortune',
 		text = {
 			"{X:mult,C:white}X#1#{} Mult, {C:green}#2# in #3# chance{}",
-			"for played hand",
-			"to score nothing",
+			"for played hand to score {C:attention}0{}",
+			"and be {C:attention}refunded{}",
 		}
 	},
 	config = { extra = { xmult = 3, odds = 4 } },
@@ -27,6 +27,7 @@ SMODS.Joker {
 			if pseudorandom('gb_misfortune') < G.GAME.probabilities.normal / card.ability.extra.odds then		
 				hand_chips = 0
 				mult = 0
+				ease_hands_played(1)
 				return {
 					message = localize('k_nope_ex'),
 					colour = G.C.SECONDARY_SET.Tarot,

@@ -20,9 +20,11 @@ SMODS.Blind {
                 blind.triggered = false
                 if #G.play.cards > 3 then
                     blind.triggered = true
-                    local half_dollars = math.floor(to_number(to_big(G.GAME.dollars)) / 2)
+                    local half_dollars = math.floor(G.GAME.dollars / 2)
                     if half_dollars > 0 then
-                        ease_dollars(-half_dollars, true)
+                        if to_big(half_dollars) > to_big(0) then
+                            ease_dollars(-half_dollars, true)
+                        end
                     end
                 end
             end
