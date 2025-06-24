@@ -9,7 +9,7 @@ SMODS.ConsumableType {
     shader = 'spectral',
     primary_colour = HEX('59778c'),
     secondary_colour = HEX('8ea4b3'),
-    collection_rows = { 6, 6 },
+    collection_rows = { 5, 5 },
     default = 'c_gb_sculpture',
     shop_rate = 1,
     cards = {

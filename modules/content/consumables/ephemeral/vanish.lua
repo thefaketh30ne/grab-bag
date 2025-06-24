@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "vanish",
     set = "Ephemeral",
     loc_txt = {
-        name = 'Valnish',
+        name = 'Vanish',
         text = {
             "{C:red}+#1#{} discards for this blind",
         }

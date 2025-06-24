@@ -5,6 +5,7 @@ SMODS.Edition {
         name = "Temporary",
         text = {
             "{C:attention}Destroyed{} at end of round",
+            "Cannot be debuffed",
         },
         label = "Temporary",
     },

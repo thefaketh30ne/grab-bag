@@ -58,8 +58,8 @@ id_to_rank = function(id)
         {13, "K"},
         {14, "A"},
     }
-    for k, v in ipairs(t) do
-        if id == v then
+    for k, v in ipairs(conversion) do
+        if id == v[1] then
             return conversion[k][2]
         end
     end
