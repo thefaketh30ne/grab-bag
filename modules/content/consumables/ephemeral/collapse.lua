@@ -21,7 +21,7 @@ SMODS.Consumable {
                 suit = suit,
                 set = "Base",
                 edition = "e_gb_temporary",
-                rank = "A",
+                rank = "Ace",
                 area = G.discard
             }
             G.E_MANAGER:add_event(Event({
