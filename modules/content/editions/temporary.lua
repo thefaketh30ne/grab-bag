@@ -9,6 +9,7 @@ SMODS.Edition {
         },
         label = "Temporary",
     },
+    config = {extra = {being_removed = false} },
     prefix_config = {
         -- This allows using the vanilla shader
         -- Not needed when using your own
@@ -29,7 +30,8 @@ SMODS.Edition {
         return true
     end,
     calculate = function(self, card, context)
-        if context.end_of_round then
+        if context.end_of_round and not self.config.being_removed == true then
+            self.config.being_removed = true
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.2,
