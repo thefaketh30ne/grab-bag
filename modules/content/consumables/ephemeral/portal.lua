@@ -22,7 +22,7 @@ SMODS.Consumable {
                 suit = suit,
                 edition = "e_gb_temporary",
                 rank = pseudorandom_element(
-                    {"2", "3", "4", "5", "6", "7", "8", "9", "10"},
+                    {"2", "3", "4", "5", "6", "7", "8", "9", "T"},
                     pseudoseed("gb_portal")
                 ),
                 area = G.discard
