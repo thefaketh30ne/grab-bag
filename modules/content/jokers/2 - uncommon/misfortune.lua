@@ -28,6 +28,7 @@ SMODS.Joker {
 				hand_chips = 0
 				mult = 0
 				ease_hands_played(1)
+				SMODS.calculate_context{fortune_fail = true}
 				return {
 					message = localize('k_nope_ex'),
 					colour = G.C.SECONDARY_SET.Tarot,

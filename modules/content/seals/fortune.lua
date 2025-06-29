@@ -28,6 +28,7 @@ SMODS.Seal {
                     eligible_card:set_edition(edition, true)
                 end
             else
+                SMODS.calculate_context{fortune_fail = true}
                 return {
                     message = localize("k_nope_ex"),
                     colour = G.C.SECONDARY_SET.Tarot,

@@ -10,6 +10,7 @@ SMODS.Joker {
         }
     },
     blueprint_compat = true,
+    eternal_compat = false,
     rarity = 1,
     cost = 4,
     atlas = 'Jokers',

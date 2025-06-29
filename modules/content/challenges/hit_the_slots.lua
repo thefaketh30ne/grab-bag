@@ -3,6 +3,9 @@ SMODS.Challenge {
     loc_txt = {
         name = "Hit The Slots!"
     },
+    modifiers = {
+            { id = 'discards', value = 0 },
+        },
     jokers = {
         { id = 'j_gb_jackpot', eternal = true },
         { id = 'j_gb_misfortune', eternal = true },

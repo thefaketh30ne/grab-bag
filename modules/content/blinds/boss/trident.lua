@@ -17,7 +17,7 @@ SMODS.Blind {
         if not blind.disabled then
             local triggered = false
             if context.individual and context.cardarea == "unscored" then
-                context.other_card.juice_up()
+                context.other_card:juice_up()
                 context.other_card.ability.perma_debuff = true
                 triggered = true
             end
