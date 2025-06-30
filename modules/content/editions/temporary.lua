@@ -29,7 +29,8 @@ SMODS.Edition {
         return true
     end,
     calculate = function(self, card, context)
-        if context.end_of_round then
+        if context.end_of_round and not card.ability.getting_destroyed then
+            card.ability.getting_destroyed = true
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
                 delay = 0.2,
