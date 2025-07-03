@@ -39,3 +39,4 @@ SMODS.Edition {
         return false
     end
 }
+

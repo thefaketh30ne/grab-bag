@@ -26,6 +26,7 @@ SMODS.Consumable {
                 func = function()
                     playing_card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
                     G.hand:emplace(playing_card)
+                    SMODS.debuff_card(playing_card, "prevent_debuff", "source")
                     return true
                 end
             }))
