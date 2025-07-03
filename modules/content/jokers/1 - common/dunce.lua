@@ -9,7 +9,7 @@ SMODS.Joker {
             "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
         }
     },
-    config = { extra = { chips = 0, chips_mod = 30 } },
+    config = { extra = { chips = 0, chips_mod = 20 } },
     rarity = 1,
     atlas = 'gb_Jokers',
     pos = { x = 8, y = 0 },
@@ -20,7 +20,7 @@ SMODS.Joker {
         return { vars = { card.ability.extra.chips_mod, card.ability.extra.chips } }
     end,
     calculate = function(self, card, context)
-        if context.wheel_of_fortune_fail and not context.blueprint then
+        if context.fortune_fail and not context.blueprint then
             card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
             return {
                 message = localize('k_upgrade_ex'),

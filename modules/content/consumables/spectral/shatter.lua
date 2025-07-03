@@ -32,7 +32,7 @@ SMODS.Consumable {
         -- Check currently owned Jokers for eligibility
         for i, joker in ipairs(G.jokers.cards) do
             for i = 1, #GB.G.SHATTERED_TABLE do
-                if GB.G.SHATTERED_TABLE[i][1] == joker.config.center.key then
+                if GB.G.SHATTERED_TABLE[i][1] == joker.config.center.key and not joker.ability.eternal then
                     table.insert(eligible_jokers, GB.G.SHATTERED_TABLE[i][1])
                 end
             end
@@ -88,7 +88,7 @@ SMODS.Consumable {
         -- Check currently owned Jokers for eligibility
         for i, joker in ipairs(G.jokers.cards) do
             for i = 1, #GB.G.SHATTERED_TABLE do
-                if GB.G.SHATTERED_TABLE[i][1] == joker.config.center.key then
+                if GB.G.SHATTERED_TABLE[i][1] == joker.config.center.key and not joker.ability.eternal then
                     table.insert(eligible_jokers, GB.G.SHATTERED_TABLE[i][1])
                 end
             end

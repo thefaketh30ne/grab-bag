@@ -12,5 +12,28 @@ match_indent = true
 pattern = '''G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.06*G.SETTINGS.GAMESPEED, blockable = false, blocking = false, func = function()'''
 position = "before"
 payload = '''
-SMODS.calculate_context{wheel_of_fortune_fail = true}
+SMODS.calculate_context{fortune_fail = true}
 '''
+
+# mist
+
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+match_indent = true
+pattern = '''elseif card.config.center.set == 'Spectral' then  G.GAME.consumeable_usage_total.spectral = G.GAME.consumeable_usage_total.spectral + 1'''
+position = "after"
+payload = '''
+elseif card.config.center.set == 'Ephemeral' then G.GAME.consumeable_usage_total.ephemeral = G.GAME.consumeable_usage_total.ephemeral + 1
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+match_indent = true
+pattern = '''G.GAME.consumeable_usage_total = G.GAME.consumeable_usage_total or {tarot = 0, planet = 0, spectral = 0, tarot_planet = 0, all = 0}'''
+position = "after"
+payload = '''
+if not G.GAME.consumeable_usage_total.ephemeral then G.GAME.consumeable_usage_total.ephemeral = 0 end
+'''
+

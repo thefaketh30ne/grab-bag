@@ -1,21 +1,31 @@
 # Grab Bag
 Grab Bag is a Balatro mod that currently adds: 
-- 43 (+11) Jokers
+- 47 Regular Jokers
+- 15 Shattered Jokers
+- 20 Ephemeral Cards
 - 3 Tarots
 - 4 Spectrals
+- 4 Booster Packs
 - 3 Enhancements
 - 3 Seals
+- 7 Decks
 - 15 Boss Blinds
 - 5 Showdown Boss Blinds
-- and 7 Decks.
+- 1 Edition
+- and 3 Challenges.
 
-The content in this mod is supposed to feel vanilla, and I created this new content to be largely in line with the rules and design philosophy that localthunk follows when making Jokers and other content. 
+The content in this mod is supposed to feel vanilla, and I created this new content to be largely in line with the rules and design philosophy that localthunk follows when making Jokers and other content.
+
+## Ephemeral Cards
+This mod contains a set of 20 new consumable cards that can only be used during blinds.
 
 ## Jokers
-As of the latest update, this mod contains 21 Common, 15 Uncommon, and 10 Rare Jokers.
+As of the latest update, this mod contains 24 Common, 16 Uncommon, and 7 Rare Jokers.
 ### Common
+- Alien Joker
 - Bad Trip
 - Bait
+- Bold And Brash
 - Bullseye
 - Counterfeit Joker
 - Coupon
@@ -24,29 +34,35 @@ As of the latest update, this mod contains 21 Common, 15 Uncommon, and 10 Rare J
 - Escape Velocity
 - Gasoline
 - Hadal Zone
+- Hot Potato
 - Jackpot
+- Mist
 - Patience
+- Polariser
+- Pontoon
 - Qubits
 - Receipt
 - Sketchy Joker
 - Torchlight
+- Typograph
 - Waterfall
-- Hot Potato
-- Polariser
-- Pontoon
-  
+
 ### Uncommon
 - Bank Teller
 - Boing Ball
 - Calculator
 - Candle
 - Cheque Stub
+- Creepy Painting
 - Double Gulp
 - First Strike
 - Honeycomb
 - Knight
+- Little Timbo
 - Lover's Locket
 - Wheel of Misfortune
+- Paint The Town Red
+- Patchwork
 - Yellow Pages
   
 ### Rare
@@ -73,6 +89,9 @@ Jokers can be shattered into more powerful Shattered jokers with the Shatter con
 - Smiley Face
 - Scary Face
 - Torchlight
+- Misprint
+- Bait
+- Hallucination
 
 ## Decks
 There are 7 decks in the latest update of the mod.
@@ -95,5 +114,3 @@ As of the latest update, this mod contains 3 new seals.
 - Dual (and the Dualism Tarot)
 - Fortune (and the Gambit Tarot)
 - Infinite (and the Lotus Tarot)
-
-

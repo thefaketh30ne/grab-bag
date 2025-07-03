@@ -39,7 +39,7 @@ SMODS.Enhancement {
             end
         end
         if context.end_of_round then
-            card.ability.already_drawn = false
+            card.ability.already_drawn = nil
         end
     end
 }

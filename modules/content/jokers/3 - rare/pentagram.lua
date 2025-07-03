@@ -15,6 +15,7 @@ SMODS.Joker {
 	pos = { x = 3, y = 0 },
 	cost = 8,
 	blueprint_compat = true,
+    perishable_compat = false,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult_mod, card.ability.extra.xmult } }
 	end,
