@@ -21,13 +21,6 @@ SMODS.Edition {
     get_weight = function(self)
         return 0
     end,
-    update = function(self, card)
-        if card.debuff or card.perma_debuff then
-            card.debuff = false
-            card.perma_debuff = false
-        end
-        return true
-    end,
     calculate = function(self, card, context)
         if context.end_of_round and not card.ability.getting_destroyed then
             card.ability.getting_destroyed = true
