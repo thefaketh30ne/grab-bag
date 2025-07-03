@@ -3,9 +3,14 @@ SMODS.Challenge {
     loc_txt = {
         name = "Tiny Hands"
     },
-    modifiers = {
-            { id = 'discards', value = 0 },
-            { id = 'hands', value = 2 },
+    jokers = {
+        { id = 'j_half', eternal = true },
+    },
+    rules = {
+        modifiers = {
+                { id = 'discards', value = 2 },
+                { id = 'hands', value = 2 },
+            }
         },
     deck = {
         cards = {
