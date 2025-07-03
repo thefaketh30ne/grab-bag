@@ -2,7 +2,7 @@ music_pitch = 1
 music_volume = 0.35
 
 print(gb_config.custom_music)
-if not gb_config.custom_music then
+if gb_config.custom_music ~= "grab_bag" then
     return
 end
 
