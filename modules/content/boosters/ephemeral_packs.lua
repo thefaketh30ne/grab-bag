@@ -6,7 +6,7 @@ SMODS.Booster {
         text = {
             "Choose {C:attention}#1#{} of up to",
             "{C:attention}#2# {V:1}Ephemeral{} cards to",
-            "be used immediately"
+            "be added to consumables"
         }
     },
     config = { extra = 3, choose = 1 },
@@ -37,7 +37,7 @@ SMODS.Booster {
         text = {
             "Choose {C:attention}#1#{} of up to",
             "{C:attention}#2# {V:1}Ephemeral{} cards to",
-            "be used immediately"
+            "be added to consumables"
         }
     },
     config = { extra = 3, choose = 1 },
@@ -68,7 +68,7 @@ SMODS.Booster {
         text = {
             "Choose {C:attention}#1#{} of up to",
             "{C:attention}#2# {V:1}Ephemeral{} cards to",
-            "be used immediately"
+            "be added to consumables"
         }
     },
     config = { extra = 5, choose = 1 },
@@ -99,7 +99,7 @@ SMODS.Booster {
         text = {
             "Choose {C:attention}#1#{} of up to",
             "{C:attention}#2# {V:1}Ephemeral{} cards to",
-            "be used immediately"
+            "be added to consumables
         }
     },
     config = { extra = 5, choose = 2 },
