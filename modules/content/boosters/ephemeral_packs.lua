@@ -99,7 +99,7 @@ SMODS.Booster {
         text = {
             "Choose {C:attention}#1#{} of up to",
             "{C:attention}#2# {V:1}Ephemeral{} cards to",
-            "be added to consumables
+            "be added to consumables"
         }
     },
     config = { extra = 5, choose = 2 },
