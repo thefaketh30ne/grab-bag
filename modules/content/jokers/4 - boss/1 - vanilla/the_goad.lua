@@ -9,7 +9,7 @@ SMODS.Joker{
             "{C:inactive}(Changes at end of round)",
 		}
 	},
-    blueprint_compat = false,
+    blueprint_compat = true,
 	atlas = 'gb_BossJokers',
 	pos = { x = 0, y = 1 },
     rarity = "gb_boss",

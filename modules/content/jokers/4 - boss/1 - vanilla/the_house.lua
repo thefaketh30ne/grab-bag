@@ -8,7 +8,7 @@ SMODS.Joker{
             "{C:attention}permanently{} gain {C:mult}+#1#{} Mult",
 		}
 	},
-    blueprint_compat = false,
+    blueprint_compat = true,
 	atlas = 'gb_BossJokers',
 	pos = { x = 5, y = 1 },
     rarity = "gb_boss",

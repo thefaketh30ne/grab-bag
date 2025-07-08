@@ -28,6 +28,7 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.stay_flipped 
         and context.to_area == G.hand 
+        and not context.blueprint
         and pseudorandom('gb_wheel') <= G.GAME.probabilities.normal / card.ability.extra.odds then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
             card.ability.extra.flipped_cards = true
@@ -40,6 +41,11 @@ SMODS.Joker{
             return {
                 message = localize("k_upgrade_ex"),
                 colour = G.C.MULT
+            }
+        end
+        if context.joker_main and context.main_eval then
+            return {
+                xmult = card.ability.extra.xmult
             }
         end
     end,

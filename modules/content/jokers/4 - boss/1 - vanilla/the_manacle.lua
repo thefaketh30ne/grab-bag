@@ -7,7 +7,7 @@ SMODS.Joker{
             "after hand played",
 		}
 	},
-    blueprint_compat = true,
+    blueprint_compat = false,
 	atlas = 'gb_BossJokers',
 	pos = { x = 7, y = 0 },
     rarity = "gb_boss",
@@ -17,7 +17,7 @@ SMODS.Joker{
         return { vars = { card.ability.extra.hand_size_mod } }
     end,
     calculate = function(self, card, context)
-        if context.after then
+        if context.after and not context.blueprint then
             G.hand:change_size(card.ability.extra.hand_size_mod)
             card.ability.extra.hand_size_tally = card.ability.extra.hand_size_tally + card.ability.extra.hand_size_mod
             return {

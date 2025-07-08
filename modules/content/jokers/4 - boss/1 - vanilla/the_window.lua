@@ -3,12 +3,12 @@ SMODS.Joker{
     loc_txt = {
 		name = 'The Window',
 		text = {
-            "{C:diamonds}Heart{} cards retrigger {C:attention}#1#{} time",
+            "{C:diamonds}Diamond{} cards retrigger {C:attention}#1#{} time",
             "{V:1}#2#{} cards are {C:attention}debuffed",
             "{C:inactive}(Changes at end of round)",
 		}
 	},
-    blueprint_compat = false,
+    blueprint_compat = true,
 	atlas = 'gb_BossJokers',
 	pos = { x = 3, y = 1 },
     rarity = "gb_boss",
