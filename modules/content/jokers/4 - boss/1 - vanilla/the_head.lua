@@ -53,7 +53,7 @@ function reset_gb_head_card()
     local valid_cards = {}
     for _, playing_card in ipairs(G.playing_cards) do
         if not SMODS.has_no_suit(playing_card)
-        and not playing_card:is_suit("Spades") then
+        and not playing_card:is_suit("Hearts") then
             valid_cards[#valid_cards + 1] = playing_card
         end
     end
