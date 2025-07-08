@@ -3,6 +3,18 @@ version = "1.0.0"
 dump_lua = true
 priority = 0
 
+# defeated blind tracking
+[[patches]]
+[patches.pattern]
+target = "blind.lua"
+match_indent = true
+pattern = '''blind_name_dynatext:pop_out(2)'''
+position = "after"
+payload = '''
+G.GAME.GB_DEFEATED_BLINDS = G.GAME.GB_DEFEATED_BLINDS or {}
+G.GAME.GB_DEFEATED_BLINDS[self.config.blind.key] = true
+'''
+
 # lance patch 1/2
 
 [[patches]]

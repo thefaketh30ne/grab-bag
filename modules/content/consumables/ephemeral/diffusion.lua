@@ -19,8 +19,8 @@ SMODS.Consumable {
         for _, v in ipairs(eligible_cards) do
             if pseudorandom('gb_diffusion') < 0.5 then
                 G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-                playing_card.playing_card = G.playing_card
                 local copy_card = copy_card(v, nil, nil, G.playing_card)
+                copy_card.playing_card = G.playing_card
                 copy_card:add_to_deck()
                 G.deck.config.card_limit = G.deck.config.card_limit + 1
                 table.insert(G.playing_cards, copy_card)

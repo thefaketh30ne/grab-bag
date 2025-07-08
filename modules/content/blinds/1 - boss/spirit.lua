@@ -24,7 +24,7 @@ SMODS.Blind {
         if not blind.disabled then
             if context.stay_flipped and context.to_area == G.hand and
                 (context.other_card:is_suit("Spades") or context.other_card:is_suit("Clubs")) and
-                 pseudorandom('spirit') < G.GAME.probabilities.normal / 3 then
+                pseudorandom('spirit') < G.GAME.probabilities.normal / 3 then
                 return {
                     stay_flipped = true
                 }
