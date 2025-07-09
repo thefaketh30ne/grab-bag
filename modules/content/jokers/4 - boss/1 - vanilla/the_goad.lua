@@ -14,7 +14,7 @@ SMODS.Joker{
 	pos = { x = 0, y = 1 },
     rarity = "gb_boss",
     cost = 6,
-    config = { extra = { mult = 10 } },
+    config = { extra = { mult = 8 } },
     loc_vars = function(self, info_queue, card)
         local suit = (G.GAME.current_round.gb_goad_card or {}).suit or 'Hearts'
         return { vars = { 
