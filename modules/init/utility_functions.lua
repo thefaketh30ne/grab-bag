@@ -1,5 +1,5 @@
 function gb_is_blind_defeated(blind_key)
-    if G.GAME.GB_DEFEATED_BLINDS[blind_key] then
+    if  G.GAME.GB_DEFEATED_BLINDS and G.GAME.GB_DEFEATED_BLINDS[blind_key] then
         return true
     else
         return false
