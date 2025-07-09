@@ -13,7 +13,7 @@ SMODS.Joker{
 	pos = { x = 3, y = 1 },
     rarity = "gb_boss",
     cost = 6,
-    config = { extra = { retriggers = 1 } },
+    config = { extra = { retriggers = 1, debuffed_suit = "Hearts" } },
     loc_vars = function(self, info_queue, card)
         local suit = (G.GAME.current_round.gb_window_card or {}).suit or 'Spades'
         return { vars = { 
@@ -23,6 +23,9 @@ SMODS.Joker{
         } }
     end,
     calculate = function(self, card, context)
+        if context.ending_shop then
+            card.ability.extra.debuffed_suit = G.GAME.current_round.gb_window_card.suit
+        end
         if context.repetition
         and not context.other_card.debuff
         and context.other_card:is_suit("Diamonds") 
@@ -33,11 +36,16 @@ SMODS.Joker{
             }
         end
         if context.debuff_card
-        and context.debuff_card:is_suit(G.GAME.current_round.gb_window_card.suit) then
+        and context.debuff_card.area ~= G.jokers
+        and context.debuff_card:is_suit(card.ability.extra.debuffed_suit) then
             return {
                 debuff = true
             }
         end
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+        card.ability.extra.debuffed_suit = G.GAME.current_round.gb_window_card.suit
     end,
 
     in_pool = function(self, args)
