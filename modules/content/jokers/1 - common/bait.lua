@@ -23,7 +23,7 @@ SMODS.Joker{
             } 
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if pseudorandom('bait') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'gb_bait', G.GAME.probabilities.normal, card.ability.extra.odds) then
                 SMODS.add_card{
                     set = 'Joker',
                     key = "j_gb_hadal_zone",

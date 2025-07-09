@@ -29,7 +29,7 @@ SMODS.Joker{
         if context.stay_flipped 
         and context.to_area == G.hand 
         and not context.blueprint
-        and pseudorandom('gb_wheel') <= G.GAME.probabilities.normal / card.ability.extra.odds then
+        and SMODS.pseudorandom_probability(card, 'gb_wheel', G.GAME.probabilities.normal, card.ability.extra.odds) then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
             card.ability.extra.flipped_cards = true
             return {

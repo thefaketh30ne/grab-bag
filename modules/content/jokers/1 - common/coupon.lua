@@ -18,7 +18,7 @@ SMODS.Joker {
 	end,
     calculate = function(self, card, context)
         if context.buying_card and context.buying_card ~= card then
-            if pseudorandom('gb_coupon') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'gb_coupon', G.GAME.probabilities.normal, card.ability.extra.odds) then
                 return {
                     dollars = context.card.cost,
                     message = "Refunded!",
