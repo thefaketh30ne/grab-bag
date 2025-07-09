@@ -25,7 +25,7 @@ SMODS.Joker{
                 colour = G.C.FILTER
             }
         end
-        if context.end_of_round and not context.blueprint then
+        if context.end_of_round and context.main_eval and not context.blueprint then
             G.hand:change_size(-card.ability.extra.hand_size_tally)
             card.ability.extra.hand_size_tally = 0
             return {
