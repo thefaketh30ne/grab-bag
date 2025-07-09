@@ -25,7 +25,10 @@ SMODS.Consumable {
             G.E_MANAGER:add_event(Event({
                 func = function()
                     playing_card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+                    G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                    playing_card.playing_card = G.playing_card
                     G.hand:emplace(playing_card)
+                    SMODS.debuff_card(playing_card, "prevent_debuff", "source")
                     return true
                 end
             }))

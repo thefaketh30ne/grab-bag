@@ -21,6 +21,7 @@ SMODS.Seal {
         if context.before 
         and context.cardarea == G.play then    
             if pseudorandom('gb_fortune') < G.GAME.probabilities.normal / self.config.extra.odds then
+                -- TODO: exclude cards with an edition
                 local eligible_card = pseudorandom_element(context.scoring_hand, pseudoseed('gb_fortune'))
                 local edition = poll_edition('gb_fortune', nil, true, true,
                     { 'e_polychrome', 'e_holo', 'e_foil' })
