@@ -4,7 +4,7 @@ SMODS.Joker{
 		name = 'The Fish',
 		text = {
 			"Cards drawn after",
-            "a {C:blue}Hand{} is played",
+            "a hand is played",
             "{C:attention}permanently{} gain {C:chips}+#1#{} Chips",
 		}
 	},
