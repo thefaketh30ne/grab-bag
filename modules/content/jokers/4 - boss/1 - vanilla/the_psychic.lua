@@ -4,11 +4,11 @@ SMODS.Joker{
 		name = 'The Psychic',
 		text = {
 			"The {C:attention}fifth{} scoring card has a",
-            "{C:green}#1# in #2# chance{} to become",
+            "{C:green}#1# in #2# chance{} to convert into",
             "the {C:attention}first{} scoring card"
 		}
 	},
-    blueprint_compat = true,
+    blueprint_compat = false,
 	atlas = 'gb_BossJokers',
 	pos = { x = 0, y = 2 },
     rarity = "gb_boss",
@@ -24,12 +24,13 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.before
         and context.scoring_hand[5]
+        and not context.blueprint
         and pseudorandom('gb_psychic') <= G.GAME.probabilities.normal / card.ability.extra.odds then
             copy_card(context.scoring_hand[1], context.scoring_hand[5])
             context.scoring_hand[5]:juice_up()
             return {
                 message = "Converted!",
-                colour - G.C.FILTER
+                colour = G.C.FILTER
             }
         end
     end,

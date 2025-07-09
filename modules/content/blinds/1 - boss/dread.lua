@@ -17,7 +17,12 @@ SMODS.Blind {
         local scored_suits = {}
         local suit_count = 0
         for _, card in pairs(cards) do
-            if card.base.suit and not scored_suits[card.base.suit] then scored_suits[card.base.suit] = true and not SMODS.overrides_base_rank() end
+            if card.base.suit
+            and not SMODS.has_no_suit(card)
+            and not SMODS.has_any_suit(card)
+            and not scored_suits[card.base.suit] then
+                scored_suits[card.base.suit] = true
+            end  
         end
         for _, _ in pairs(scored_suits) do
             suit_count = suit_count + 1

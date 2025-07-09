@@ -18,7 +18,7 @@ SMODS.Joker{
     loc_vars = function(self, info_queue, card)
         local face_tally = 0
         for _, playing_card in pairs(G.playing_cards or {}) do
-            if playing_card:is_face() then
+            if playing_card:is_face(true) then
                 face_tally = face_tally + 1
             end
         end
@@ -29,7 +29,7 @@ SMODS.Joker{
     end,
 
     calculate = function(self, card, context)
-        if context.debuff_hand and context.other_card:is_face() then
+        if context.debuff_card and context.debuff_card:is_face() then
             return {
                 debuff = true
             }
@@ -37,7 +37,9 @@ SMODS.Joker{
         if context.joker_main then
             local face_tally = 0
             for _, playing_card in pairs(G.playing_cards or {}) do
-                if next(playing_card:is_face()) then face_tally = face_tally + 1 end
+                if playing_card:is_face(true) then
+                    face_tally = face_tally + 1
+                end
             end
             return {
                 xmult = 1 + card.ability.extra.xmult_mod * face_tally
