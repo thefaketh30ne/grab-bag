@@ -26,7 +26,8 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.individual
         and not context.other_card.debuff
-        and context.other_card:is_suit("Spades") then
+        and context.other_card:is_suit("Spades")
+        and context.cardarea == G.play then
             return {
                 mult = card.ability.extra.mult
             }

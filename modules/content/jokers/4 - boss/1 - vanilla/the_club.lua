@@ -26,7 +26,8 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.individual
         and not context.other_card.debuff
-        and context.other_card:is_suit("Clubs") then
+        and context.other_card:is_suit("Clubs")
+        and context.cardarea == G.play then
             return {
                 dollars = card.ability.extra.dollars,
                 message_card = context.other_card

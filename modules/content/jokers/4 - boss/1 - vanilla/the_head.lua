@@ -26,7 +26,8 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.individual
         and not context.other_card.debuff
-        and context.other_card:is_suit("Hearts") then
+        and context.other_card:is_suit("Hearts") 
+        and context.cardarea == G.play then
             context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 0) + card.ability.extra.chips
             return {
                 message = localize('k_upgrade_ex'),

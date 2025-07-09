@@ -25,7 +25,8 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.repetition
         and not context.other_card.debuff
-        and context.other_card:is_suit("Diamonds") then
+        and context.other_card:is_suit("Diamonds") 
+        and context.cardarea == G.play then
             context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 0) + card.ability.extra.chips
             return {
                 repetitons = card.ability.extra.retriggers,
