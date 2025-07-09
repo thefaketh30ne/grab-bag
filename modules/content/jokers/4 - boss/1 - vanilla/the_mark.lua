@@ -20,17 +20,13 @@ SMODS.Joker{
         } }
     end,
 
-    calc_dollar_bonus = function(self, card)
-        return -card.ability.extra.money
-    end,
-
     calculate = function(self, card, context)
         if context.stay_flipped and context.other_card:is_face() then
             return {
                 stay_flipped = true
             }
         end
-        if context.individual and context.other_card:is_face() then
+        if context.individual and context.other_card:is_face() and context.cardarea == G.play then
             return {
                 xmult = card.ability.extra.xmult
             }
