@@ -31,7 +31,7 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.debuff_card and context.debuff_card:is_face() then
             return {
-                debuff = true
+                debuff_card = true
             }
         end
         if context.joker_main then

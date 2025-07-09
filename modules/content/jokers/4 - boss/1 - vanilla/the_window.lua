@@ -32,8 +32,7 @@ SMODS.Joker{
                 repetitons = card.ability.extra.retriggers,
             }
         end
-        if context.debuff_card 
-        and context.debuff_card.area ~= G.jokers
+        if context.debuff_card
         and context.debuff_card:is_suit(G.GAME.current_round.gb_window_card.suit) then
             return {
                 debuff = true

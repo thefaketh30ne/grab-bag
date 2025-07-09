@@ -33,11 +33,10 @@ SMODS.Joker{
                 message_card = context.other_card
             }
         end
-        if context.debuff_card 
-        and context.debuff_card.area ~= G.jokers 
+        if context.debuff_card
         and context.debuff_card:is_suit(G.GAME.current_round.gb_club_card.suit) then
             return {
-                debuff = true
+                debuff_card = true
             }
         end
     end,

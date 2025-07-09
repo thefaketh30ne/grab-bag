@@ -32,11 +32,10 @@ SMODS.Joker{
                 mult = card.ability.extra.mult
             }
         end
-        if context.debuff_card 
-        and context.debuff_card.area ~= G.jokers 
+        if context.debuff_card
         and context.debuff_card:is_suit(G.GAME.current_round.gb_goad_card.suit) then
             return {
-                debuff = true
+                debuff_card = true
             }
         end
     end,
