@@ -17,7 +17,7 @@ SMODS.Joker{
         return { vars = { card.ability.extra.hand_size_mod } }
     end,
     calculate = function(self, card, context)
-        if context.after and not context.blueprint then
+        if context.after and not context.blueprint and G.GAME.chips >= G.GAME.blind.chips then
             G.hand:change_size(card.ability.extra.hand_size_mod)
             card.ability.extra.hand_size_tally = card.ability.extra.hand_size_tally + card.ability.extra.hand_size_mod
             return {
@@ -25,7 +25,7 @@ SMODS.Joker{
                 colour = G.C.FILTER
             }
         end
-        if context.end_of_round and context.main_eval and not context.blueprint then
+        if context.end_of_round and context.main_eval and not context.blueprint and card.ability.extra.hand_size_tally > 0 then
             G.hand:change_size(-card.ability.extra.hand_size_tally)
             card.ability.extra.hand_size_tally = 0
             return {

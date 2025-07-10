@@ -43,7 +43,7 @@ SMODS.Joker{
                 colour = G.C.MULT
             }
         end
-        if context.joker_main and context.main_eval then
+        if context.joker_main then
             return {
                 xmult = card.ability.extra.xmult
             }
