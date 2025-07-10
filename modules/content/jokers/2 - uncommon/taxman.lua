@@ -12,8 +12,7 @@ SMODS.Joker{
     config = { extra = { chips = 0, chips_mod = 5 } },
     rarity = 2,
     cost = 8,
-    blueprint_compat = false,
-    eternal_compat = false,
+    blueprint_compat = true,
     atlas = 'Jokers',
     pos = { x = 5, y = 0 },
     loc_vars = function(self, info_queue, card)
@@ -34,8 +33,12 @@ SMODS.Joker{
                         return true
                     end
                 }))
-                
             end
+        end
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
         end
     end
 }
