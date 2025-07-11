@@ -3,7 +3,7 @@ SMODS.Joker {
     loc_txt = {
         name = 'D20',
         text = {
-            "{C:green}#2# in #1#{} chance to",
+            "{C:green}#1# in #2#{} chance to",
             "{C:attention}enhance{} a drawn card",
         }
     },
@@ -15,7 +15,8 @@ SMODS.Joker {
     blueprint_compat = true,
     soul_pos = { x = 8, y = 4 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.odds, G.GAME.probabilities.normal or 1 } }
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        return { vars = { new_numerator, new_denominator } }
     end,
     calculate = function(self, card, context)
         if context.hand_drawn or context.other_drawn then

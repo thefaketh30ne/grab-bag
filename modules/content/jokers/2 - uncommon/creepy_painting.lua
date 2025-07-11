@@ -4,7 +4,7 @@ SMODS.Joker{
         name = 'Creepy Painting',
 		text = {
             "{X:mult,C:white}X#1#{} Mult",
-            "When {C:attention}Blind{} is selected, {C:green}#3# in #2# chance{}",
+            "When {C:attention}Blind{} is selected, {C:green}#2# in #3# chance{}",
             "to destroy a random {C:attention}Joker{}",
             "and gain its sell value"
 		}
@@ -16,7 +16,8 @@ SMODS.Joker{
 	cost = 6,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.xmult, card.ability.extra.odds, G.GAME.probabilities.normal or 1 } }
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+		return { vars = { card.ability.extra.xmult, new_numerator, new_denominator } }
 	end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -26,7 +27,7 @@ SMODS.Joker{
         end
         if context.setting_blind 
             and not context.blueprint 
-            and pseudorandom('gb_creepy_painting') >= G.GAME.probabilities.normal / card.ability.extra.odds then
+            and SMODS.pseudorandom_probability(card, 'gb_boing_ball', 1, card.ability.extra.odds) then
             local valid_targets = {}
             for _, joker in pairs(G.jokers.cards) do
                 if joker ~= card

@@ -3,8 +3,8 @@ SMODS.Blind {
     loc_txt = {
         name = "Golden Pentacle",
         text = {
-            "Debuffs half",
-            "of played cards",
+            "Debuffs #1# in #2#",
+            "played cards",
             "before scoring",
         }
     },
@@ -14,6 +14,10 @@ SMODS.Blind {
     pos = { y = 18 },
     boss = { showdown = true },
     boss_colour = HEX("f2cc00"),
+    loc_vars = function(self)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, 2)
+        return { vars = { new_numerator, new_denominator } }
+    end,
     calculate = function(self, blind, context)
         if not blind.disabled and context.before then
             for _, playing_card in ipairs(context.scoring_hand) do

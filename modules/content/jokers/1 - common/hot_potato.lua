@@ -10,7 +10,7 @@ SMODS.Joker {
 			"{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
 		}
 	},
-	config = { extra = { mult = 0, mult_mod = 12, odds = 8 } },
+	config = { extra = { odds = 8, mult = 0, mult_mod = 12 } },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 7, y = 2 },
@@ -18,11 +18,12 @@ SMODS.Joker {
 	blueprint_compat = true,
     eternal_compat = false,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult, card.ability.extra.mult_mod, G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+		return { vars = { card.ability.extra.mult, card.ability.extra.mult_mod, new_numerator, new_denominator } }
 	end,
 	calculate = function(self, card, context)
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if pseudorandom('gb_hot_potato') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'gb_hot_potato', 1, card.ability.extra.odds) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         play_sound('tarot1')

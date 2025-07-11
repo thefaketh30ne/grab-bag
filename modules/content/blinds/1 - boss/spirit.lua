@@ -3,7 +3,7 @@ SMODS.Blind {
     loc_txt = {
         name = "The Spirit",
         text = {
-            "#1# in 3 chance",
+            "#1# in #2# chance",
             "Spades and Clubs are",
             "drawn face down",
         }
@@ -15,7 +15,8 @@ SMODS.Blind {
     boss = { min = 3 },
     boss_colour = HEX("6035bc"),
     loc_vars = function(self)
-        return { vars = { G.GAME.probabilities.normal or 1 } }
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, 3)
+        return { vars = { new_numerator, new_denominator } }
     end,
     collection_loc_vars = function(self)
         return { vars = { '1' } }
@@ -24,7 +25,7 @@ SMODS.Blind {
         if not blind.disabled then
             if context.stay_flipped and context.to_area == G.hand and
                 (context.other_card:is_suit("Spades") or context.other_card:is_suit("Clubs")) and
-                SMODS.pseudorandom_probability(blind, 'gb_spirit', G.GAME.probabilities.normal, 3) then
+                SMODS.pseudorandom_probability(blind, 'gb_spirit', 1, 3) then
                 return {
                     stay_flipped = true
                 }

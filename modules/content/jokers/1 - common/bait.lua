@@ -8,13 +8,14 @@ SMODS.Joker{
             "{C:attention}reel something in{}",
         }
     },
-    config = { extra = { mult = 8, odds = 6 } },
+    config = { extra = { odds = 6, mult = 8 } },
     rarity = 1,
     eternal_compat = false,
     atlas = 'gb_Jokers',
     pos = { x = 7, y = 4 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult, G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        return { vars = { card.ability.extra.mult, new_numerator, new_denominator } }
     end,
     calculate = function(self, card, context)
         if context.joker_main then
@@ -23,7 +24,7 @@ SMODS.Joker{
             } 
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if SMODS.pseudorandom_probability(card, 'gb_bait', G.GAME.probabilities.normal, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, 'gb_bait', 1, card.ability.extra.odds) then
                 SMODS.add_card{
                     set = 'Joker',
                     key = "j_gb_hadal_zone",

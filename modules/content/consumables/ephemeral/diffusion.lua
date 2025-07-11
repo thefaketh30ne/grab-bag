@@ -13,7 +13,8 @@ SMODS.Consumable {
     atlas = 'gb_Ephemerals',
     pos = { x = 6, y = 1 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal or 1, self.config.extra.odds } }
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, card.ability.extra.odds)
+        return { vars = { new_numerator, new_denominator } }
     end,
     use = function(self, card, area, copier)
         local eligible_cards = {}
@@ -21,7 +22,7 @@ SMODS.Consumable {
             table.insert(eligible_cards, playing_card)
         end
         for _, v in ipairs(eligible_cards) do
-            if SMODS.pseudorandom_probability(blind, 'gb_mind', G.GAME.probabilities.normal, 2) then
+            if SMODS.pseudorandom_probability(blind, 'gb_diffusion', 1, card.ability.extra.odds) then
                 G.playing_card = (G.playing_card and G.playing_card + 1) or 1
                 local copy_card = copy_card(v, nil, nil, G.playing_card)
                 copy_card.playing_card = G.playing_card

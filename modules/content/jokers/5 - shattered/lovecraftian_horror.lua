@@ -17,16 +17,17 @@ SMODS.Joker {
     rarity = "gb_shattered",
     cost = 10,
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return { vars = {
             card.ability.extra.xmult,
             card.ability.extra.xmult_mod,
-            G.GAME.probabilities.normal or 1,
-            card.ability.extra.odds
+            new_numerator, 
+            new_denominator
         } }
     end,
     calculate = function(self, card, context)
         if context.discard then
-            if SMODS.pseudorandom_probability(card, 'gb_lovecraftian_horror', G.GAME.probabilities.normal, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, 'gb_lovecraftian_horror', 1, card.ability.extra.odds) then
                 card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
                 return {
                     message = localize('k_upgrade_ex'),

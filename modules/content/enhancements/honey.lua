@@ -9,15 +9,15 @@ SMODS.Enhancement {
 	},
     atlas = 'gb_Enhancements',
     pos = { x = 2, y = 0 },
-    config = { extra = { odds = 2 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
+        local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, 2)
+        return { vars = { new_numerator, new_denominator } }
     end,
     calculate = function(self, card, context)
         if context.hand_drawn then
             for _, search_card in ipairs(context.hand_drawn) do
                 if search_card == card then
-                    if SMODS.pseudorandom_probability(card, 'gb_honey', G.GAME.probabilities.normal, card.ability.extra.odds) then
+                    if SMODS.pseudorandom_probability(card, 'gb_honey', 1, 2) then
                         local honey_cards = {}
                         for _, playing_card in ipairs(G.deck.cards) do
                             if SMODS.has_enhancement(playing_card, 'm_gb_honey')

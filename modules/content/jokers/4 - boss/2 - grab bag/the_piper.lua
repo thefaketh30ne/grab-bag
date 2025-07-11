@@ -15,13 +15,14 @@ SMODS.Joker{
     cost = 6,
     config = { extra = { odds = 2 } },
     loc_vars = function(self, info_queue, card)
-		return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
+		local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        return { vars = { new_numerator, new_denominator } }
 	end,
     calculate = function(self, card, context)
         if context.before
         and context.scoring_hand[1]
         and not context.blueprint
-        and SMODS.pseudorandom_probability(card, 'gb_piper', G.GAME.probabilities.normal, card.ability.extra.odds) then
+        and SMODS.pseudorandom_probability(card, 'gb_piper', 1, card.ability.extra.odds) then
             context.scoring_hand[1].ability.piper_destroy = true
         end
         if context.destroy_card and 
