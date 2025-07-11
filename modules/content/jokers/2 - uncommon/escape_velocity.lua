@@ -9,7 +9,7 @@ SMODS.Joker {
 		}
 	},
 	config = { extra = { play_threshold = 3 } },
-	rarity = 1,
+	rarity = 2,
 	atlas = 'gb_Jokers',
 	pos = { x = 3, y = 5 },
 	cost = 5,

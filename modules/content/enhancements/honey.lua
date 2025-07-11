@@ -17,7 +17,7 @@ SMODS.Enhancement {
         if context.hand_drawn then
             for _, search_card in ipairs(context.hand_drawn) do
                 if search_card == card then
-                    if pseudorandom('gb_honey') < G.GAME.probabilities.normal / card.ability.extra.odds then
+                    if SMODS.pseudorandom_probability(card, 'gb_honey', G.GAME.probabilities.normal, card.ability.extra.odds) then
                         local honey_cards = {}
                         for _, playing_card in ipairs(G.deck.cards) do
                             if SMODS.has_enhancement(playing_card, 'm_gb_honey')

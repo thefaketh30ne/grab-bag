@@ -25,7 +25,7 @@ SMODS.Joker{
         if context.before
         and context.scoring_hand[5]
         and not context.blueprint
-        and pseudorandom('gb_psychic') <= G.GAME.probabilities.normal / card.ability.extra.odds then
+        and SMODS.pseudorandom_probability(card, 'gb_psychic', G.GAME.probabilities.normal, card.ability.extra.odds) then
             copy_card(context.scoring_hand[1], context.scoring_hand[5])
             context.scoring_hand[5]:juice_up()
             return {

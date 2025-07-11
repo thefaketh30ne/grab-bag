@@ -18,13 +18,13 @@ SMODS.Joker {
         return { vars = { card.ability.extra.xmult, G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
+        if context.joker_main and context.main_eval then
             return {
                 xmult = card.ability.extra.xmult
             }
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            if pseudorandom('gb_lure') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'gb_lure', G.GAME.probabilities.normal, card.ability.extra.odds) then
                 SMODS.add_card{
                     set = 'Joker',
                     key = "j_gb_lovecraftian_horror",

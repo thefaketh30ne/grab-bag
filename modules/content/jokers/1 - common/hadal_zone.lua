@@ -26,7 +26,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.before and context.main_eval and not context.blueprint then
             card.ability.extra.card_to_destroy = nil
-            if pseudorandom('gb_hadal_zone') <= G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'gb_hadal_zone', G.GAME.probabilities.normal, card.ability.extra.odds) then
                 card.ability.extra.card_to_destroy = pseudorandom_element(context.scoring_hand, pseudoseed('gb_hadal_zone'))
                 card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
                 return {

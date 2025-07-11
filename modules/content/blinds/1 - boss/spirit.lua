@@ -15,7 +15,7 @@ SMODS.Blind {
     boss = { min = 3 },
     boss_colour = HEX("6035bc"),
     loc_vars = function(self)
-        return { vars = { G.GAME.probabilities.normal } }
+        return { vars = { G.GAME.probabilities.normal or 1 } }
     end,
     collection_loc_vars = function(self)
         return { vars = { '1' } }
@@ -24,7 +24,7 @@ SMODS.Blind {
         if not blind.disabled then
             if context.stay_flipped and context.to_area == G.hand and
                 (context.other_card:is_suit("Spades") or context.other_card:is_suit("Clubs")) and
-                pseudorandom('spirit') < G.GAME.probabilities.normal / 3 then
+                SMODS.pseudorandom_probability(blind, 'gb_spirit', G.GAME.probabilities.normal, 3) then
                 return {
                     stay_flipped = true
                 }

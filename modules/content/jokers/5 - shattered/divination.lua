@@ -19,7 +19,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.skipping_booster then
-            if pseudorandom('gb_divination' .. G.GAME.round_resets.ante) < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'gb_divination', G.GAME.probabilities.normal, card.ability.extra.odds) then
                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                 G.E_MANAGER:add_event(Event({
                     trigger = 'before',

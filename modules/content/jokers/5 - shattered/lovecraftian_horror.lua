@@ -26,7 +26,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.discard then
-            if pseudorandom('gb_lovecraftian_horror') <= G.GAME.probabilities.normal / card.ability.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'gb_lovecraftian_horror', G.GAME.probabilities.normal, card.ability.extra.odds) then
                 card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
                 return {
                     message = localize('k_upgrade_ex'),
@@ -35,7 +35,7 @@ SMODS.Joker {
                 }
             end
         end
-        if joker_main then
+        if context.joker_main and context.main_eval then
             return {
                 xmult = card.ability.extra.xmult
             }

@@ -14,7 +14,7 @@ SMODS.Joker{
 	pos = { x = 1, y = 1 },
     rarity = "gb_boss",
     cost = 6,
-    config = { extra = { chips = 20 } },
+    config = { extra = { chips = 20, debuffed_suit = "Spades" } },
     loc_vars = function(self, info_queue, card)
         local suit = (G.GAME.current_round.gb_head_card or {}).suit or 'Spades'
         return { vars = { 
@@ -24,9 +24,12 @@ SMODS.Joker{
         } }
     end,
     calculate = function(self, card, context)
+        if context.ending_shop then
+            card.ability.extra.debuffed_suit = G.GAME.current_round.gb_head_card.suit
+        end
         if context.individual
-        and not context.other_card.debuff
-        and context.other_card:is_suit("Hearts") then
+        and context.other_card:is_suit("Hearts") 
+        and context.cardarea == G.play then
             context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 0) + card.ability.extra.chips
             return {
                 message = localize('k_upgrade_ex'),
@@ -34,13 +37,17 @@ SMODS.Joker{
                 colour = G.C.CHIPS
             }
         end
-        if context.debuff_card 
-        and context.debuff_card.area ~= G.jokers 
-        and context.other_card:is_suit(G.GAME.current_round.gb_head_card.suit) then
+        if context.debuff_card
+        and context.debuff_card.area ~= G.jokers
+        and context.debuff_card:is_suit(card.ability.extra.debuffed_suit) then
             return {
                 debuff = true
             }
         end
+    end,
+
+    add_to_deck = function(self, card, from_debuff)
+        card.ability.extra.debuffed_suit = G.GAME.current_round.gb_head_card.suit
     end,
 
     in_pool = function(self, args)

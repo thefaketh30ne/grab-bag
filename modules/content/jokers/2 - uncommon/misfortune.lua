@@ -24,7 +24,7 @@ SMODS.Joker {
 			}
 		end
 		if context.final_scoring_step then
-			if pseudorandom('gb_misfortune') < G.GAME.probabilities.normal / card.ability.extra.odds then		
+			if SMODS.pseudorandom_probability(card, 'gb_misfortune', G.GAME.probabilities.normal, card.ability.extra.odds) then		
 				hand_chips = 0
 				mult = 0
 				ease_hands_played(1)

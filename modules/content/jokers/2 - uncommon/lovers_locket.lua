@@ -17,7 +17,7 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, "m_wild") and
-            pseudorandom('gb_lovers_locket') < G.GAME.probabilities.normal / card.ability.extra.odds then
+            SMODS.pseudorandom_probability(card, 'gb_lovers_locket', G.GAME.probabilities.normal, card.ability.extra.odds) then
             return {
                 xmult = card.ability.extra.xmult
             }
