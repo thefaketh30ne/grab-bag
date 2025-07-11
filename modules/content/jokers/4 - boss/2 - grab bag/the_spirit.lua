@@ -9,7 +9,7 @@ SMODS.Joker{
             "{C:attention}permanently{} gain {C:chips}+#1#{} Chips",
 		}
 	},
-    blueprint_compat = true,
+    blueprint_compat = false,
 	atlas = 'gb_BossJokers',
 	pos = { x = 3, y = 2 },
     rarity = "gb_boss",
@@ -24,6 +24,7 @@ SMODS.Joker{
             for _, playing_card in ipairs(G.hand.cards) do
                 if (playing_card:is_suit("Spades")
                 or playing_card:is_suit("Clubs"))
+                and not context.blueprint
                 and playing_card.facing == "front" then
                     playing_card.ability.perma_bonus = (playing_card.ability.perma_bonus or 0) + card.ability.extra.chips
                     playing_card:flip()

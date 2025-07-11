@@ -8,7 +8,7 @@ SMODS.Joker{
             "give a {C:attention}third{} of its base {C:chips}Chips{} as {C:money}Money{}"
 		}
 	},
-    blueprint_compat = true,
+    blueprint_compat = false,
 	atlas = 'gb_BossJokers',
 	pos = { x = 5, y = 2 },
     rarity = "gb_boss",
@@ -18,12 +18,15 @@ SMODS.Joker{
 		return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
 	end,
     calculate = function(self, card, context)
-        if context.before 
-        and context.scoring_hand[1] 
+        if context.before
+        and context.scoring_hand[1]
+        and not context.blueprint
         and SMODS.pseudorandom_probability(card, 'gb_piper', G.GAME.probabilities.normal, card.ability.extra.odds) then
             context.scoring_hand[1].ability.piper_destroy = true
         end
-        if context.destroy_card and context.destroy_card.ability.piper_destroy == true then
+        if context.destroy_card and 
+        context.destroy_card.ability.piper_destroy == true 
+        and not context.blueprint then
             if not SMODS.has_no_rank(context.destroy_card)
             and context.destroy_card.base.nominal
             and context.destroy_card.base.nominal > 0 then
