@@ -52,10 +52,37 @@ SMODS.ConsumableType {
                 "this card in an",
                 "unseeded run to",
                 "learn what it does"
-                }
             }
-        },
+        }
     }
+}
+
+SMODS.Suit {
+	key = 'Eyes',
+	card_key = 'EYES',
+
+	lc_atlas = 'gb_Suits',
+	lc_ui_atlas = 'gb_SuitUI',
+	lc_colour = HEX("673E79"),
+
+	hc_atlas = 'gb_Suits_HC',
+	hc_ui_atlas = 'gb_SuitUI_HC',
+	hc_colour = HEX("9448A4"),
+
+	pos = { y = 0 },
+	ui_pos = { x = 0, y = 0 },
+
+	loc_txt = function(self, card)
+		return { vars = {
+			singular = "Eye",
+			plural = "Eyes"
+		}}
+	end,
+
+	in_pool = function(self, args)
+		return true
+	end
+}
 
 SMODS.UndiscoveredSprite {
     key = 'Ephemeral',
@@ -193,4 +220,32 @@ SMODS.Atlas({
 	path = "icon.png",
 	px = 34,
 	py = 34,
+})
+
+SMODS.Atlas({
+	key = "gb_SuitUI",
+	path = "Suit_UI.png",
+	px = 18,
+	py = 18,
+})
+
+SMODS.Atlas({
+	key = "gb_SuitUI_HC",
+	path = "Suit_UI_HC.png",
+	px = 18,
+	py = 18,
+})
+
+SMODS.Atlas({
+	key = "gb_Suits",
+	path = "Suits.png",
+	px = 71,
+	py = 95,
+})
+
+SMODS.Atlas({
+	key = "gb_Suits_HC",
+	path = "Suits_HC.png",
+	px = 71,
+	py = 95,
 })
