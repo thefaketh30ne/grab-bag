@@ -21,7 +21,7 @@ SMODS.Joker{
     end,
 
     calculate = function(self, card, context)
-        if context.stay_flipped and context.other_card:is_face() then
+        if context.stay_flipped and context.other_card:is_face() and context.to_area == G.hand then
             return {
                 stay_flipped = true
             }
@@ -36,7 +36,3 @@ SMODS.Joker{
         return gb_is_blind_defeated("bl_mark")
     end
 }
-
-
-
-

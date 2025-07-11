@@ -16,7 +16,7 @@ SMODS.Joker{
 	pos = { x = 8, y = 0 },
     rarity = "gb_boss",
     cost = 6,
-    config = { extra = { hand_size_mod = 1, hand_size_tally = 0, discard_tally = 0, discards = 10 } },
+    config = { extra = { hand_size_mod = 1, hand_size_tally = 0, discard_tally = 0, discards = 7 } },
     loc_vars = function(self, info_queue, card)
         return { vars = {
             card.ability.extra.hand_size_mod,

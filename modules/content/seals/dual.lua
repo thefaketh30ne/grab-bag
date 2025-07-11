@@ -19,7 +19,7 @@ SMODS.Seal {
     calculate = function(self, card, context)
         if context.before 
         and context.cardarea == G.play then
-            if pseudorandom('gb_dual') < G.GAME.probabilities.normal / self.config.extra.odds then
+            if SMODS.pseudorandom_probability(card, 'gb_dual', G.GAME.probabilities.normal, self.config.extra.odds) then
                 G.playing_card = (G.playing_card and G.playing_card + 1) or 1
                 local copy_card = copy_card(card, nil, nil, G.playing_card)
                 copy_card:add_to_deck()

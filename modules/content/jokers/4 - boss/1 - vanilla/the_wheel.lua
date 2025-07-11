@@ -29,7 +29,7 @@ SMODS.Joker{
         if context.stay_flipped 
         and context.to_area == G.hand 
         and not context.blueprint
-        and pseudorandom('gb_wheel') <= G.GAME.probabilities.normal / card.ability.extra.odds then
+        and SMODS.pseudorandom_probability(card, 'gb_wheel', G.GAME.probabilities.normal, card.ability.extra.odds) then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
             card.ability.extra.flipped_cards = true
             return {
@@ -43,7 +43,7 @@ SMODS.Joker{
                 colour = G.C.MULT
             }
         end
-        if context.joker_main and context.main_eval then
+        if context.joker_main then
             return {
                 xmult = card.ability.extra.xmult
             }

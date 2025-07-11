@@ -17,7 +17,7 @@ SMODS.Blind {
     calculate = function(self, blind, context)
         if not blind.disabled and context.before then
             for _, playing_card in ipairs(context.scoring_hand) do
-                if pseudorandom("gb_final_pentacle") < 0.5 then
+                if SMODS.pseudorandom_probability(blind, 'gb_final_pentacle', 1, 2) then
                     playing_card:juice_up()
                     SMODS.debuff_card(playing_card, true, "gb_final_pentacle")
                 end

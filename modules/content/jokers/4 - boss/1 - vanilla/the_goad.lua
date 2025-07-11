@@ -14,7 +14,7 @@ SMODS.Joker{
 	pos = { x = 0, y = 1 },
     rarity = "gb_boss",
     cost = 6,
-    config = { extra = { mult = 10 } },
+    config = { extra = { mult = 8, debuffed_suit = "Hearts" } },
     loc_vars = function(self, info_queue, card)
         local suit = (G.GAME.current_round.gb_goad_card or {}).suit or 'Hearts'
         return { vars = { 
@@ -24,21 +24,29 @@ SMODS.Joker{
         } }
     end,
     calculate = function(self, card, context)
+        if context.ending_shop then
+            card.ability.extra.debuffed_suit = G.GAME.current_round.gb_goad_card.suit
+        end
         if context.individual
-        and not context.other_card.debuff
-        and context.other_card:is_suit("Spades") then
+        and context.other_card:is_suit("Spades")
+        and context.cardarea == G.play then
             return {
                 mult = card.ability.extra.mult
             }
         end
-        if context.debuff_card 
-        and context.debuff_card.area ~= G.jokers 
-        and context.other_card:is_suit(G.GAME.current_round.gb_goad_card.suit) then
+        if context.debuff_card
+        and context.debuff_card.area ~= G.jokers
+        and context.debuff_card:is_suit(card.ability.extra.debuffed_suit) then
             return {
                 debuff = true
             }
         end
     end,
+
+    add_to_deck = function(self, card, from_debuff)
+        card.ability.extra.debuffed_suit = G.GAME.current_round.gb_goad_card.suit
+    end,
+
 
     in_pool = function(self, args)
         return gb_is_blind_defeated("bl_goad")
@@ -50,6 +58,7 @@ function reset_gb_goad_card()
     local valid_cards = {}
     for _, playing_card in ipairs(G.playing_cards) do
         if not SMODS.has_no_suit(playing_card)
+        and not SMODS.has_any_suit(playing_card)
         and not playing_card:is_suit("Spades") then
             valid_cards[#valid_cards + 1] = playing_card
         end

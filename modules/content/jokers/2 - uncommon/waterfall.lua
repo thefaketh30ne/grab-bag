@@ -9,7 +9,7 @@ SMODS.Joker {
         }
     },
     config = { extra = { mult = 0, mult_mod = 3 } },
-    rarity = 1,
+    rarity = 2,
     atlas = 'gb_Jokers',
     pos = { x = 9, y = 3 },
     cost = 5,

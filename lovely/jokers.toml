@@ -37,3 +37,14 @@ payload = '''
 if not G.GAME.consumeable_usage_total.ephemeral then G.GAME.consumeable_usage_total.ephemeral = 0 end
 '''
 
+# taxman
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+match_indent = true
+pattern = '''ease_dollars(G.GAME.current_round.dollars)'''
+position = "after"
+payload = '''
+SMODS.calculate_context{cashed_out = true, cashout_dollars = G.GAME.current_round.dollars}
+'''

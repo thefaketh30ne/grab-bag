@@ -18,7 +18,7 @@ SMODS.Joker {
 	end,
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play then
-			if pseudorandom('gb_boing_ball') < G.GAME.probabilities.normal / card.ability.extra.odds then		
+			if SMODS.pseudorandom_probability(card, 'gb_boing_ball', G.GAME.probabilities.normal, card.ability.extra.odds) then		
                 return {
                     repetitions = card.ability.extra.repetitions
                 }

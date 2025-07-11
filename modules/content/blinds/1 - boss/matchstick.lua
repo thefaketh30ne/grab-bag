@@ -21,8 +21,8 @@ SMODS.Blind {
         end
         if not blind.disabled then
             if context.setting_blind then
-                ease_hands_played(-self.config.extra.discards_sub)
-                ease_discard(-self.config.extra.hands_sub)
+                ease_discard(-self.config.extra.discards_sub)
+                ease_hands_played(-self.config.extra.hands_sub)
             end
         end
     end,

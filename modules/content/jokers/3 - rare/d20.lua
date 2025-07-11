@@ -20,7 +20,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.hand_drawn or context.other_drawn then
 		    for _, playing_card in ipairs(context.hand_drawn or context.other_drawn) do
-			    if pseudorandom('d20') < G.GAME.probabilities.normal / card.ability.extra.odds then
+			    if SMODS.pseudorandom_probability(card, 'gb_d20', G.GAME.probabilities.normal, card.ability.extra.odds) then
                     local valid_keys = {}
                     for _, enhancement_center in pairs(G.P_CENTER_POOLS["Enhanced"]) do
                         if enhancement_center.key ~= 'm_stone' and not enhancement_center.overrides_base_rank then

@@ -8,8 +8,8 @@ SMODS.Rarity {
     key = "boss",
     loc_txt = {name = "Boss"},
     badge_colour = HEX("EFC03C"),
-	pools = { ["Joker"] = { rate = 0.03 } },
-    default_weight = 0.03
+	pools = { ["Joker"] = { rate = 0.02 } },
+    default_weight = 0.02
 }
 
 SMODS.ConsumableType {

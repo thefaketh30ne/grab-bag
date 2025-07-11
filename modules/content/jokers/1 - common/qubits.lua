@@ -8,7 +8,7 @@ SMODS.Joker {
             "gives {C:mult}+#1#{} Mult",
 		}
 	},
-    blueprint_compat = true,
+    blueprint_compat = false,
 	atlas = 'gb_Jokers',
 	pos = { x = 8, y = 1 },
     rarity = 1,
