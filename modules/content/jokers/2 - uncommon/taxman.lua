@@ -21,7 +21,7 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.cashed_out then
             local tax = math.floor(context.cashout_dollars / 2)
-            if tax > 0 then
+            if tax > to_big(0) then
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',
                     delay = 0.5,

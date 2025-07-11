@@ -24,7 +24,7 @@ SMODS.Joker{
         }
     end,
     calculate = function(self, card, context)
-        if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == "Ephemeral" then
+        if context.using_consumeable and not context.blueprint and context.consumeable.ability.set == "Ephemeral" and G.GAME.consumeable_usage_total.ephemeral then
             return {
                 message = localize { type = 'variable', key = 'a_chips', vars = { card.ability.extra.chips_mod * G.GAME.consumeable_usage_total.ephemeral } },
             }
