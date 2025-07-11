@@ -27,12 +27,10 @@ SMODS.Joker{
             card.ability.extra.debuffed_suit = G.GAME.current_round.gb_window_card.suit
         end
         if context.repetition
-        and not context.other_card.debuff
-        and context.other_card:is_suit("Diamonds") 
+        and context.other_card:is_suit("Diamonds")
         and context.cardarea == G.play then
-            context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 0) + card.ability.extra.chips
             return {
-                repetitons = card.ability.extra.retriggers,
+                repetitions = card.ability.extra.retriggers,
             }
         end
         if context.debuff_card
