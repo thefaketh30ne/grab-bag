@@ -72,13 +72,6 @@ SMODS.Suit {
 	pos = { y = 0 },
 	ui_pos = { x = 0, y = 0 },
 
-	loc_txt = function(self, card)
-		return { vars = {
-			singular = "Eye",
-			plural = "Eyes"
-		}}
-	end,
-
 	in_pool = function(self, args)
 		return true
 	end

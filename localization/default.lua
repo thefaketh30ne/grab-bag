@@ -16,6 +16,12 @@ return{
     misc = {
         dictionary = {
             gb_page = "Page"
-        }
+        },
+        suits_singular = {
+            gb_Eyes = "Eye",
+        },
+        suits_plural = {
+            gb_Eyes = "Eyes",
+        },
     }
 }
