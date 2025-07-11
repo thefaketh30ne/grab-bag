@@ -1,5 +1,3 @@
-blind_skipped_this_ante = false
-
 SMODS.Blind {
     key = "shame",
     loc_txt = {
@@ -18,10 +16,16 @@ SMODS.Blind {
     boss_colour = HEX("6935bc"),
     calculate = function(self, blind, context)
         if not blind.disabled then
-            if context.debuff_card and context.debuff_card.area ~= G.jokers and not blind_skipped_this_ante then
-                return {
-                    debuff = true
-                }
+            if context.debuff_card and context.debuff_card.area ~= G.jokers then
+                if not G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE then
+                    return {
+                        debuff = true
+                    }
+                elseif G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE <= 0 then
+                    return {
+                        debuff = true
+                    }
+                end
             end
         end
     end

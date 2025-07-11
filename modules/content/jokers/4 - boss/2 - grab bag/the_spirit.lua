@@ -3,8 +3,8 @@ SMODS.Joker{
     loc_txt = {
 		name = 'The Spirit',
 		text = {
-			"When hand is played, {C:attention}flips{} all",
-            "{C:attention}face-up{} {C:spades}Spades{} and {C:clubs}Clubs{} held in hand",
+			"When hand is played, {C:attention}flips{} all {C:attention}face-up{}",
+            "{C:spades}Spades{} and {C:clubs}Clubs{} held in hand",
             "Cards flipped by this Joker",
             "{C:attention}permanently{} gain {C:chips}+#1#{} Chips",
 		}

@@ -43,7 +43,10 @@ target = "functions/button_callbacks.lua"
 match_indent = true
 pattern = '''G.CONTROLLER.locks.skip_blind = true'''
 position = "after"
-payload = '''blind_skipped_this_ante = true'''
+payload = '''
+G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE = (G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE) or 0
+G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE = G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE + 1
+'''
 
 # shame patch 2/2
 
@@ -53,5 +56,5 @@ target = "functions/state_events.lua"
 match_indent = true
 pattern = '''G.GAME.round_resets.blind_states.Boss = 'Defeated''''
 position = "after"
-payload = '''blind_skipped_this_ante = false'''
+payload = '''G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE = 0'''
 
