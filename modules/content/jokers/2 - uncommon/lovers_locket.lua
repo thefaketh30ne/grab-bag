@@ -10,6 +10,7 @@ SMODS.Joker {
     },
     config = { extra = { odds = 2, xmult = 2 } },
     rarity = 2,
+    cost = 6,
     atlas = 'gb_Jokers',
     pos = { x = 2, y = 4 },
     loc_vars = function(self, info_queue, card)
