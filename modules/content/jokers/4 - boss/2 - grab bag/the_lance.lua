@@ -1,7 +1,7 @@
 SMODS.Joker{
-    key = "dread",
+    key = "lance",
     loc_txt = {
-		name = 'The Dread',
+		name = 'The Lance',
 		text = {
             "Cards discarded this {C:attention}Ante{}",
             "are drawn {C:attention}face-down{} and",
@@ -10,7 +10,7 @@ SMODS.Joker{
 	},
     blueprint_compat = true,
 	atlas = 'gb_BossJokers',
-	pos = { x = 5, y = 3 },
+	pos = { x = 7, y = 3 },
     rarity = "gb_boss",
     cost = 6,
     loc_vars = function(self, info_queue, card)
