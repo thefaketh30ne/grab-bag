@@ -21,8 +21,7 @@ SMODS.Joker{
         if context.setting_blind and not context.blueprint then
            ease_hands_played(card.ability.extra.hands)
         end
-        if context.joker_main
-        and G.GAME.current_round.hands_played == 0 then
+        if context.joker_main and G.GAME.current_round.hands_played == 0 then
             return {
                 xmult = card.ability.extra.xmult
             }

@@ -10,7 +10,7 @@ SMODS.Joker{
             "{C:inactive,s:0.85}(Only works once per {C:attention,s:0.85}Ante{C:inactive,s:0.85})"
 		}
 	},
-    blueprint_compat = true,
+    blueprint_compat = false,
 	atlas = 'gb_BossJokers',
 	pos = { x = 1, y = 3 },
     rarity = "gb_boss",
@@ -26,6 +26,7 @@ SMODS.Joker{
         and context.main_eval
         and G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE
         and context.beat_boss
+        and not context.blueprint
         and context.game_over == false
         and not card.ability.extra.antes_rewinded[G.GAME.round_resets.ante] then
             if SMODS.pseudorandom_probability(card, 'gb_shame', G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE, card.ability.extra.odds) then
