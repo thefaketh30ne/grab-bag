@@ -8,7 +8,7 @@ SMODS.Joker{
 
 		}
 	},
-    blueprint_compat = false,
+    blueprint_compat = true,
 	atlas = 'gb_BossJokers',
 	pos = { x = 5, y = 3 },
     rarity = "gb_boss",
@@ -19,7 +19,7 @@ SMODS.Joker{
     config = { extra = { xmult = 3, suits = 2 } },
 
     calculate = function(self, card, context)
-        if gb_count_suits(context.scoring_hand) == card.ability.extra.suits then 
+        if context.joker_main and gb_count_suits(context.scoring_hand or {}) == card.ability.extra.suits then
             return {
                 xmult = card.ability.extra.xmult
             }
@@ -30,7 +30,4 @@ SMODS.Joker{
         return gb_is_blind_defeated("bl_gb_dread")
     end
 }
-
-
-
 

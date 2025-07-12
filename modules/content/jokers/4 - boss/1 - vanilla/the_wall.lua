@@ -4,9 +4,7 @@ SMODS.Joker{
 		name = 'The Wall',
 		text = {
 			"{C:red}X#1#{C:attention} Boss Blind{} size",
-            "{X:mult,C:white}X#2#{} Mult for every {C:attention}Stone{} card",
-            "in {C:attention}full deck{}",
-            "{C:inactive}(Currently {X:mult,C:white}X#3#{C:inactive} Mult)"
+            "{C:attention}+#2#{} hand size",
 		}
 	},
     blueprint_compat = true,
@@ -14,15 +12,9 @@ SMODS.Joker{
 	pos = { x = 2, y = 0 },
     rarity = "gb_boss",
     cost = 6,
-    config = { extra = { boss_blind_size = 2, xmult_mod = 0.25 } },
+    config = { extra = { boss_blind_size = 2, hand_size = 2 } },
     loc_vars = function(self, info_queue, card)
-        local stone_tally = 0
-        if G.playing_cards then
-            for _, playing_card in ipairs(G.playing_cards) do
-                if SMODS.has_enhancement(playing_card, 'm_stone') then stone_tally = stone_tally + 1 end
-            end
-        end
-        return { vars = { card.ability.extra.boss_blind_size, card.ability.extra.xmult_mod, 1 + card.ability.extra.xmult_mod * stone_tally } }
+        return { vars = { card.ability.extra.boss_blind_size, card.ability.extra.hand_size } }
     end,
 
     calculate = function(self, card, context)
@@ -32,20 +24,16 @@ SMODS.Joker{
             play_sound("cancel")
             card:juice_up()
         end
-        if context.joker_main and context.main_eval then
-            local stone_tally = 0
-            if G.playing_cards then
-                for _, playing_card in ipairs(G.playing_cards) do
-                    if SMODS.has_enhancement(playing_card, 'm_stone') then stone_tally = stone_tally + 1 end
-                end
-            end
-            if stone_tally > 0 then
-                return {
-                    xmult = 1 + card.ability.extra.xmult_mod * stone_tally
-                }
-            end
-        end
     end,
+
+    add_to_deck = function(self, card, from_debuff)
+        G.hand:change_size(card.ability.extra.hand_size)
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+        G.hand:change_size(-card.ability.extra.hand_size)
+    end,
+
     in_pool = function(self, args)
         return gb_is_blind_defeated("bl_wall")
     end
