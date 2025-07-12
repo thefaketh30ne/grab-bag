@@ -3,9 +3,11 @@ SMODS.Joker{
     loc_txt = {
 		name = 'The Shame',
 		text = {
-            "If both {C:attention}Small{} and {C:attention}Big Blind{} are skipped,",
-            "{C:attention}-1 Ante{} upon defeating {C:attention}Boss Blind{}",
-            "{C:inactive,s:0.85}(Only works once every {C:attention,s:0.85}Ante{C:inactive,s:0.85} number)"
+            "{C:green}#3# in #2# chance{} for {C:attention}-1 Ante{}",
+            "upon defeating {C:attention}Boss Blind{}",
+            "{C:green}Probability{} increases by {C:green}#1#{} for",
+            "every {C:attention}Blind{} skipped this {C:attention}Ante",
+            "{C:inactive,s:0.85}(Only works once per {C:attention,s:0.85}Ante{C:inactive,s:0.85})"
 		}
 	},
     blueprint_compat = true,
@@ -13,16 +15,20 @@ SMODS.Joker{
 	pos = { x = 1, y = 3 },
     rarity = "gb_boss",
     cost = 6,
-    config = { extra = { antes_rewinded = {} } },
+    loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, self.config.extra.odds)
+        return { vars = { new_numerator, new_denominator, (G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE or 0) * new_numerator } }
+    end,
+    config = { extra = { antes_rewinded = {}, odds = 3 } },
 
     calculate = function(self, card, context)
         if context.end_of_round
         and context.main_eval
         and G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE
-        and G.GAME.blind.boss
+        and context.beat_boss
         and context.game_over == false
         and not card.ability.extra.antes_rewinded[G.GAME.round_resets.ante] then
-            if G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE >= 2  then
+            if SMODS.pseudorandom_probability(card, 'gb_shame', G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE, card.ability.extra.odds) then
                 card.ability.extra.antes_rewinded[G.GAME.round_resets.ante] = true
                 ease_ante(-1)
                 G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante or G.GAME.round_resets.ante

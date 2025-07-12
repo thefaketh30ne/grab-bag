@@ -11,7 +11,7 @@ SMODS.Blind {
     mult = 2,
     atlas = "gb_Blinds",
     pos = { y = 9 },
-    boss = { min = 4 },
+    boss = { min = 5 },
     boss_colour = HEX("53c45c"),
     calculate = function(self, blind, context)
         if not blind.disabled and context.fix_probability then

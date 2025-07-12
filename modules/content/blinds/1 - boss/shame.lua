@@ -12,7 +12,7 @@ SMODS.Blind {
     mult = 2,
     atlas = "gb_Blinds",
     pos = { y = 8 },
-    boss = { min = 1 },
+    boss = { min = 2 },
     boss_colour = HEX("6935bc"),
     calculate = function(self, blind, context)
         if not blind.disabled then

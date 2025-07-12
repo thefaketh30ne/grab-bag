@@ -11,7 +11,7 @@ SMODS.Blind {
     mult = 2,
     atlas = "gb_Blinds",
     pos = { y = 11 },
-    boss = { min = 2 },
+    boss = { min = 4 },
     boss_colour = HEX("424d85"),
     config = { extra = { ante_skipped = false } },
     calculate = function(self, blind, context)
