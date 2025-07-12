@@ -15,7 +15,7 @@ SMODS.Seal {
     config = { extra = { odds = 4 } },
     badge_colour = HEX('CAB785'),
     loc_vars = function(self, info_queue, card)
-        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, self.config.extra.odds)
         return { vars = { new_numerator, new_denominator } }
     end,
     calculate = function(self, card, context)
