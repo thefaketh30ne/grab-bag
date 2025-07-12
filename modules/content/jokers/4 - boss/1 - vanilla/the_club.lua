@@ -4,7 +4,7 @@ SMODS.Joker{
 		name = 'The Club',
 		text = {
             "{C:clubs}Club{} cards give",
-            "{C:mult}+#1#{} Mult when scored",
+            "{C:money}$#1#{} when scored",
             "{V:1}#2#{} cards are {C:attention}debuffed",
             "{C:inactive}(Changes at end of round)",
 		}
