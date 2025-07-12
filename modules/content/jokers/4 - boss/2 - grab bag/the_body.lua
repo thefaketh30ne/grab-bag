@@ -31,7 +31,7 @@ SMODS.Joker{
         } }
 	end,
     calculate = function(self, card, context)
-        if context.joker_main and context.main_eval then
+        if context.joker_main then
             local enhanced_tally = 0
             for _, playing_card in pairs(G.playing_cards or {}) do
                 if next(SMODS.get_enhancements(playing_card)) then
