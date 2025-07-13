@@ -2,7 +2,7 @@
 Grab Bag is a Balatro mod that currently adds: 
 - 47 Regular Jokers
 - 15 Shattered Jokers
-- 23 Boss Jokers
+- 38 Boss Jokers
 - 20 Ephemeral Cards
 - 3 Tarots
 - 4 Spectrals
@@ -13,7 +13,7 @@ Grab Bag is a Balatro mod that currently adds:
 - 15 Boss Blinds
 - 5 Showdown Boss Blinds
 - 1 Edition
-- and 3 Challenges.
+- and 4 Challenges.
 
 The content in this mod is supposed to feel vanilla, and I created this new content to be largely in line with the rules and design philosophy that localthunk follows when making Jokers and other content.
 
@@ -49,7 +49,6 @@ As of the latest update, this mod contains 24 Common, 16 Uncommon, and 7 Rare Jo
 - Waterfall
 
 ### Uncommon
-- Bank Teller
 - Boing Ball
 - Calculator
 - Candle
@@ -61,9 +60,10 @@ As of the latest update, this mod contains 24 Common, 16 Uncommon, and 7 Rare Jo
 - Knight
 - Little Timbo
 - Lover's Locket
-- Wheel of Misfortune
 - Paint The Town Red
 - Patchwork
+- Taxman
+- Wheel of Misfortune
 - Yellow Pages
   
 ### Rare
@@ -95,7 +95,7 @@ Jokers can be shattered into more powerful Shattered jokers with the Shatter con
 - Hallucination
 
 ## Boss Jokers
-Boss Jokers have a chance to appear if you have defeated its corresponding Boss Blind during the current run. All vanilla Boss Blinds currently have a Boss Joker counterpart.
+Boss Jokers have a chance to appear if you have defeated its corresponding Boss Blind during the current run. All vanilla and Grab Bag Boss Blinds currently have a Boss Joker counterpart.
 
 ## Decks
 There are 7 decks in the latest update of the mod.
