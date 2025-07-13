@@ -2,7 +2,7 @@
 	"id": "GrabBag",
 	"name": "Grab Bag",
 	"author": ["Th30ne"],
-	"description": "Adds 50+ new Jokers, alongside other content. (HINT: You can turn off the custom music in config.lua)",
+	"description": "Adds 100 new Jokers, 20 new Blinds, a new consumable set, and more.",
 	"prefix": "gb",
 	"main_file": "GrabBag.lua",
 	"priority": 0,
