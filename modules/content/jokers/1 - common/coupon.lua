@@ -14,11 +14,12 @@ SMODS.Joker {
 	cost = 6,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
+		local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, card.ability.extra.odds)
+    	return { vars = { new_numerator, new_denominator } }
 	end,
     calculate = function(self, card, context)
         if context.buying_card and context.buying_card ~= card then
-            if SMODS.pseudorandom_probability(card, 'gb_coupon', G.GAME.probabilities.normal, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, 'gb_coupon', 1, card.ability.extra.odds) then
                 return {
                     dollars = context.card.cost,
                     message = "Refunded!",

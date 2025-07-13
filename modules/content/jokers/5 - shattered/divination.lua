@@ -15,11 +15,12 @@ SMODS.Joker {
     cost = 10,
     config = { extra = { odds = 2 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+        return { vars = { new_numerator, new_denominator } }
     end,
     calculate = function(self, card, context)
         if context.skipping_booster then
-            if SMODS.pseudorandom_probability(card, 'gb_divination', G.GAME.probabilities.normal, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, 'gb_divination', 1, card.ability.extra.odds) then
                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                 G.E_MANAGER:add_event(Event({
                     trigger = 'before',

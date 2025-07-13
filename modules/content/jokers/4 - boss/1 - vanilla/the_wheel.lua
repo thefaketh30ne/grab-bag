@@ -3,7 +3,7 @@ SMODS.Joker{
     loc_txt = {
 		name = 'The Wheel',
 		text = {
-			"{C:green}#4# in #3# chance{} to",
+			"{C:green}#3# in #4# chance{} to",
             "draw a card {C:attention}face-down{} and",
             "give this Joker {X:mult,C:white}X#2#{} Mult",
             "{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
@@ -17,11 +17,12 @@ SMODS.Joker{
     cost = 6,
     config = { extra = { odds = 7, xmult = 1, xmult_mod = 0.1, flipped_cards = false } },
     loc_vars = function(self, info_queue, card)
+        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return { vars = { 
             card.ability.extra.xmult,
             card.ability.extra.xmult_mod,
-            card.ability.extra.odds,
-            G.GAME.probabilities.normal or 1
+            new_numerator,
+            new_denominator
         } }
     end,
 
@@ -29,7 +30,7 @@ SMODS.Joker{
         if context.stay_flipped 
         and context.to_area == G.hand 
         and not context.blueprint
-        and SMODS.pseudorandom_probability(card, 'gb_wheel', G.GAME.probabilities.normal, card.ability.extra.odds) then
+        and SMODS.pseudorandom_probability(card, 'gb_wheel', 1, card.ability.extra.odds) then
             card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
             card.ability.extra.flipped_cards = true
             return {

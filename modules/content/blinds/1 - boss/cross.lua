@@ -3,23 +3,21 @@ SMODS.Blind {
     loc_txt = {
         name = "The Cross",
         text = {
-            "Divides all listed",
-            "probabilities by 10",
+            "Sets all listed",
+            "probabilities to 0",
         }
     },
     dollars = 5,
     mult = 2,
     atlas = "gb_Blinds",
     pos = { y = 9 },
-    boss = { min = 4 },
+    boss = { min = 5 },
     boss_colour = HEX("53c45c"),
-    set_blind = function(self)
-        G.GAME.probabilities.normal = G.GAME.probabilities.normal * 0.1
+    calculate = function(self, blind, context)
+        if not blind.disabled and context.fix_probability then
+            return {
+                numerator = 0
+            }
+        end
     end,
-    disable = function(self)
-        G.GAME.probabilities.normal = G.GAME.probabilities.normal * 10
-    end,
-    defeat = function(self)
-        G.GAME.probabilities.normal = G.GAME.probabilities.normal * 10
-    end
 }

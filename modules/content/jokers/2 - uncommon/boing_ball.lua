@@ -14,11 +14,12 @@ SMODS.Joker {
 	cost = 5,
 	blueprint_compat = true,
 	loc_vars = function(self, info_queue, card)
-		return { vars = { G.GAME.probabilities.normal or 1, card.ability.extra.odds } }
+		local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
+		return { vars = { new_numerator, new_denominator } }
 	end,
     calculate = function(self, card, context)
         if context.repetition and context.cardarea == G.play then
-			if SMODS.pseudorandom_probability(card, 'gb_boing_ball', G.GAME.probabilities.normal, card.ability.extra.odds) then		
+			if SMODS.pseudorandom_probability(card, 'gb_boing_ball', 1, card.ability.extra.odds) then		
                 return {
                     repetitions = card.ability.extra.repetitions
                 }

@@ -11,7 +11,7 @@ SMODS.Blind {
     mult = 2,
     atlas = "gb_Blinds",
     pos = { y = 12 },
-    boss = { min = 6 },
+    boss = { min = 2 },
     boss_colour = HEX("5d6385"),
     debuff_hand = function(self, cards, hand, handname, check)
         local scored_suits = {}
