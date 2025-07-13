@@ -19,6 +19,7 @@ local NFS = require("nativefs")
 
 to_big = to_big or function(a) return a end
 --talisman compat, but honestly your mod looks pretty stable from what im seeing
+--thanks bepis
 
 function ASPL.FUNC.RequireFolder(path)
 	local files = NFS.getDirectoryItemsInfo(ASPL.G.MODPATH .. "/" .. path)

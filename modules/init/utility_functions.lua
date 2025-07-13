@@ -14,10 +14,10 @@ function gb_count_suits(card_table)
     local suits = {}
     for _, card in ipairs(card_table) do
         if card.base.suit
-        and not scored_suits[card.base.suit]
-        and not SMODS.has_no_suit()
-        and not SMODS.has_any_suit() then
-            scored_suits[card.base.suit] = true
+        and not suits[card.base.suit]
+        and not SMODS.has_no_suit(card)
+        and not SMODS.has_any_suit(card) then
+            suits[card.base.suit] = true
         end
     end
     local suit_count = 0
