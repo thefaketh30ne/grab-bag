@@ -19,7 +19,7 @@ SMODS.Joker {
         return { vars = { card.ability.extra.xmult, new_numerator, new_denominator } }
     end,
     calculate = function(self, card, context)
-        if context.joker_main and context.main_eval then
+        if context.joker_main then
             return {
                 xmult = card.ability.extra.xmult
             }
