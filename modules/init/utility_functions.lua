@@ -26,3 +26,7 @@ function gb_count_suits(card_table)
     end
     return suit_count
 end
+
+function gb_is_score_on_fire()
+    return to_big(G.GAME.blind.chips) <= to_big(hand_chips) * to_big(mult)
+end

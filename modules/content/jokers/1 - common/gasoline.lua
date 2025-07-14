@@ -17,7 +17,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.dollars } }
 	end,
     calculate = function(self, card, context)
-        if context.final_scoring_step and G.GAME.blind.chips <= hand_chips * mult then
+        if context.final_scoring_step and gb_is_score_on_fire() then
 			return {
                 dollars = card.ability.extra.dollars
 			}

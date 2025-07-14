@@ -16,7 +16,10 @@ SMODS.Enhancement {
         return { vars = { card.ability.Xmult } }
     end,
     calculate = function(self, card, context)
-        if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and G.GAME.blind.chips <= hand_chips * mult then
+        if context.destroy_card
+        and context.cardarea == G.play
+        and context.destroy_card == card
+        and gb_is_score_on_fire() then
             return { remove = true }
         end
     end
