@@ -24,5 +24,9 @@ SMODS.Joker {
                 mult = card.ability.extra.mult
             }
         end
+    end,
+
+    in_pool = function(self, args)
+        return gb_is_suit_in_deck(suit_key)
     end
 }
