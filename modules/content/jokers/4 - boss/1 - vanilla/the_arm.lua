@@ -24,7 +24,7 @@ SMODS.Joker{
         if context.before
         and context.main_eval then
             local level_choice = pseudorandom_element( { -card.ability.extra.level_loss, card.ability.extra.level_gain }, pseudoseed("gb_arm") )
-            if G.GAME.HANDS[context.scoring_name].level > 1 and level_choice > 0 then
+            if not (G.GAME.hands[context.scoring_name].level <= 1 and level_choice < 0) then
                 return {
                     level_up = level_choice
                 }
