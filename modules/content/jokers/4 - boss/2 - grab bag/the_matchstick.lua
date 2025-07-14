@@ -4,7 +4,7 @@ SMODS.Joker{
 		name = 'The Matchstick',
 		text = {
             "When a {C:attention}Blind{} is selected,",
-            "double either {C:blue}Hands{} or {C:red}Discards",
+            "{C:attention}double{} either {C:blue}Hands{} or {C:red}Discards",
 		}
 	},
     blueprint_compat = true,

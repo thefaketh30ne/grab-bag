@@ -13,12 +13,12 @@ SMODS.Joker {
 	atlas = 'gb_Jokers',
 	pos = { x = 1, y = 5 },
 	cost = 4,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.hands, card.ability.extra.hand_tally } }
 	end,
     calculate = function(self, card, context)
-        if context.before then
+        if context.before and not context.blueprint and context.main_eval then
             card.ability.extra.hand_tally = card.ability.extra.hand_tally + 1
             if card.ability.extra.hand_tally >= card.ability.extra.hands then
                 card.ability.extra.hand_tally = 0

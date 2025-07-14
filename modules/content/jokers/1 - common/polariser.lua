@@ -22,19 +22,19 @@ SMODS.Joker {
 	end,
     calculate = function(self, card, context)
         if context.joker_main then
-			local has_bonus = false
-			local has_mult = false
-			for _, playing_card in ipairs(context.playing_cards or {}) do
+			local has_bonus = 0
+			local has_mult = 0
+			for _, playing_card in ipairs(context.full_hand or {}) do
 				if SMODS.has_enhancement(playing_card, 'm_bonus') then
-					has_bonus = true
+					has_bonus = 1
 				end
 				if SMODS.has_enhancement(playing_card, 'm_mult') then
-					has_mult = true
+					has_mult = 1
 				end
 			end
 			return {
-				mult = has_bonus and card.ability.extra.mult or 0,
-				chips = has_mult and card.ability.extra.chips or 0
+				mult = has_bonus * card.ability.extra.mult,
+				chips = has_mult * card.ability.extra.chips
 			}
 		end
 	end,

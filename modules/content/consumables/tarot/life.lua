@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = 'life',
     set = 'Tarot',
     atlas = "gb_Consumables",
-    pos = { x = 2, y = 0 },
+    pos = { x = 1, y = 2 },
     config = { max_highlighted = 1, mod_conv = 'm_gb_wooden' },
     loc_txt = {
         name = "Life",

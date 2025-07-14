@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = 'panacea',
     set = 'Tarot',
     atlas = "gb_Consumables",
-    pos = { x = 3, y = 0 },
+    pos = { x = 2, y = 2 },
     config = { max_highlighted = 2, mod_conv = 'm_gb_honey' },
     loc_txt = {
         name = "The Panacea",
