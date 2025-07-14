@@ -30,3 +30,14 @@ end
 function gb_is_score_on_fire()
     return to_big(G.GAME.blind.chips) <= to_big(hand_chips) * to_big(mult)
 end
+
+function gb_is_suit_in_deck(suit_key)
+    if G.playing_cards then
+        for _, card in ipairs(G.playing_cards) do
+            if card.base.suit == suit_key then
+                return true
+            end
+        end
+    end
+    return false
+end
