@@ -21,7 +21,7 @@ SMODS.Joker {
         if context.repetition and context.cardarea == G.play and
             context.other_card:is_suit("gb_Eyes") then
             return {
-                repetition = card.ability.extra.retriggers
+                repetitions = card.ability.extra.retriggers
             }
         end
     end,
