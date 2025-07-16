@@ -96,27 +96,27 @@ SMODS.DrawStep {
     end
 }
 
-GB.G.SHATTERED_TABLE = {
-	{"j_obelisk", "j_gb_monolith"},
-	{"j_flower_pot", "j_gb_ornate_vase"},
-	{"j_rough_gem", "j_gb_cosmic_diamond"},
-	{"j_splash", "j_gb_purple_rain"},
-    {"j_gb_polariser", "j_gb_supercharger"},
-    {"j_joker", "j_gb_jimbo"},
-	{"j_invisible", "j_gb_pure_essence"},
-	{"j_fibonnaci", "j_gb_golden_ratio"},
-	{"j_scary_face", "j_gb_melting_face"},
-	{"j_smiley_face", "j_gb_melting_face"},
-	{"j_loyalty_card", "j_gb_phase_charts"},
-	{"j_gb_torchlight", "j_gb_lighthouse"},
-	{"j_hallucination", "j_gb_divination"},
-	{"j_gb_bait", "j_gb_lure"},
+GB_SHATTERED_TABLE = {}
+GB_SHATTERED_TABLE["j_obelisk"] = "j_gb_monolith"
+GB_SHATTERED_TABLE["j_flower_pot"] = "j_gb_ornate_vase"
+GB_SHATTERED_TABLE["j_rough_gem"] = "j_gb_cosmic_diamond"
+GB_SHATTERED_TABLE["j_splash"] = "j_gb_purple_rain"
+GB_SHATTERED_TABLE["j_gb_polariser"] = "j_gb_supercharger"
+GB_SHATTERED_TABLE["j_joker"] = "j_gb_jimbo"
+GB_SHATTERED_TABLE["j_invisible"] = "j_gb_pure_essence"
+GB_SHATTERED_TABLE["j_fibonnaci"] = "j_gb_golden_ratio"
+GB_SHATTERED_TABLE["j_scary_face"] = "j_gb_melting_face"
+GB_SHATTERED_TABLE["j_smiley_face"] = "j_gb_melting_face"
+GB_SHATTERED_TABLE["j_loyalty_card"] = "j_gb_phase_charts"
+GB_SHATTERED_TABLE["j_gb_torchlight"] = "j_gb_lighthouse"
+GB_SHATTERED_TABLE["j_hallucination"] = "j_gb_divination"
+GB_SHATTERED_TABLE["j_gb_bait"] = "j_gb_lure"
+GB_SHATTERED_TABLE["j_misprint"] = "j_gb_memory_leak"
 	-- {"j_gb_lobster_claw", "j_gb_toy_fish"},
 	-- {"j_castle", "j_gb_crumbling_castle"},
 	-- {"j_dusk", "j_gb_midnight"},
 	-- {"j_acrobat", "j_gb_midnight"},
 	-- {"j_raised_fist", "j_gb_revolution"},
-	-- {"j_misprint", "j_gb_memory_leak"},
 	-- {"j_shortcut", "j_gb_metro_lines},
 	-- {"j_space_joker", "j_gb_parasite"},
 	-- {"j_idol", "j_gb_alien_relic"},
@@ -125,7 +125,6 @@ GB.G.SHATTERED_TABLE = {
 	-- {"j_wrathful_joker", "j_gb_sin"},
 	-- {"j_lusty_joker", "j_gb_sin"},
 	-- {"j_gluttenous_joker", "j_gb_sin"},
-}
 
 SMODS.current_mod.set_ability_reset_keys = function() return
 {

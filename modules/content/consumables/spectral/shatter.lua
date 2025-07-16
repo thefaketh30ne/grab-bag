@@ -16,87 +16,44 @@ SMODS.Consumable {
     loc_vars = function(self, info_queue, card)
         return { vars = { colours = { HEX("6A4C77") } } }
     end,
+
     can_use = function(self, card)
-        -- Check if the player has any eligible jokers to shatter
-        for i, joker in ipairs(G.jokers.cards) do
-            for i = 1, #GB.G.SHATTERED_TABLE do
-                if GB.G.SHATTERED_TABLE[i][1] == joker.config.center.key then
-                    return true
-                end
-            end
-        end
-        return false
+        return (#gb_find_eligible_shatters() > 0)
     end,
+    
     use = function(self, card, area, copier)
-        local eligible_jokers = {}
-        -- Check currently owned Jokers for eligibility
-        for i, joker in ipairs(G.jokers.cards) do
-            for i = 1, #GB.G.SHATTERED_TABLE do
-                if GB.G.SHATTERED_TABLE[i][1] == joker.config.center.key and not joker.ability.eternal then
-                    table.insert(eligible_jokers, GB.G.SHATTERED_TABLE[i][1])
-                end
-            end
-        end
-        -- Randomly select a joker to shatter
-        local outgoing_joker_key = eligible_jokers[math.random(#eligible_jokers)]
+        local outgoing_joker_key = pseudorandom_element(gb_find_eligible_shatters(), "gb_shatter")
         local outgoing_joker = SMODS.find_card(outgoing_joker_key)[1]
         -- Find the corresponding shattered joker
-        for i = 1, #GB.G.SHATTERED_TABLE do
-            if GB.G.SHATTERED_TABLE[i][1] == outgoing_joker_key then
-                local incoming_joker_key = GB.G.SHATTERED_TABLE[i][2]
+        local incoming_joker_key = GB_SHATTERED_TABLE[outgoing_joker_key]
                 -- Remove the original joker and add the shattered one
-                G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.4,
-                func = function()
-                    attention_text({
-                        text = "Shatter!",
-                        scale = 1.3,
-                        hold = 1.4,
-                        major = card,
-                        backdrop_colour = HEX("673E79"),
-                        align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) and
-                            'tm' or 'cm',
-                        offset = { x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) and -0.2 or 0 },
-                        silent = true
-                    })
-                    G.E_MANAGER:add_event(Event({
-                        trigger = 'after',
-                        delay = 0.15 * G.SETTINGS.GAMESPEED,
-                        blockable = false,
-                        blocking = false,
-                        func = function()
-                        outgoing_joker:start_dissolve()
-                        SMODS.add_card{
-                        set = 'Joker',
-                        key = incoming_joker_key,
-                        no_edition = true
-                        }
-                        return true
-                        end
-                    }))
-                    card:juice_up(0.3, 0.5)
-                    return true
-                end
-                }))
-                break
+        outgoing_joker:start_dissolve()
+        SMODS.add_card{
+            set = 'Joker',
+            key = incoming_joker_key,
+            edition = (outgoing_joker.edition and outgoing_joker.edition.key) or nil
+        }
+        G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.4,
+        func = function()
+            attention_text({
+                text = "Shatter!",
+                scale = 1.3,
+                hold = 1.4,
+                major = card,
+                backdrop_colour = HEX("673E79"),
+                align = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) and
+                    'tm' or 'cm',
+                offset = { x = 0, y = (G.STATE == G.STATES.TAROT_PACK or G.STATE == G.STATES.SPECTRAL_PACK or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) and -0.2 or 0 },
+                silent = true
+            })
+            card:juice_up(0.3, 0.5)
+            return true
             end
-        end
+        }))
     end,
     in_pool = function(self, args)
-        local eligible_jokers = {}
-        -- Check currently owned Jokers for eligibility
-        for i, joker in ipairs(G.jokers.cards) do
-            for i = 1, #GB.G.SHATTERED_TABLE do
-                if GB.G.SHATTERED_TABLE[i][1] == joker.config.center.key and not joker.ability.eternal then
-                    table.insert(eligible_jokers, GB.G.SHATTERED_TABLE[i][1])
-                end
-            end
-        end
-        if #eligible_jokers > 0 then
-            return true
-        else
-            return false
-        end
+        return (#gb_find_eligible_shatters() > 0)
     end
 }

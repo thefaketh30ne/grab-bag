@@ -58,3 +58,13 @@ function gb_partial_balance(init_chips, init_mult, value)
         end
      }))
 end
+
+function gb_find_eligible_shatters()
+    local eligible_jokers = {}
+    for _, joker in ipairs(G.jokers.cards) do
+        if GB_SHATTERED_TABLE[joker.config.center.key] then
+            eligible_jokers[#eligible_jokers + 1] = joker.config.center.key
+        end
+    end
+    return eligible_jokers
+end

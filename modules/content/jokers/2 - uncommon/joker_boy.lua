@@ -30,4 +30,3 @@ SMODS.Joker {
         end
     end
 }
-

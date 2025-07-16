@@ -29,7 +29,7 @@ SMODS.Joker{
                 SMODS.add_card{
                     set = 'Joker',
                     key = "j_gb_hadal_zone",
-                    no_edition = true
+                    edition = (card.edition and card.edition.key) or nil
                 }
                 G.E_MANAGER:add_event(Event({
                     func = function()
