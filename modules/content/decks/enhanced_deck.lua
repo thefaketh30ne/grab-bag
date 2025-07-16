@@ -19,11 +19,9 @@ SMODS.Back {
         if context.setting_blind then
             local valid_keys = {}
             for _, enhancement_center in pairs(G.P_CENTER_POOLS["Enhanced"]) do
-                if enhancement_center.key ~= {
-                    'm_stone',
-                    'm_gb_honey'
-                    }
-                    and not enhancement_center.overrides_base_rank then
+                if enhancement_center.key ~= 'm_stone'
+                or enhancement_center.key ~= 'm_gb_honey'
+                and not enhancement_center.overrides_base_rank then
                     valid_keys[#valid_keys + 1] = enhancement_center.key
                 end
             end
