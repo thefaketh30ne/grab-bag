@@ -66,4 +66,31 @@ SMODS.Consumable {
             end
         }))
     end,
+    update = function(self, card, dt)
+        if card.gb_shatter_juice == nil then
+            card.gb_shatter_juice = false
+        end
+
+        if card.highlighted and not card.gb_shatter_juice and (G.jokers and G.jokers.cards) then
+            local eligible_jokers = {}
+            for _, v in ipairs(G.jokers.cards) do
+                if GB_SHATTERED_TABLE[v.config.center.key] then
+                    eligible_jokers[#eligible_jokers + 1] = v
+                end
+            end
+            if next(eligible_jokers) then
+                for _, v in ipairs(eligible_jokers) do
+                    if not v.juice then
+                        local eval = function() return (card.highlighted) end
+                        juice_card_until(v, eval, true)
+                    end
+                end
+                card.gb_shatter_juice = true
+            end
+        end
+
+        if not card.highlighted then
+            card.gb_shatter_juice = nil
+        end
+    end
 }
