@@ -65,7 +65,9 @@ SMODS.Consumable {
             return true
             end
         }))
-    end,
+    end, 
+
+    --thanks to SDM_0 for this
     update = function(self, card, dt)
         if card.gb_shatter_juice == nil then
             card.gb_shatter_juice = false
