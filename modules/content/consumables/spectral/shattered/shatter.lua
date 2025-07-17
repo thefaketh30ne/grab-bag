@@ -65,7 +65,7 @@ SMODS.Consumable {
             return true
             end
         }))
-    end, 
+    end,
 
     --thanks to SDM_0 for this
     update = function(self, card, dt)
