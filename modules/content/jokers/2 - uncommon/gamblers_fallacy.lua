@@ -9,7 +9,7 @@ SMODS.Joker {
             "{C:inactive}(Currently {C:green}+#1#{C:inactive})"
 		}
 	},
-	config = { extra = { fail_increase = 0.5, current_increase = 0 } },
+	config = { extra = { fail_increase = 1, current_increase = 0 } },
 	rarity = 2,
 	atlas = 'gb_Jokers',
 	pos = { x = 8, y = 6 },
@@ -19,7 +19,7 @@ SMODS.Joker {
         local fail_increase = card.ability.extra.fail_increase
         return { vars = { 
             card.ability.extra.current_increase,
-            (fail_increase .. ".0" and fail_increase == math.floor(fail_increase)) or fail_increase
+            card.ability.extra.fail_increase
     } }
 	end,
     calculate = function(self, card, context)
