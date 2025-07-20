@@ -36,10 +36,6 @@ SMODS.Joker{
         end
     end,
 
-    remove_from_deck = function(self, card, from_debuff)
-        G.hand:change_size(-card.ability.extra.hand_size_tally)
-    end,
-
     in_pool = function(self, args)
         return gb_is_blind_defeated("bl_mouth")
     end
