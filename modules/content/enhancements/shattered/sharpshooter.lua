@@ -11,7 +11,7 @@ SMODS.Enhancement {
 	},
     atlas = 'gb_Enhancements',
     pos = { x = 4, y = 0 },
-    config = { extra = { base_numerator = 1, mult = 10, odds = 10, money = 20 } },
+    config = { extra = { base_numerator = 1, mult = 20, odds = 10, money = 10 } },
     loc_vars = function(self, info_queue, card)
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, card.ability.extra.base_numerator, card.ability.extra.odds)
         return { vars = { new_numerator, new_denominator, card.ability.extra.mult, card.ability.extra.money } }
