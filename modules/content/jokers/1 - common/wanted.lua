@@ -37,13 +37,13 @@ function reroll_gb_wanted_rank()
     local valid_cards = {}
     for _, playing_card in ipairs(G.playing_cards) do
         if not SMODS.has_no_rank(playing_card) then
-            valid_cards[#validcards + 1] = playing_card
+            valid_cards[#valid_cards + 1] = playing_card
         end
     end
     local chosen_card = pseudorandom_element(valid_cards, 'gb_wanted' .. G.GAME.round_resets.ante)
     if chosen_card then
         returned_rank = chosen_card.base.value
-        returned_rank = chosen_card.base.id
+        returned_id = chosen_card.base.id
     end
     return returned_rank, returned_id
 end
