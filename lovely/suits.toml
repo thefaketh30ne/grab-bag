@@ -27,3 +27,11 @@ if self.base.suit == "gb_Eyes" then
 end
 '''
 
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+match_indent = true
+overwrite = true
+pattern = "localize{type = 'other', key = 'card_chips', nodes = desc_nodes, vars = {specific_vars.nominal_chips}}"
+position = "at"
+payload = "localize{type = 'other', key = card.base.suit == 'gb_Eyes' and 'card_mult' or 'card_chips', nodes = desc_nodes, vars = {specific_vars.nominal_chips}}"

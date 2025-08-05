@@ -111,9 +111,16 @@ GB_SHATTERED_TABLE["j_loyalty_card"] = "j_gb_phase_charts"
 GB_SHATTERED_TABLE["j_gb_torchlight"] = "j_gb_lighthouse"
 GB_SHATTERED_TABLE["j_hallucination"] = "j_gb_divination"
 GB_SHATTERED_TABLE["j_gb_bait"] = "j_gb_lure"
-GB_SHATTERED_TABLE["j_misprint"] = "j_gb_memory_leak"
-	-- {"j_gb_lobster_claw", "j_gb_toy_fish"},
-	-- {"j_castle", "j_gb_crumbling_castle"},
+GB_SHATTERED_TABLE["j_clever_joker"] = "j_gb_the_clever"
+GB_SHATTERED_TABLE["j_crafty_joker"] = "j_gb_the_crafty"
+GB_SHATTERED_TABLE["j_devious_joker"] = "j_gb_the_devious"
+GB_SHATTERED_TABLE["j_sly_joker"] = "j_gb_the_sly"
+GB_SHATTERED_TABLE["j_wily_joker"] = "j_gb_the_wily"
+GB_SHATTERED_TABLE["j_crazy_joker"] = "j_gb_the_crazy"
+GB_SHATTERED_TABLE["j_droll_joker"] = "j_gb_the_droll"
+GB_SHATTERED_TABLE["j_jolly_joker"] = "j_gb_the_jolly"
+GB_SHATTERED_TABLE["j_mad_joker"] = "j_gb_the_mad"
+GB_SHATTERED_TABLE["j_zany_joker"] = "j_gb_the_zany"
 	-- {"j_dusk", "j_gb_midnight"},
 	-- {"j_acrobat", "j_gb_midnight"},
 	-- {"j_raised_fist", "j_gb_revolution"},
@@ -125,6 +132,8 @@ GB_SHATTERED_TABLE["j_misprint"] = "j_gb_memory_leak"
 	-- {"j_wrathful_joker", "j_gb_sin"},
 	-- {"j_lusty_joker", "j_gb_sin"},
 	-- {"j_gluttenous_joker", "j_gb_sin"},
+	-- {"j_gb_lobster_claw", "j_gb_toy_fish"},
+	-- {"j_castle", "j_gb_crumbling_castle"},
 
 SMODS.current_mod.set_ability_reset_keys = function() return
 {
