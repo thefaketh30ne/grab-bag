@@ -88,7 +88,7 @@ As of the latest update, this mod contains 25 Common, 25 Uncommon, and 10 Rare J
 - The Moon's Oceans
 
 ## Shattered Jokers
-Jokers can be shattered into more powerful Shattered jokers with the Shatter consumable, which may show up in Arcana and Spectral Packs.
+Jokers can be shattered into more powerful Shattered Jokers with the Shatter consumable, which may rarely show up in Arcana and Spectral Packs.
 ### Shatterable Jokers
 - Obelisk
 - Flower Pot
