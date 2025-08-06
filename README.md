@@ -21,7 +21,7 @@ The content in this mod is supposed to feel vanilla, and I created this new cont
 This mod contains a set of 20 new consumable cards that can only be used during blinds.
 
 ## Jokers
-As of the latest update, this mod contains 24 Common, 16 Uncommon, and 7 Rare Jokers.
+As of the latest update, this mod contains 25 Common, 25 Uncommon, and 10 Rare Jokers.
 ### Common
 - Alien Joker
 - Bad Trip
