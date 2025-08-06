@@ -28,7 +28,10 @@ SMODS.Joker {
             if #sevens >= 3 then
                 local valid_keys = {}
                 for _, enhancement_center in pairs(G.P_CENTER_POOLS["Enhanced"]) do
-                    if enhancement_center.key ~= 'm_stone' and not enhancement_center.overrides_base_rank then
+                    if enhancement_center.key ~= 'm_stone' 
+                    and not enhancement_center.overrides_base_rank
+                    and enhancement_center.in_pool
+                    and enhancement_center:in_pool() then
                         valid_keys[#valid_keys + 1] = enhancement_center.key
                     end
                 end

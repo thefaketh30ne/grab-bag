@@ -53,13 +53,12 @@ SMODS.Joker {
                         message = 'Drank!',
                         colour = G.C.FILTER
                     }
-                else
-                    return {
-                        message = card.ability.extra.cards_left .. '',
-                        colour = G.C.FILTER
-                    }
-                end    
+                end
             end
+            return {
+                message = card.ability.extra.cards_left .. '',
+                colour = G.C.FILTER
+            }
         end
     end
 }

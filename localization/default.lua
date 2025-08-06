@@ -1,4 +1,4 @@
-return{
+return {
     descriptions = {
         dictionary = {
             gb_custom_music_name = {
@@ -12,6 +12,13 @@ return{
                 }
             },
         },
+        Other = {
+            card_mult = {
+                text = {
+                    "{C:mult}+#1#{} Mult"
+                }
+            }
+        }
     },
     misc = {
         dictionary = {

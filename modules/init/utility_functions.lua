@@ -30,3 +30,41 @@ end
 function gb_is_score_on_fire()
     return to_big(G.GAME.blind.chips) <= to_big(hand_chips) * to_big(mult)
 end
+
+function gb_is_suit_in_deck(suit_key)
+    if G.playing_cards then
+        for _, card in ipairs(G.playing_cards) do
+            if card.base.suit == suit_key then
+                return true
+            end
+        end
+    end
+    return false
+end
+
+function gb_partial_balance(init_chips, init_mult, value)
+    if value <= 0 or value > 1 then
+        return nil
+    end
+    mult = mod_mult(math.ceil((init_mult + init_chips * value) / (1 + value)))
+    hand_chips = mod_chips(math.ceil((init_chips + init_mult * value) / (1 + value)))
+    update_hand_text({delay = 0}, {chips = hand_chips, mult = mult})
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            play_sound('gong', 0.94, 0.3)
+            play_sound('gong', 0.94*1.5, 0.2)
+            play_sound('tarot1', 1.5)
+            return true
+        end
+     }))
+end
+
+function gb_find_eligible_shatters()
+    local eligible_jokers = {}
+    for _, joker in ipairs(G.jokers.cards) do
+        if GB_SHATTERED_TABLE[joker.config.center.key] then
+            eligible_jokers[#eligible_jokers + 1] = joker.config.center.key
+        end
+    end
+    return eligible_jokers
+end

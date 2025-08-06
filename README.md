@@ -1,7 +1,7 @@
 # Grab Bag
 Grab Bag is a Balatro mod that currently adds: 
-- 47 Regular Jokers
-- 15 Shattered Jokers
+- 60 Regular Jokers
+- 25 Shattered Jokers
 - 38 Boss Jokers
 - 20 Ephemeral Cards
 - 3 Tarots
@@ -21,7 +21,7 @@ The content in this mod is supposed to feel vanilla, and I created this new cont
 This mod contains a set of 20 new consumable cards that can only be used during blinds.
 
 ## Jokers
-As of the latest update, this mod contains 24 Common, 16 Uncommon, and 7 Rare Jokers.
+As of the latest update, this mod contains 25 Common, 25 Uncommon, and 10 Rare Jokers.
 ### Common
 - Alien Joker
 - Bad Trip
@@ -31,8 +31,7 @@ As of the latest update, this mod contains 24 Common, 16 Uncommon, and 7 Rare Jo
 - Counterfeit Joker
 - Coupon
 - Doner
-- Dunce
-- Escape Velocity
+- Envious Joker
 - Gasoline
 - Hadal Zone
 - Hot Potato
@@ -43,32 +42,45 @@ As of the latest update, this mod contains 24 Common, 16 Uncommon, and 7 Rare Jo
 - Pontoon
 - Qubits
 - Receipt
+- Secret Box
 - Sketchy Joker
 - Torchlight
 - Typograph
-- Waterfall
+- Wanted
 
 ### Uncommon
+- Amethyst Geode
 - Boing Ball
+- Brass Horseshoe
 - Calculator
 - Candle
 - Cheque Stub
 - Creepy Painting
 - Double Gulp
+- Escape Velocity
 - First Strike
+- Gambler's Fallacy
+- Hell Trees
 - Honeycomb
+- Joker Boy
 - Knight
 - Little Timbo
 - Lover's Locket
 - Paint The Town Red
 - Patchwork
 - Taxman
+- The Bends
+- Triforce
+- Waterfall
 - Wheel of Misfortune
 - Yellow Pages
   
 ### Rare
+- 13 Leaf Clover
 - D20
 - Double King
+- Dream Emulator
+- Eye of Providence
 - Forest Fire
 - Golden Cookie
 - Lobster Claw
@@ -76,7 +88,7 @@ As of the latest update, this mod contains 24 Common, 16 Uncommon, and 7 Rare Jo
 - The Moon's Oceans
 
 ## Shattered Jokers
-Jokers can be shattered into more powerful Shattered jokers with the Shatter consumable, which may show up in Arcana and Spectral Packs.
+Jokers can be shattered into more powerful Shattered Jokers with the Shatter consumable, which may rarely show up in Arcana and Spectral Packs.
 ### Shatterable Jokers
 - Obelisk
 - Flower Pot
@@ -93,9 +105,10 @@ Jokers can be shattered into more powerful Shattered jokers with the Shatter con
 - Misprint
 - Bait
 - Hallucination
+- All +Chips/+Mult hand type Jokers (Jolly, Mad, etc.)
 
 ## Boss Jokers
-Boss Jokers have a chance to appear if you have defeated its corresponding Boss Blind during the current run. All vanilla and Grab Bag Boss Blinds currently have a Boss Joker counterpart.
+Boss Jokers have a chance to appear if you have defeated its corresponding Boss Blind during the current run. All Vanilla and Grab Bag Boss Blinds currently have a Boss Joker counterpart.
 
 ## Decks
 There are 7 decks in the latest update of the mod.

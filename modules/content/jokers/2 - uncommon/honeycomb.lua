@@ -45,7 +45,7 @@ SMODS.Joker {
     end,
     in_pool = function(self, args)
         for _, playing_card in ipairs(G.playing_cards or {}) do
-            if SMODS.has_enhancement(playing_card, 'm_steel') then
+            if SMODS.has_enhancement(playing_card, 'm_gb_honey') then
                 return true
             end
         end

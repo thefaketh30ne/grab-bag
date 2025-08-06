@@ -1,0 +1,37 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+match_indent = true
+pattern = '''local ret = (not self.ability.extra_enhancement and self.ability.perma_mult) or 0'''
+position = "after"
+payload = '''
+if self.base.suit == "gb_Eyes" then
+    ret = ret + self.base.nominal
+end
+'''
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+match_indent = true
+pattern = '''return self.base.nominal + self.ability.bonus + (self.ability.perma_bonus or 0)'''
+position = "before"
+payload = '''
+if self.base.suit == "gb_Eyes" then
+    return self.ability.bonus + (self.ability.perma_bonus or 0)
+end
+'''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+match_indent = true
+overwrite = true
+pattern = "localize{type = 'other', key = 'card_chips', nodes = desc_nodes, vars = {specific_vars.nominal_chips}}"
+position = "at"
+payload = "localize{type = 'other', key = card.base.suit == 'gb_Eyes' and 'card_mult' or 'card_chips', nodes = desc_nodes, vars = {specific_vars.nominal_chips}}"

@@ -2,10 +2,12 @@ Thank you to:
 bepisfever for making this mod compatible with Talisman and for making the config menu,
 basil_squared for the recursive file-loading implementation,
 squidguset for the effect for Gem Deck,
-SDM_0 for being an unwitting playtester to my janky code,
+SDM_0 for working on the Shatter consumable code,
+AutumnMood for the Eyes suit ability box patch,
 JoyousSpring and the VanillaRemade contributors,
 and the modding community in the Balatro Discord for the continued support!
 
 Special thanks to ViperDemon for feedback, ideas, playtesting, and making all of the music you hear in this mod!
 
 - th3
+

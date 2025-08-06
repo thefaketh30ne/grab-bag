@@ -19,8 +19,8 @@ SMODS.Joker{
 		return { vars = { card.ability.extra.dollars, card.ability.extra.cards_played } }
 	end,
     calculate = function(self, card, context)
-        if context.individual 
-        and #context.full_hand <= card.ability.extra.dollars.cards_played 
+        if context.individual
+        and #context.full_hand <= card.ability.extra.cards_played
         and context.cardarea == G.play then
             return {
                 dollars = card.ability.extra.dollars

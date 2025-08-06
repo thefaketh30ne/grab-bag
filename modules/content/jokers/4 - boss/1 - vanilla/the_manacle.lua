@@ -17,7 +17,7 @@ SMODS.Joker{
         return { vars = { card.ability.extra.hand_size_mod } }
     end,
     calculate = function(self, card, context)
-        if context.after and not context.blueprint and G.GAME.chips >= G.GAME.blind.chips then
+        if context.after and not context.blueprint and G.GAME.chips + hand_chips * mult <= G.GAME.blind.chips then
             G.hand:change_size(card.ability.extra.hand_size_mod)
             card.ability.extra.hand_size_tally = card.ability.extra.hand_size_tally + card.ability.extra.hand_size_mod
             return {
