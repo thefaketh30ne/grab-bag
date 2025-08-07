@@ -23,8 +23,7 @@ SMODS.Seal {
         and context.cardarea == G.play then    
             if SMODS.pseudorandom_probability(card, 'gb_fortune', 1, self.config.extra.odds) then
                 local eligible_card = pseudorandom_element(context.scoring_hand, pseudoseed('gb_fortune'))
-                local edition = poll_edition('gb_fortune', nil, true, true,
-                    { 'e_polychrome', 'e_holo', 'e_foil' })
+                local edition = poll_edition('gb_fortune', nil, true, true)
                 if eligible_card and eligible_card.edition then
                     eligible_card:set_edition(edition, true)
                 end

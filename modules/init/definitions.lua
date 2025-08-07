@@ -73,7 +73,7 @@ SMODS.Suit {
 	ui_pos = { x = 0, y = 0 },
 
 	in_pool = function(self, args)
-		return false
+		return gb_is_suit_in_deck("gb_Eyes")
 	end
 }
 

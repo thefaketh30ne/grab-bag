@@ -10,7 +10,7 @@ SMODS.Joker {
             "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive} Mult)",
 		}
 	},
-    config = { extra = { mult_mod = 3, mult = 0 } },
+    config = { extra = { mult_mod = 5, mult = 0 } },
     rarity = 2,
 	atlas = 'gb_Jokers',
 	pos = { x = 4, y = 2 },
