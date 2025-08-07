@@ -1,8 +1,9 @@
 # Grab Bag
 Grab Bag is a Balatro mod that currently adds: 
-- 60 Regular Jokers
-- 25 Shattered Jokers
-- 38 Boss Jokers
+- 122 Jokers
+  - 60 Regular Jokers
+  - 25 Shattered Jokers
+  - 38 Boss Jokers
 - 20 Ephemeral Cards
 - 3 Tarots
 - 4 Spectrals
