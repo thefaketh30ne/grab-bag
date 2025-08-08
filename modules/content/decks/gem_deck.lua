@@ -10,8 +10,8 @@ SMODS.Back {
 
         }
     },
-    atlas = "gb_Cards",
-    pos = { x = 1, y = 0 },
+    atlas = "gb_Decks",
+    pos = { x = 8, y = 0 },
     config = { dollars = 5, voucher = 'v_clearance_sale' },
     loc_vars = function(self, info_queue, back)
         return { vars = { self.config.dollars } }

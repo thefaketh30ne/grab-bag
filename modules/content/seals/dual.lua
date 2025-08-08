@@ -9,8 +9,8 @@ SMODS.Seal {
             "to hand if scoring",
         }
     },
-    atlas = "gb_Cards",
-    pos = { x = 7, y = 0 },
+    atlas = "gb_Seals",
+    pos = { x = 0, y = 0 },
     config = { extra = { odds = 4 } },
     badge_colour = HEX('6E89C2'),
     loc_vars = function(self, info_queue, card)

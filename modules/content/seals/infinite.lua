@@ -8,8 +8,8 @@ SMODS.Seal {
             "{C:attention}duplicate{} it and earn {C:money}$#1#{}",
         }
     },
-    atlas = "gb_Cards",
-    pos = { x = 7, y = 2 },
+    atlas = "gb_Seals",
+    pos = { x = 2, y = 0 },
     config = { extra = { odds = 4, dollars = 5 } },
     badge_colour = HEX('A1A5A6'),
     loc_vars = function(self, info_queue, card)

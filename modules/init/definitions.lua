@@ -168,15 +168,15 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-	key = "gb_Cards",
-	path = "Cards.png",
+	key = "gb_Consumables",
+	path = "Consumables.png",
 	px = 71,
 	py = 95
 }
 
 SMODS.Atlas {
-	key = "gb_Consumables",
-	path = "Consumables.png",
+	key = "gb_Decks",
+	path = "Decks.png",
 	px = 71,
 	py = 95
 }
@@ -198,6 +198,13 @@ SMODS.Atlas {
 SMODS.Atlas {
 	key = "gb_Jokers",
 	path = "Jokers.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
+	key = "gb_Seals",
+	path = "Seals.png",
 	px = 71,
 	py = 95
 }
