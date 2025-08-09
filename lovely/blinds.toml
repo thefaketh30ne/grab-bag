@@ -58,3 +58,5 @@ pattern = '''G.GAME.round_resets.blind_states.Boss = 'Defeated''''
 position = "after"
 payload = '''G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE = 0'''
 
+
+

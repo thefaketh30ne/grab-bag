@@ -1,0 +1,17 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# frankendeck
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+match_indent = true
+pattern = '''self.cost = math.max(1, math.floor((self.base_cost + self.extra_cost + 0.5)*(100-G.GAME.discount_percent)/100))'''
+position = "after"
+payload = '''
+G.GAME.gb_cost_multiplier = (G.GAME.gb_cost_multiplier) or 1
+self.cost = math.max(1, math.floor(self.cost * G.GAME.gb_cost_multiplier))
+'''

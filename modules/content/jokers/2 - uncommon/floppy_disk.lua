@@ -22,6 +22,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual
         and context.cardarea == G.play
+        and not context.repetition
         and not context.blueprint then
             table.insert(card.ability.extra.saved_cards, context.other_card)
             if #card.ability.extra.saved_cards > card.ability.extra.cards_to_save then
