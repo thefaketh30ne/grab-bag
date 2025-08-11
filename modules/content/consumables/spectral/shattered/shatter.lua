@@ -4,7 +4,7 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Shatter',
         text = {
-            "{C:attention}Shatters{} one random",
+            "{V:1}Shatters{} one random",
             "{C:attention}eligible{} Joker",
         }
     },
@@ -14,7 +14,7 @@ SMODS.Consumable {
     atlas = 'gb_Consumables',
     pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { colours = { HEX("6A4C77") } } }
+        return { vars = { colours = { HEX("834896") } } }
     end,
 
     can_use = function(self, card)
