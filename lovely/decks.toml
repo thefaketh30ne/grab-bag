@@ -3,7 +3,7 @@ version = "1.0.0"
 dump_lua = true
 priority = 0
 
-# frankendeck
+# frankendeck cost multiplier
 
 [[patches]]
 [patches.pattern]
@@ -14,4 +14,32 @@ position = "after"
 payload = '''
 G.GAME.gb_cost_multiplier = (G.GAME.gb_cost_multiplier) or 1
 self.cost = math.max(1, math.floor(self.cost * G.GAME.gb_cost_multiplier))
+'''
+
+# airline deck hide big blind
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+match_indent = true
+pattern = "G.GAME.round_resets.blind_states.Big = 'Upcoming'"
+position = "after"
+payload = '''
+if G.GAME.selected_back.effect.center.key == "b_gb_airline" then
+    G.GAME.round_resets.blind_states.Big = 'Hide'
+end
+'''
+
+# airline deck fix skip softlock
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+match_indent = true
+pattern = "G.GAME.blind_on_deck == 'Small' and 'Big' or G.GAME.blind_on_deck == 'Big' and 'Boss' or 'Boss'"
+position = "after"
+payload = '''
+if G.GAME.selected_back.effect.center.key == "b_gb_airline" 
+and skip_to == 'Big' then
+    skip_to = 'Boss'
+end
 '''
