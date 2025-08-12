@@ -10,7 +10,7 @@ SMODS.Back {
             "{T:v_reroll_surplus,C:green}Reroll Surplus{} and {T:v_seed_money,C:money}Seed Money{}"
         },
     },
-    config = { vouchers = {"v_reroll_surplus", "v_seed_money"}, dollars = 15 },
+    config = { vouchers = {"v_reroll_surplus", "v_seed_money"}, dollars = 10 },
     loc_vars = function(self, info_queue, back)
         return { vars = { self.config.dollars } }
     end,
