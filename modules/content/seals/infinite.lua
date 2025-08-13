@@ -19,7 +19,7 @@ SMODS.Seal {
         if context.remove_playing_cards then
             local being_removed = false
             for _, playing_card in ipairs(context.removed) do
-                if playing_card == card then
+                if playing_card == card and card.edition.key ~= "e_gb_temporary" then
                     being_removed = true
                 end
             end

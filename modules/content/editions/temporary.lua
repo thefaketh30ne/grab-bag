@@ -36,7 +36,9 @@ SMODS.Edition {
         end
     end,
     on_remove = function(card)
-        card:set_edition("e_gb_temporary")
+        if card.edition.key ~= "e_gb_temporary" then
+            card:set_edition("e_gb_temporary")
+        end
     end,
     in_pool = function(self, args)
         return false

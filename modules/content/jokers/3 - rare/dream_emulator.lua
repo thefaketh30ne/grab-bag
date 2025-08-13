@@ -19,6 +19,7 @@ SMODS.Joker {
 	end,
     calculate = function(self, card, context)
         if context.selling_card
+        and not context.card == card
         and context.card.ability.set == "Joker"
         and card.ability.extra.active == true 
         and not context.blueprint then
