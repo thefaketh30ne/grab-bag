@@ -6,7 +6,7 @@ SMODS.Joker {
             "Scored cards gain",
             "{C:chips}+#1#{} Chips {C:attention}permanently{}",
             "Increases by {C:chips}+#2#{} when",
-            "shop is rerolled"
+            "shop is {C:attention}rerolled"
 		}
 	},
 	rarity = 3,
@@ -28,7 +28,7 @@ SMODS.Joker {
             }
         end
         if context.individual
-        and context.other_card:is_suit("Hearts") then
+        and context.cardarea == G.play then
             context.other_card.ability.perma_bonus = (context.other_card.ability.perma_bonus or 0) + card.ability.extra.chips
             return {
                 message = localize('k_upgrade_ex'),
