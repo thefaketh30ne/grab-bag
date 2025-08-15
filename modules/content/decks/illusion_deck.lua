@@ -15,11 +15,24 @@ SMODS.Back {
     calculate = function(self, card, context)
         if context.setting_blind
         and context.blind.boss then
-            SMODS.add_card {
-                set = 'gb_Ephemeral',
-                key_append = 'gb_illusion',
-                edition = 'e_negative'
-            }
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                func = (function()
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card {
+                                set = 'Ephemeral',
+                                key_append = 'gb_illusion',
+                                edition = 'e_negative'
+                            }
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end
+                    }))
+                    return true
+                end)
+            }))
+            return nil, true
         end
     end,
 }
