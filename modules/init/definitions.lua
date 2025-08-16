@@ -11,7 +11,7 @@ SMODS.Rarity {
 	pools = { ["Joker"] = { rate = 0.02 } },
     default_weight = 0.02,
 	get_weight = function(self, weight, object_type)
-		if G.GAME.GB_DEFEATED_BLINDS and #G.GAME.GB_DEFEATED_BLINDS > 0 then
+		if G.GAME.GB_DEFEATED_BLINDS and G.GAME.GB_DEFEATED_BLIND_COUNT >= 1 then
 			return 0.02
 		else
 			return 0
