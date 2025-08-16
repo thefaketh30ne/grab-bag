@@ -32,10 +32,12 @@ SMODS.Joker{
         end
 
         if context.joker_main and context.main_eval and not G.GAME.hands[context.scoring_name].played_this_round > 1 then
-            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
-            return {
-                xmult = card.ability.extra.xmult
-            }
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "xmult",
+                scalar_value = "xmult_mod",
+                message_colour = G.C.MULT
+            })
         end
     end,
 

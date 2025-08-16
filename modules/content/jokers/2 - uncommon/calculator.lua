@@ -22,12 +22,12 @@ SMODS.Joker {
 	calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and not context.blueprint then
             if context.other_card:get_id() <= 10 and context.other_card:get_id() >= 2 then
-                card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
-                return {
-                    message = localize('k_upgrade_ex'),
-                    colour = G.C.CHIPS,
-                    message_card = card
-                }
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "chips",
+                    scalar_value = "chips_mod",
+                    message_colour = G.C.CHIPS
+                })
             end
         end
         if context.joker_main then

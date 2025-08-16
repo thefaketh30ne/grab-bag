@@ -4,7 +4,7 @@ SMODS.Joker {
 		name = 'Mystery Man',
 		text = {
 			"If played hand contains {C:attention}#1#{} {C:attention}6{}s,",
-            "all scored {C:attention}6{}s gain {C:mult}+#2#{} Mult and",
+            "{C:attention}6{}s gain {C:mult}+#2#{} Mult when scored and",
             "all cards held in hand",
             "are {C:attention}destroyed{} after scoring"
             

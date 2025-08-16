@@ -17,11 +17,12 @@ SMODS.Joker {
 	blueprint_compat = true,
     config = { extra = { xmult = 1, xmult_mod = 0.1, xmult_lock = 3, locked = false } },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_gb_charge
         return { vars = {
-             card.ability.extra.xmult_mod,
-             card.ability.extra.xmult,
-             card.ability.extra.xmult_lock,
-            } }
+            card.ability.extra.xmult_mod,
+            card.ability.extra.xmult,
+            card.ability.extra.xmult_lock,
+        } }
     end,
     calculate = function(self, card, context)
         if context.charge_card_charged

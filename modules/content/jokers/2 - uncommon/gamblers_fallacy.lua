@@ -36,7 +36,12 @@ SMODS.Joker {
                     colour = G.C.GREEN
                 }
             else
-                card.ability.extra.current_increase = card.ability.extra.current_increase + card.ability.extra.fail_increase
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "current_increase",
+                    scalar_value = "fail_increase",
+                    message_colour = G.C.GREEN
+                })
             end
         end
     end

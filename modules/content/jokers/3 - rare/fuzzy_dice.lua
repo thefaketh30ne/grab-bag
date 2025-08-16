@@ -21,11 +21,12 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.reroll_shop and not context.blueprint then
-            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
-            return {
-                message = localize("k_upgrade_ex"),
-                colour = G.C.CHIPS,
-            }
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "chips",
+                scalar_value = "chips_mod",
+                message_colour = G.C.CHIPS
+            })
         end
         if context.individual
         and context.cardarea == G.play then

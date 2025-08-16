@@ -31,12 +31,12 @@ SMODS.Joker {
             end
 
             if suitamt >= 3 then
-                card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
-                return {
-                    message = localize('k_upgrade_ex'),
-                    colour = G.C.MULT,
-                    message_card = card
-                }
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "xmult",
+                    scalar_value = "xmult_mod",
+                    message_colour = G.C.MULT
+                })
             end
         end
         if context.joker_main then

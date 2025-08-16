@@ -25,18 +25,26 @@ SMODS.Joker {
             }
         end
         if context.after and not context.blueprint then
-            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_gain
-            return {
-                message = localize("k_upgrade_ex"),
-                colour = G.C.CHIPS
-            }
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "chips",
+                scalar_value = "chips_gain",
+                message_colour = G.C.CHIPS
+            })
         end
         if context.setting_blind and not context.blueprint then
             if card.ability.extra.chips > 0 then
-                card.ability.extra.chips = math.max(0, card.ability.extra.chips - card.ability.extra.chips_loss)
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "chips",
+                    scalar_value = "chips_loss",
+                    operation = "-",
+                    no_message = true
+                })
+                card.ability.extra.chips = math.max(0, card.ability.extra.chips)
                 return {
                     message = "Carved!",
-                    colour = G.C.CHIPS
+                    colour = G.C.FILTER
                 }
             end
         end

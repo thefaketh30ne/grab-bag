@@ -20,12 +20,12 @@ SMODS.Joker {
     end,
     calculate = function(self, card, context)
         if context.skip_blind and not context.blueprint then
-            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
-            return {
-                message = localize('k_upgrade_ex'),
-                colour = G.C.MULT,
-                message_card = card
-            }
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "xmult",
+                scalar_value = "xmult_mod",
+                message_colour = G.C.MULT
+            })
         end
         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
             if G.GAME.blind.boss then
@@ -39,7 +39,7 @@ SMODS.Joker {
         if context.joker_main then
             return {
                 xmult = card.ability.extra.xmult
-            }   
+            }
         end
     end
 }

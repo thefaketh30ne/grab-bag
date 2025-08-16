@@ -25,11 +25,11 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.pre_discard and not context.blueprint then
             if #G.hand.highlighted >= card.ability.extra.threshold then
-                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
-                return {
-                    message = localize("k_upgrade_ex"),
-                    colour = G.C.MULT
-                }
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "mult",
+                    scalar_value = "mult_mod"
+                })
             end
 		end
         if context.joker_main then

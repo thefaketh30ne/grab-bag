@@ -31,11 +31,12 @@ SMODS.Joker{
                 end
             end
             if has_face == true then
-                card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
-                return {
-                    message = localize("k_upgrade_ex"),
-                    colour = G.C.MULT
-                }
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "xmult",
+                    scalar_value = "xmult_mod",
+                    message_colour = G.C.MULT
+                })
             else
                 card.ability.extra.xmult = 1
                 return {

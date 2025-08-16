@@ -19,11 +19,12 @@ SMODS.Joker {
 	end,
     calculate = function(self, card, context)
         if context.pseudorandom_result and context.result and not context.blueprint then
-            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
-            return {
-                message = localize ("k_upgrade_ex"),
-                colour = G.C.MULT
-            }
+            SMODS.scale_card(card, {
+                ref_table = card.ability.extra,
+                ref_value = "mult",
+                scalar_value = "mult",
+                message_colour = G.C.MULT
+            })
         end
 	    if context.joker_main then
             return {
