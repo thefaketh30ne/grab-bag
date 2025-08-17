@@ -4,7 +4,8 @@ SMODS.Joker {
         name = 'Lure',
         text = {
             "{X:mult,C:white}X#1#{} Mult",
-            "{C:green}#2# in #3#{} chance at end of round to",
+            "{C:green}#2# in #3#{} chance at",
+            "end of round to",
             "{C:attention}reel something in{}",
         }
     },

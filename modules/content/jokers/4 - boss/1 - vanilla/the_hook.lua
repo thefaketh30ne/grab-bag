@@ -19,7 +19,7 @@ SMODS.Joker{
     end,
 
     calculate = function(self, card, context)
-        if context.press_play and #G.hand.cards > 0 then
+        if context.press_play and #G.hand.cards - #G.hand.highlighted > 0 then
             local selected_card = nil
             G.E_MANAGER:add_event(Event({
                 func = function()

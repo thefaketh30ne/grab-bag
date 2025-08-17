@@ -58,23 +58,26 @@ SMODS.Enhancement {
                 end
             }))
             if effect_to_remove == "chips" then
+                SMODS.calculate_context({ cake_effect_eaten = true, chips = card.ability.extra.chips })
                 card.ability.extra.chips = 0
                 return {
                     message = "Chips Eaten!",
                     colour = G.C.CHIPS
-                } 
+                }
             elseif effect_to_remove == "mult" then
+                SMODS.calculate_context({ cake_effect_eaten = true, mult = card.ability.extra.mult })
                 card.ability.extra.mult = 0
                 return {
                     message = "Mult Eaten!",
                     colour = G.C.MULT
-                } 
-            else 
+                }
+            else
+                SMODS.calculate_context({ cake_effect_eaten = true, xmult = card.ability.extra.xmult })
                 card.ability.extra.xmult = 1
                 return {
                     message = "XMult Eaten!",
                     colour = G.C.MULT
-                } 
+                }
             end
         end
     end,
