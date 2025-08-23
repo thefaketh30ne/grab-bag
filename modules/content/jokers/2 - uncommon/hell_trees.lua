@@ -5,7 +5,7 @@ SMODS.Joker{
 		text = {
             "Create an {V:1}Ephemeral{} card",
             "when a hand is drawn",
-            "with {C:attention}no hands remaining{}"
+            "with {C:attention}1 hand remaining{}"
 		}
     },
 	rarity = 2,

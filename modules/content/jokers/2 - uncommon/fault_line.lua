@@ -16,6 +16,7 @@ SMODS.Joker {
 	pos = { x = 2, y = 6 },
 	cost = 6,
 	blueprint_compat = true,
+    enhancement_gate = "m_stone",
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)

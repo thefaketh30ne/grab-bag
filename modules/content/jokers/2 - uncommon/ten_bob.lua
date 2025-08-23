@@ -3,8 +3,9 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Ten Bob',
 		text = {
-            "At end of round, set {C:attention}sell value",
-            "of a random held Joker to {C:money}$#1#{}",
+            "When {C:attention}Blind{} is selected,",
+            "set {C:attention}sell value{} of",
+            " a random held Joker to {C:money}$#1#{}",
             "If all held Jokers {C:attention}sell{} for {C:money}$#1#{},",
             "earn {C:money}$#1#{} at end of round"
 		}
@@ -29,12 +30,10 @@ SMODS.Joker {
             local valid_targets = {}
             for _, joker in pairs(G.jokers.cards) do
                 if joker.sell_cost ~= card.ability.extra.dollars then
-                    print(joker.sell_cost)
                     valid_targets[#valid_targets + 1] = joker
                 end
             end
             local selected_joker = pseudorandom_element(valid_targets, pseudoseed('gb_ten_bob'))
-            print(selected_joker)
             if selected_joker then
                 selected_joker.sell_cost = 10
                 card:juice_up()

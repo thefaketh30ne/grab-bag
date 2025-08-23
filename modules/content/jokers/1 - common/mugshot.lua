@@ -3,34 +3,32 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Mugshot',
 		text = {
-            "{C:attention}Charge{} cards give {C:mult}+#1#{} Mult",
-            "while held in hand"
+            "{C:attention}Face{} cards give {C:mult}Mult{} equal to",
+            "the rank of a random",
+            "scoring {C:attention}numbered{} card"
 		}
 	},
-	config = { extra = { mult = 10 } },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 6, y = 6 },
 	cost = 4,
 	blueprint_compat = true,
-    enhancement_gate = "m_gb_charge",
-    loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue + 1] = G.P_CENTERS.m_gb_charge
-        return { vars = { card.ability.extra.mult } }
-	end,
 	calculate = function(self, card, context)
         if context.individual
-        and context.cardarea == G.hand
-        and not context.end_of_round
-        and SMODS.has_enhancement(context.other_card, 'm_gb_charge') then
-            if context.other_card.debuff then
+        and context.cardarea == G.play
+        and context.other_card:is_face()
+        and not context.end_of_round then
+            local numbered_cards = {}
+            for _, playing_card in ipairs(content.scoring_hand) do
+                if playing_card:get_id() >= 2
+                and playing_card:get_id() <= 10 then
+                    table.insert(numbered_cards, playing_card)
+                end
+            end
+            if #numbered_cards > 0 then
+                local selected_card = pseudorandom_element(numbered_cards, "gb_mugshot")
                 return {
-                    message = localize('k_debuffed'),
-                    colour = G.C.RED
-                }
-            else
-                return {
-                    mult = card.ability.extra.mult
+                    mult = selected_card.base.nominal
                 }
             end
         end
