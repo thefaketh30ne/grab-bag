@@ -1,3 +1,5 @@
+GB = {}
+
 SMODS.Rarity {
     key = "shattered",
     loc_txt = {name = "Shattered"},
@@ -52,6 +54,33 @@ SMODS.ConsumableType {
     loc_txt = {
         name = "Ephemeral",
         collection = "Ephemeral Cards",
+        undiscovered = {
+            name = "Not Discovered",
+            text = {
+                "Purchase or use",
+                "this card in an",
+                "unseeded run to",
+                "learn what it does"
+            }
+        }
+    }
+}
+
+SMODS.ConsumableType {
+    key = 'Hex',
+    shader = 'spectral',
+    primary_colour = HEX('4f5767'),
+    secondary_colour = HEX('9493aa'),
+    collection_rows = { 7, 6 },
+    default = 'c_gb_evil_eye',
+    -- shop_rate = 0.5,
+	shop_rate = 0,
+    cards = {
+        ['c_gb_evil_eye'] = true,
+        },
+    loc_txt = {
+        name = "Hex",
+        collection = "Hex Cards",
         undiscovered = {
             name = "Not Discovered",
             text = {
@@ -261,6 +290,20 @@ SMODS.Atlas({
 SMODS.Atlas({
 	key = "gb_Suits_HC",
 	path = "Suits_HC.png",
+	px = 71,
+	py = 95,
+})
+
+SMODS.Atlas({
+	key = "gb_HexCards",
+	path = "HexCards.png",
+	px = 71,
+	py = 95,
+})
+
+SMODS.Atlas({
+	key = "gb_Hexes",
+	path = "Hexes.png",
 	px = 71,
 	py = 95,
 })

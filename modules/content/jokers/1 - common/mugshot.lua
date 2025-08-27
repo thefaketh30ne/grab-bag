@@ -19,7 +19,7 @@ SMODS.Joker {
         and context.other_card:is_face()
         and not context.end_of_round then
             local numbered_cards = {}
-            for _, playing_card in ipairs(content.scoring_hand) do
+            for _, playing_card in ipairs(context.scoring_hand) do
                 if playing_card:get_id() >= 2
                 and playing_card:get_id() <= 10 then
                     table.insert(numbered_cards, playing_card)

@@ -57,3 +57,22 @@ function ASPL.FUNC.RequireFolderRecursive(path)
 end
 
 ASPL.FUNC.RequireFolderRecursive("modules")
+
+GB.Hex = SMODS.Sticker:extend {
+    prefix_config = { key = true },
+    should_apply = false,
+    config = {},
+    rate = 0,
+    sets = {
+        Default = true
+    },
+
+    draw = function(self, card)
+        G.shared_stickers[self.key].role.draw_major = card
+        G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil)
+    end,
+
+    apply = function(self, card, val)
+        card.ability[self.key] = val and copy_table(self.config) or nil
+    end
+}

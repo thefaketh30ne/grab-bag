@@ -35,11 +35,6 @@ SMODS.Joker {
                     scalar_value = "xmult_mod",
                     message_colour = G.C.MULT
                 })
-                return {
-                    message = localize('k_upgrade_ex'),
-                    colour = G.C.MULT,
-                    message_card = card,
-                }
             end
         end 
         if context.joker_main then
