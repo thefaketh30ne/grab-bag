@@ -77,55 +77,9 @@ function gb_apply_hex(card_table, hex_key, cards_to_hex)
     if #unhexed_cards > 0 then
         for i = 1, cards_to_hex do
             local hex_index = pseudorandom("gb_hex", 1, #unhexed_cards)
+            card_to_hex = unhexed_cards[hex_index]
             table.remove(unhexed_cards, hex_index)
+            GB.set_hex(card_to_hex, hex_key)
         end
     end
-end
-
-function GB.is_hex(str)
-    for _, v in ipairs(GB.HEX_KEYS) do
-        if 'fmod_' .. v == str then
-            return true
-        end
-    end
-    return false
-end
-
-function GB.has_hex(card)
-    for k, v in pairs(card and card.ability or {}) do
-        if GB.is_hex(k) then
-            return k, v
-        end
-    end
-end
-
-function GB.set_hex(card, hex)
-    local key = 'fmod_' .. hex .. '_hex'
-    if card and GB.is_hex(key) then
-        -- remove existing hexes before applying
-        for k, _ in pairs(card.ability) do
-            if GB.is_hex(k) then
-                card.ability[k] = nil
-            end
-        end
-
-        SMODS.Stickers[key]:apply(card, true)
-    end
-end
-
-function GB.marking_tooltip(hex)
-    local key = 'fmod_' .. hex .. '_hex'
-    local hex_key = SMODS.Stickers[key]
-    local vars = {}
-    if not hex_key then return end
-    if hex_key.loc_vars then
-        local dummy_card = { ability = {} }
-        hex_key:apply(dummy_card, true)
-        vars = hex_key:loc_vars({}, dummy_card).vars
-    end
-    return {
-        set = 'Other',
-        key = key,
-        vars = vars
-    }
 end

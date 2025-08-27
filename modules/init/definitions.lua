@@ -1,5 +1,3 @@
-GB = {}
-
 SMODS.Rarity {
     key = "shattered",
     loc_txt = {name = "Shattered"},
