@@ -10,15 +10,15 @@ SMODS.Consumable {
             "in {C:attention}full deck{} become {C:attention}#2#"
         }
     },
-    config = {extra = { mod_conv = 'm_gb_ripple', hex_to_apply = "egoistic"}},
+    config = { extra = { mod_conv = 'm_gb_ripple', hex_to_apply = "egoistic"} },
     atlas = 'gb_HexCards',
     pos = { x = 1, y = 1 },
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue + 1] = G.P_CENTERS[card.config.extra.mod_conv]
-        info_queue[#info_queue + 1] = GB.hex_tooltip(card.config.extra.hex_to_apply)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.mod_conv]
+        info_queue[#info_queue + 1] = GB.hex_tooltip(card.ability.extra.hex_to_apply)
         return { vars = { 
-            localize { type = 'name_text', set = 'Enhanced', key = card.config.extra.mod_conv },
-            localize { type = 'name_text', set = 'Hex', key = "gb_" .. card.config.extra.hex_to_apply .. "_hex" },
+            localize { type = 'name_text', set = 'Enhanced', key = card.ability.extra.mod_conv },
+            localize { type = 'name_text', set = 'Hex', key = "gb_" .. card.ability.extra.hex_to_apply .. "_hex" },
         } }
     end,
     use = function(self, card, area, copier)
@@ -50,7 +50,7 @@ SMODS.Consumable {
                 trigger = 'after',
                 delay = 0.1,
                 func = function()
-                    G.hand.highlighted[i]:set_ability(G.P_CENTERS[card.config.extra.mod_conv])
+                    G.hand.highlighted[i]:set_ability(G.P_CENTERS[card.conabilityfig.extra.mod_conv])
                     return true
                 end
             }))
@@ -76,7 +76,7 @@ SMODS.Consumable {
                 return true
             end
         }))
-        gb_apply_hex(G.deck.cards, card.config.extra.hex_to_apply, #G.hand.highlighted)
+        gb_apply_hex(G.deck.cards, card.ability.extra.hex_to_apply, #G.hand.highlighted)
         delay(0.5)
     end,
     can_use = function(self, card)
