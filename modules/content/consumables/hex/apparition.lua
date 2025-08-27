@@ -1,18 +1,18 @@
 SMODS.Consumable {
-    key = "conceit",
+    key = "apparition",
     set = "Hex",
     loc_txt = {
-        name = 'Conceit',
+        name = 'Apparition',
         text = {
             "Selected cards",
-            "become {C:attention}Ripple{} cards",
+            "become {C:attention}Macabre{} cards",
             "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Egoistic"
+            "in {C:attention}full deck{} become {C:attention}Haunted"
         }
     },
-    config = { extra = { mod_conv = 'm_gb_ripple', hex_to_apply = "egoistic" } },
+    config = { extra = { mod_conv = 'm_gb_macabre', hex_to_apply = "haunted" } },
     atlas = 'gb_HexCards',
-    pos = { x = 1, y = 1 },
+    pos = { x = 4, y = 0 },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.mod_conv]
         info_queue[#info_queue + 1] = GB.hex_tooltip(card.ability.extra.hex_to_apply)

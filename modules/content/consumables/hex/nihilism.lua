@@ -1,18 +1,18 @@
 SMODS.Consumable {
-    key = "conceit",
+    key = "nihilism",
     set = "Hex",
     loc_txt = {
-        name = 'Conceit',
+        name = 'Nihilism',
         text = {
             "Selected cards",
-            "become {C:attention}Ripple{} cards",
+            "become {C:attention}Ashen{} cards",
             "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Egoistic"
+            "in {C:attention}full deck{} become {C:attention}Cowardly"
         }
     },
-    config = { extra = { mod_conv = 'm_gb_ripple', hex_to_apply = "egoistic" } },
+    config = { extra = { mod_conv = 'm_gb_ashen', hex_to_apply = "cowardly" } },
     atlas = 'gb_HexCards',
-    pos = { x = 1, y = 1 },
+    pos = { x = 6, y = 0 },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.mod_conv]
         info_queue[#info_queue + 1] = GB.hex_tooltip(card.ability.extra.hex_to_apply)

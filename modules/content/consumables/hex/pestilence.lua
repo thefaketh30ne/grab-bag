@@ -1,18 +1,18 @@
 SMODS.Consumable {
-    key = "conceit",
+    key = "pestilence",
     set = "Hex",
     loc_txt = {
-        name = 'Conceit',
+        name = 'Pestilence',
         text = {
             "Selected cards",
-            "become {C:attention}Ripple{} cards",
+            "become {C:attention}Parched{} cards",
             "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Egoistic"
+            "in {C:attention}full deck{} become {C:attention}Decaying"
         }
     },
-    config = { extra = { mod_conv = 'm_gb_ripple', hex_to_apply = "egoistic" } },
+    config = { extra = { mod_conv = 'm_gb_parched', hex_to_apply = "decaying" } },
     atlas = 'gb_HexCards',
-    pos = { x = 1, y = 1 },
+    pos = { x = 2, y = 1 },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.mod_conv]
         info_queue[#info_queue + 1] = GB.hex_tooltip(card.ability.extra.hex_to_apply)

@@ -1,27 +1,26 @@
 SMODS.Enhancement {
-    key = 'ripple',
+    key = 'alloyed',
     loc_txt = {
-		name = 'Ripple Card',
+		name = 'Alloyed Card',
 		text = {
-            "{C:attention}Always scores",
-			"Gains {C:chips}+#1#{} Chips",
+			"Gains {C:mult}+#1#{} Mult",
+            "held in hand",
 			"when played",
 		}
 	},
-    always_scores = true,
     atlas = 'gb_Enhancements',
-    pos = { x = 3, y = 0 },
-    config = { bonus = 0, extra = { chips_mod = 10 } },
+    pos = { x = 4, y = 0 },
+    config = { h_mult = 0, extra = { mult_mod = 10 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips_mod } }
+        return { vars = { card.ability.extra.mult_mod } }
     end,
     calculate = function(self, card, context)    
         if context.before and context.cardarea == G.play then
             SMODS.scale_card(card, {
                 ref_table = card.ability,
-                ref_value = "bonus",
+                ref_value = "h_mult",
                 scalar_table = card.ability.extra,
-                scalar_value = "chips_mod",
+                scalar_value = "mult_mod",
                 message_colour = G.C.SHIPS
             })
         end
