@@ -26,7 +26,7 @@ SMODS.Consumable {
     end,
     
     use = function(self, card, area, copier)
-        local outgoing_joker_key = pseudorandom_element(gb_find_eligible_shatters(), "gb_shatter")
+        local outgoing_joker_key = pseudorandom_element(gb_find_eligible_shatters(), pseudoseed("gb_shatter"))
         local outgoing_joker = SMODS.find_card(outgoing_joker_key)[1]
         -- Find the corresponding shattered joker
         local incoming_joker_key = GB_SHATTERED_TABLE[outgoing_joker_key]

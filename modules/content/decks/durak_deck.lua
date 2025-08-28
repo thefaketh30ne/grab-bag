@@ -23,7 +23,7 @@ SMODS.Back {
                 for _, card_to_remove in ipairs(cards_to_remove) do
                     card_to_remove:remove()
                 end
-                local wild_suit = pseudorandom_element({ 'Spades', 'Hearts', 'Clubs', 'Diamonds' }, 'gb_durak')
+                local wild_suit = pseudorandom_element({ 'Spades', 'Hearts', 'Clubs', 'Diamonds' }, pseudoseed('gb_durak'))
                 for _, playing_card in ipairs(G.playing_cards) do
                     if playing_card:is_suit(wild_suit) then
                         playing_card:set_ability("m_wild", nil, nil)

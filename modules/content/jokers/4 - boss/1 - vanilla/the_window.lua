@@ -60,8 +60,7 @@ function reset_gb_window_card()
             valid_cards[#valid_cards + 1] = playing_card
         end
     end
-    local chosen_card = pseudorandom_element(valid_cards,
-        'gb_window' .. G.GAME.round_resets.ante)
+    local chosen_card = pseudorandom_element(valid_cards, pseudoseed('gb_window' .. G.GAME.round_resets.ante))
     if chosen_card then
         G.GAME.current_round.gb_window_card.suit = chosen_card.base.suit
     end

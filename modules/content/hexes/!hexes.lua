@@ -35,6 +35,15 @@ GB.HEX_KEYS = {
         "cowardly",
         "egoistic",
         "haunted",
+        -- "paranoid",
+        "despot",
+        -- "decaying",
+        -- "ravenous",
+        -- "devoted",
+        -- "obsessive",
+        -- "unstable",
+        -- "inflexible",
+        -- "slothful",
     }
 
 local function hexes_ui()

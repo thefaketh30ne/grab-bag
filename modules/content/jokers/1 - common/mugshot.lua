@@ -26,7 +26,7 @@ SMODS.Joker {
                 end
             end
             if #numbered_cards > 0 then
-                local selected_card = pseudorandom_element(numbered_cards, "gb_mugshot")
+                local selected_card = pseudorandom_element(numbered_cards, pseudoseed("gb_mugshot"))
                 return {
                     mult = selected_card.base.nominal
                 }

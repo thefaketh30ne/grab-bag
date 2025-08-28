@@ -21,7 +21,7 @@ SMODS.Back {
         G.E_MANAGER:add_event(Event({
             func = function()
                 for _, suit in ipairs({"Jack", "Queen", "King"}) do
-                    local chosen_rank = pseudorandom_element(valid_ranks, 'gb_crowded')
+                    local chosen_rank = pseudorandom_element(valid_ranks, pseudoseed('gb_crowded'))
                     table.remove(valid_ranks, chosen_rank - 1)
                     for _, playing_card in ipairs(G.playing_cards) do
                         if playing_card:get_id() == chosen_rank then

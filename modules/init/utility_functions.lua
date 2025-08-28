@@ -83,3 +83,22 @@ function gb_apply_hex(card_table, hex_key, cards_to_hex)
         end
     end
 end
+
+function gb_tally_enhancements(cards, enhancement_key)
+    local tally = 0
+    for _, playing_card in ipairs(cards) do
+        if SMODS.has_enhancement(playing_card, enhancement_key) then
+            tally = tally + 1
+        end
+    end
+    return tally
+end
+
+function gb_contains_enhancement(cards, enhancement_key)
+    for _, playing_card in ipairs(cards) do
+        if SMODS.has_enhancement(playing_card, enhancement_key) then
+            return true
+        end
+    end
+    return false
+end

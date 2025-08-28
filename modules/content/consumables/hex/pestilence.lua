@@ -5,12 +5,12 @@ SMODS.Consumable {
         name = 'Pestilence',
         text = {
             "Selected cards",
-            "become {C:attention}Parched{} cards",
+            "become {C:attention}Rotten{} cards",
             "An equal number of cards",
             "in {C:attention}full deck{} become {C:attention}Decaying"
         }
     },
-    config = { extra = { mod_conv = 'm_gb_parched', hex_to_apply = "decaying" } },
+    config = { extra = { mod_conv = 'm_gb_rotten', hex_to_apply = "decaying" } },
     atlas = 'gb_HexCards',
     pos = { x = 2, y = 1 },
     loc_vars = function(self, info_queue, card)
@@ -72,7 +72,7 @@ SMODS.Consumable {
                 return true
             end
         }))
-        gb_apply_hex(G.deck.cards, card.ability.extra.hex_to_apply, #G.hand.highlighted)
+        gb_apply_hex(G.playing_cards, card.ability.extra.hex_to_apply, #G.hand.highlighted)
         delay(0.5)
     end,
     can_use = function(self, card)

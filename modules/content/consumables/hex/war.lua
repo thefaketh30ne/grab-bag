@@ -72,7 +72,7 @@ SMODS.Consumable {
                 return true
             end
         }))
-        gb_apply_hex(G.deck.cards, card.ability.extra.hex_to_apply, #G.hand.highlighted)
+        gb_apply_hex(G.playing_cards, card.ability.extra.hex_to_apply, #G.hand.highlighted)
         delay(0.5)
     end,
     can_use = function(self, card)

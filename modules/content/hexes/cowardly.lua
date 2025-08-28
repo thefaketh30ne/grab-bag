@@ -6,7 +6,7 @@ GB.Hex {
     loc_txt = {
         name = "Cowardly",
         text = {
-            "Always drawn face down"
+            "Always drawn {C:attention}face down"
         },
         label = "Cowardly",
     },
