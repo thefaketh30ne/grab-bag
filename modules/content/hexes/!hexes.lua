@@ -37,11 +37,11 @@ GB.HEX_KEYS = {
         "haunted",
         -- "paranoid",
         "despot",
-        -- "decaying",
+        "decaying",
         -- "ravenous",
         -- "devoted",
         -- "obsessive",
-        -- "unstable",
+        "unstable",
         -- "inflexible",
         -- "slothful",
     }
@@ -55,7 +55,7 @@ local function hexes_ui()
     end
     return SMODS.card_collection_UIBox(
         hexes,
-        { 5, 5 },
+        { 6, 6 },
         {
             snap_back = true,
             hide_single_page = true,

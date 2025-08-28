@@ -6,13 +6,14 @@ SMODS.Enhancement {
 			"Gains {C:mult}+#1#{} Mult",
             "held in hand",
 			"when played",
+            "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)"
 		}
 	},
     atlas = 'gb_Enhancements',
     pos = { x = 4, y = 0 },
     config = { h_mult = 0, extra = { mult_mod = 10 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.mult_mod } }
+        return { vars = { card.ability.extra.mult_mod, card.ability.h_mult } }
     end,
     calculate = function(self, card, context)    
         if context.before and context.cardarea == G.play then
