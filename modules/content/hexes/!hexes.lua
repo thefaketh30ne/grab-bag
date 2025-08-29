@@ -38,11 +38,11 @@ GB.HEX_KEYS = {
         "paranoid",
         "despot",
         "decaying",
-        -- "ravenous",
-        -- "devoted",
+        "ravenous",
+        "devoted",
         "obsessive",
         "unstable",
-        -- "inflexible",
+        "inflexible",
         "slothful",
     }
 

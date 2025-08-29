@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = "debauchery",
     set = "Hex",
     loc_txt = {
-        name = 'Superstition',
+        name = 'Debauchery',
         text = { {
             "For each selected card,",
             "create a {C:attention}Tag",

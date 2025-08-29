@@ -1,25 +1,20 @@
 SMODS.Consumable {
-    key = "evil_eye",
+    key = "chaos",
     set = "Hex",
     loc_txt = {
-        name = 'Evil Eye',
+        name = 'Chaos',
         text = { {
             "Selected cards gain",
-            "the same random",
-            "{C:attention}Hex Enhancement{}"
+            "a random {C:attention}Hex Enhancement{}",
         },
         {
             "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Paranoid"
+            "in {C:attention}full deck{} gain",
+            "a random {C:attention}Curse"
         } }
     },
-    config = { extra = { hex_to_apply = "paranoid" } },
     atlas = 'gb_HexCards',
-    pos = { x = 0, y = 0 },
-    loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.extra.mod_conv]
-        info_queue[#info_queue + 1] = GB.hex_tooltip(card.ability.extra.hex_to_apply)
-    end,
+    pos = { x = 5, y = 0 },
     use = function(self, card, area, copier)
         local enhancement_keys = {
             "ripple",
@@ -29,8 +24,6 @@ SMODS.Consumable {
             "ashen",
             "alloyed"
         }
-        local chosen_enhancement = pseudorandom_element(enhancement_keys, pseudoseed("gb_evil_eye"))
-        chosen_enhancement = "m_gb_" .. chosen_enhancement
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.4,
@@ -59,6 +52,8 @@ SMODS.Consumable {
                 trigger = 'after',
                 delay = 0.1,
                 func = function()
+                    local chosen_enhancement = pseudorandom_element(enhancement_keys, pseudoseed("gb_chaos"))
+                    chosen_enhancement = "m_gb_" .. chosen_enhancement
                     G.hand.highlighted[i]:set_ability(G.P_CENTERS[chosen_enhancement])
                     return true
                 end
@@ -81,7 +76,13 @@ SMODS.Consumable {
             trigger = 'after',
             delay = 0.2,
             func = function()
-                gb_apply_hex(G.playing_cards, card.ability.extra.hex_to_apply, #G.hand.highlighted)
+                for i = 1, #G.hand.highlighted do
+                    gb_apply_hex(
+                        G.playing_cards,
+                        pseudorandom_element(GB.HEX_KEYS, "gb_chaos_hexes"),
+                        1
+                    )
+                end
                 G.hand:unhighlight_all()
                 return true
             end
