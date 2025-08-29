@@ -9,12 +9,12 @@ SMODS.Enhancement {
 	},
     atlas = 'gb_Enhancements',
     pos = { x = 5, y = 0 },
-    config = { extra = { blind_size = 0.8 } },
+    config = { extra = { blind_size = 0.9 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.blind_size } }
     end,
     calculate = function(self, card, context)    
-        if context.main_scoring and context.cardarea == G.play then
+        if context.before and context.cardarea == G.hand then
             G.GAME.blind.chips = G.GAME.blind.chips * card.ability.extra.blind_size
             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
             play_sound("cancel")

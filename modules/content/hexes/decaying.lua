@@ -13,12 +13,12 @@ GB.Hex {
     },
     config = { extra = { rounds_left = 3 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.rounds_left } }
+        return { vars = { card.ability[self.key].extra.rounds_left } }
     end,
     calculate = function(self, card, context)
-        if context.end_of_round and context.main_eval then
-            card.ability.extra.rounds_left = math.max(0, card.ability.extra.rounds_left - 1)
-            if card.ability.extra.rounds_left <= 0 then
+        if context.end_of_round and context.other_card == card then
+            card.ability[self.key].extra.rounds_left = math.max(0, card.ability[self.key].extra.rounds_left - 1 )
+            if card.ability[self.key].extra.rounds_left <= 0 then
                 card.ability.perma_debuff = true
             end
         end

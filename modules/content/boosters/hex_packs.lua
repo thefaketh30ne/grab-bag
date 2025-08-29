@@ -1,4 +1,4 @@
---[[
+
 SMODS.Booster {
     key = "hex_small_1",
     loc_txt = {
@@ -118,4 +118,3 @@ SMODS.Booster {
         ease_background_colour({ new_colour = HEX('4f5767'), special_colour = HEX("9493aa"), contrast = 2 })
     end
 }
---]]

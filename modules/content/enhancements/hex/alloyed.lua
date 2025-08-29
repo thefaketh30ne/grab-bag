@@ -15,7 +15,7 @@ SMODS.Enhancement {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult_mod, card.ability.h_mult } }
     end,
-    calculate = function(self, card, context)    
+    calculate = function(self, card, context)
         if context.before and context.cardarea == G.play then
             SMODS.scale_card(card, {
                 ref_table = card.ability,
