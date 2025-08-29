@@ -12,7 +12,7 @@ GB.Hex {
             "played {C:attention}poker hand"
 
         },
-        label = "Haunted",
+        label = "Paranoid",
     },
     calculate = function(self, card, context)
         if context.before and context.main_eval then
