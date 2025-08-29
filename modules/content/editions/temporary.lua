@@ -36,7 +36,7 @@ SMODS.Edition {
         end
     end,
     on_remove = function(card)
-        if card.edition.key ~= "e_gb_temporary" then
+        if card.edition and card.edition.key ~= "e_gb_temporary" then
             card:set_edition("e_gb_temporary")
         end
     end,

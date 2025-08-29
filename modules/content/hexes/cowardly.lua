@@ -11,7 +11,9 @@ GB.Hex {
         label = "Cowardly",
     },
     calculate = function(self, card, context)
-        if context.stay_flipped and context.other_card == card then
+        if context.stay_flipped 
+        and context.other_card == card 
+        and context.to_area == G.hand then
             return {
                 stay_flipped = true
             }
