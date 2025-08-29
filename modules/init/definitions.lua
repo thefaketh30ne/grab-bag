@@ -68,7 +68,7 @@ SMODS.ConsumableType {
     key = 'Hex',
     shader = 'spectral',
     primary_colour = HEX('4f5767'),
-    secondary_colour = HEX('9493aa'),
+    secondary_colour = HEX('807ead'),
     collection_rows = { 7, 6 },
     default = 'c_gb_nihilism',
 	shop_rate = 0.5,

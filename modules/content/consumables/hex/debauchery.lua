@@ -5,7 +5,6 @@ SMODS.Consumable {
         name = 'Superstition',
         text = { {
             "For each selected card,",
-            "{C:green}#1# in #2# chance{} to",
             "create a {C:attention}Tag",
         },
         {
@@ -13,26 +12,22 @@ SMODS.Consumable {
             "in {C:attention}full deck{} become {C:attention}Slothful"
         } }
     },
-    config = { extra = { odds = 2, hex_to_apply = "slothful" } },
+    config = { extra = { hex_to_apply = "slothful" } },
     atlas = 'gb_HexCards',
     pos = { x = 0, y = 1 },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = GB.hex_tooltip(card.ability.extra.hex_to_apply)
-        local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
-		return { vars = { new_numerator, new_denominator } }
     end,
     use = function(self, card, area, copier)
         for i = 1, #G.hand.highlighted do
-            if SMODS.pseudorandom_probability(card, 'debauchery', 1, card.ability.extra.odds) then
-                local tag_pool = get_current_pool('Tag')
-                local selected_tag = pseudorandom_element(tag_pool, pseudoseed('gb_memphis'))
-                local it = 1
-                while selected_tag == 'UNAVAILABLE' do
-                    it = it + 1
-                    selected_tag = pseudorandom_element(tag_pool, pseudoseed('gb_memphis' .. it))
-                end
-                add_tag(Tag(selected_tag, false, 'Small'))
+            local tag_pool = get_current_pool('Tag')
+            local selected_tag = pseudorandom_element(tag_pool, pseudoseed('gb_memphis'))
+            local it = 1
+            while selected_tag == 'UNAVAILABLE' do
+                it = it + 1
+                selected_tag = pseudorandom_element(tag_pool, pseudoseed('gb_memphis' .. it))
             end
+            add_tag(Tag(selected_tag, false, 'Small'))
         end
         G.E_MANAGER:add_event(Event({
             trigger = 'after',

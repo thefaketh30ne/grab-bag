@@ -35,7 +35,7 @@ GB.HEX_KEYS = {
         "cowardly",
         "egoistic",
         "haunted",
-        -- "paranoid",
+        "paranoid",
         "despot",
         "decaying",
         -- "ravenous",
@@ -118,6 +118,14 @@ function GB.get_hex(card)
             return k, v
         end
     end
+end
+
+function GB.has_hex(card, key)
+    local hex_key, _ = GB.get_hex(card)
+    if hex_key == "gb_" .. key .. "_hex" then
+        return true
+    end
+    return false
 end
 
 function GB.set_hex(card, hex)
