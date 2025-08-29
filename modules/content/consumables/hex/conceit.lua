@@ -68,11 +68,11 @@ SMODS.Consumable {
             trigger = 'after',
             delay = 0.2,
             func = function()
+                gb_apply_hex(G.playing_cards, card.ability.extra.hex_to_apply, #G.hand.highlighted)
                 G.hand:unhighlight_all()
                 return true
             end
         }))
-        gb_apply_hex(G.playing_cards, card.ability.extra.hex_to_apply, #G.hand.highlighted)
         delay(0.5)
     end,
     can_use = function(self, card)

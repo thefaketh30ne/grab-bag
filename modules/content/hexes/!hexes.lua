@@ -40,7 +40,7 @@ GB.HEX_KEYS = {
         "decaying",
         -- "ravenous",
         -- "devoted",
-        -- "obsessive",
+        "obsessive",
         "unstable",
         -- "inflexible",
         -- "slothful",
@@ -112,7 +112,7 @@ function GB.is_hex(str)
     return false
 end
 
-function GB.has_hex(card)
+function GB.get_hex(card)
     for k, v in pairs(card and card.ability or {}) do
         if GB.is_hex(k) then
             return k, v

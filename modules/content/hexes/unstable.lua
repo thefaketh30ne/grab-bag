@@ -17,7 +17,7 @@ GB.Hex {
         if context.hand_drawn or context.other_drawn then
             local tally = 0
             for _, playing_card in ipairs(G.hand.cards) do
-                local hex_key, _ = GB.has_hex(playing_card)
+                local hex_key, _ = GB.get_hex(playing_card)
                 if hex_key == "gb_unstable_hex" then
                     tally = tally + 1
                 end
