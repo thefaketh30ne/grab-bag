@@ -3,12 +3,14 @@ SMODS.Consumable {
     set = "Hex",
     loc_txt = {
         name = 'Apparition',
-        text = {
+        text = { {
             "Selected cards",
             "become {C:attention}Macabre{} cards",
+        },
+        {
             "An equal number of cards",
             "in {C:attention}full deck{} become {C:attention}Haunted"
-        }
+        } }
     },
     config = { extra = { mod_conv = 'm_gb_macabre', hex_to_apply = "haunted" } },
     atlas = 'gb_HexCards',

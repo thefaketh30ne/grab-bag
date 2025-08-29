@@ -3,12 +3,14 @@ SMODS.Consumable {
     set = "Hex",
     loc_txt = {
         name = 'Conceit',
-        text = {
+        text = { {
             "Selected cards",
-            "become {C:attention}Ripple{} cards",
+            "become {C:attention}Ripple{} cards"
+        },
+        {
             "An equal number of cards",
             "in {C:attention}full deck{} become {C:attention}Egoistic"
-        }
+        } }
     },
     config = { extra = { mod_conv = 'm_gb_ripple', hex_to_apply = "egoistic" } },
     atlas = 'gb_HexCards',

@@ -3,12 +3,14 @@ SMODS.Consumable {
     set = "Hex",
     loc_txt = {
         name = 'War',
-        text = {
+        text = { {
             "Selected cards",
             "become {C:attention}Alloyed{} cards",
+        },
+        {
             "An equal number of cards",
             "in {C:attention}full deck{} become {C:attention}Unstable"
-        }
+        } }
     },
     config = { extra = { mod_conv = 'm_gb_alloyed', hex_to_apply = "unstable" } },
     atlas = 'gb_HexCards',

@@ -3,12 +3,14 @@ SMODS.Consumable {
     set = "Hex",
     loc_txt = {
         name = 'Tyranny',
-        text = {
+        text = { {
             "Selected cards",
             "become {C:attention}Chained{} cards",
+        },
+        {
             "An equal number of cards",
             "in {C:attention}full deck{} become {C:attention}Despot"
-        }
+        } }
     },
     config = { extra = { mod_conv = 'm_gb_chained', hex_to_apply = "despot" } },
     atlas = 'gb_HexCards',

@@ -3,12 +3,14 @@ SMODS.Consumable {
     set = "Hex",
     loc_txt = {
         name = 'Pestilence',
-        text = {
+        text = { {
             "Selected cards",
             "become {C:attention}Rotten{} cards",
+        },
+        {
             "An equal number of cards",
             "in {C:attention}full deck{} become {C:attention}Decaying"
-        }
+        } }
     },
     config = { extra = { mod_conv = 'm_gb_rotten', hex_to_apply = "decaying" } },
     atlas = 'gb_HexCards',

@@ -43,7 +43,7 @@ GB.HEX_KEYS = {
         "obsessive",
         "unstable",
         -- "inflexible",
-        -- "slothful",
+        "slothful",
     }
 
 local function hexes_ui()
