@@ -12,7 +12,12 @@ pattern = '''blind_name_dynatext:pop_out(2)'''
 position = "after"
 payload = '''
 G.GAME.GB_DEFEATED_BLINDS = G.GAME.GB_DEFEATED_BLINDS or {}
-G.GAME.GB_DEFEATED_BLINDS[self.config.blind.key] = true
+G.GAME.GB_DEFEATED_BLIND_COUNT = G.GAME.GB_DEFEATED_BLIND_COUNT or 0
+if self.config.blind.key ~= "bl_small"
+and self.config.blind.key ~= "bl_big" then
+    G.GAME.GB_DEFEATED_BLINDS[self.config.blind.key] = true
+    G.GAME.GB_DEFEATED_BLIND_COUNT = G.GAME.GB_DEFEATED_BLIND_COUNT + 1
+end
 '''
 
 # lance patch 1/2
@@ -57,4 +62,6 @@ match_indent = true
 pattern = '''G.GAME.round_resets.blind_states.Boss = 'Defeated''''
 position = "after"
 payload = '''G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE = 0'''
+
+
 

@@ -12,7 +12,7 @@ SMODS.Joker {
 	config = { extra = { fail_increase = 1, current_increase = 0 } },
 	rarity = 2,
 	atlas = 'gb_Jokers',
-	pos = { x = 8, y = 6 },
+	pos = { x = 0, y = 7 },
 	cost = 7,
 	blueprint_compat = false,
     loc_vars = function(self, info_queue, card)
@@ -36,7 +36,12 @@ SMODS.Joker {
                     colour = G.C.GREEN
                 }
             else
-                card.ability.extra.current_increase = card.ability.extra.current_increase + card.ability.extra.fail_increase
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "current_increase",
+                    scalar_value = "fail_increase",
+                    message_colour = G.C.GREEN
+                })
             end
         end
     end

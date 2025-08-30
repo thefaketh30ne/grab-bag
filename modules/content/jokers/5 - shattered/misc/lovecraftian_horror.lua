@@ -28,10 +28,13 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.discard then
             if SMODS.pseudorandom_probability(card, 'gb_lovecraftian_horror', 1, card.ability.extra.odds) then
-                card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "xmult",
+                    scalar_value = "xmult_mod",
+                    message_colour = G.C.MULT
+                })
                 return {
-                    message = localize('k_upgrade_ex'),
-                    colour = G.C.MULT,
                     remove = true
                 }
             end

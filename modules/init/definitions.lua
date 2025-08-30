@@ -1,7 +1,7 @@
 SMODS.Rarity {
     key = "shattered",
     loc_txt = {name = "Shattered"},
-    badge_colour = HEX("673E79")
+    badge_colour = HEX("834896")
 }
 
 SMODS.Rarity {
@@ -9,7 +9,14 @@ SMODS.Rarity {
     loc_txt = {name = "Boss"},
     badge_colour = HEX("EFC03C"),
 	pools = { ["Joker"] = { rate = 0.02 } },
-    default_weight = 0.02
+    default_weight = 0.02,
+	get_weight = function(self, weight, object_type)
+		if G.GAME.GB_DEFEATED_BLINDS and G.GAME.GB_DEFEATED_BLIND_COUNT >= 1 then
+			return 0.02
+		else
+			return 0
+		end
+	end
 }
 
 SMODS.ConsumableType {
@@ -57,6 +64,37 @@ SMODS.ConsumableType {
     }
 }
 
+SMODS.ConsumableType {
+    key = 'Hex',
+    shader = 'spectral',
+    primary_colour = HEX('4f5767'),
+    secondary_colour = HEX('807ead'),
+    collection_rows = { 7, 6 },
+    default = 'c_gb_nihilism',
+	shop_rate = 0.5,
+    cards = {
+        ['c_gb_apparition'] = true,
+		['c_gb_conceit'] = true,
+		['c_gb_nihilism'] = true,
+		['c_gb_pestilence'] = true,
+		['c_gb_tyranny'] = true,
+		['c_gb_war'] = true,
+        },
+    loc_txt = {
+        name = "Hex",
+        collection = "Hex Cards",
+        undiscovered = {
+            name = "Not Discovered",
+            text = {
+                "Purchase or use",
+                "this card in an",
+                "unseeded run to",
+                "learn what it does"
+            }
+        }
+    }
+}
+
 SMODS.Suit {
 	key = 'Eyes',
 	card_key = 'EYES',
@@ -73,7 +111,7 @@ SMODS.Suit {
 	ui_pos = { x = 0, y = 0 },
 
 	in_pool = function(self, args)
-		return false
+		return gb_is_suit_in_deck("gb_Eyes")
 	end
 }
 
@@ -168,15 +206,15 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-	key = "gb_Cards",
-	path = "Cards.png",
+	key = "gb_Consumables",
+	path = "Consumables.png",
 	px = 71,
 	py = 95
 }
 
 SMODS.Atlas {
-	key = "gb_Consumables",
-	path = "Consumables.png",
+	key = "gb_Decks",
+	path = "Decks.png",
 	px = 71,
 	py = 95
 }
@@ -198,6 +236,13 @@ SMODS.Atlas {
 SMODS.Atlas {
 	key = "gb_Jokers",
 	path = "Jokers.png",
+	px = 71,
+	py = 95
+}
+
+SMODS.Atlas {
+	key = "gb_Seals",
+	path = "Seals.png",
 	px = 71,
 	py = 95
 }
@@ -247,6 +292,20 @@ SMODS.Atlas({
 SMODS.Atlas({
 	key = "gb_Suits_HC",
 	path = "Suits_HC.png",
+	px = 71,
+	py = 95,
+})
+
+SMODS.Atlas({
+	key = "gb_HexCards",
+	path = "HexCards.png",
+	px = 71,
+	py = 95,
+})
+
+SMODS.Atlas({
+	key = "gb_Hexes",
+	path = "Hexes.png",
 	px = 71,
 	py = 95,
 })

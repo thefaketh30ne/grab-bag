@@ -63,8 +63,7 @@ function reset_gb_goad_card()
             valid_cards[#valid_cards + 1] = playing_card
         end
     end
-    local chosen_card = pseudorandom_element(valid_cards,
-        'gb_goad' .. G.GAME.round_resets.ante)
+    local chosen_card = pseudorandom_element(valid_cards, pseudoseed('gb_goad' .. G.GAME.round_resets.ante))
     if chosen_card then
         G.GAME.current_round.gb_goad_card.suit = chosen_card.base.suit
     end

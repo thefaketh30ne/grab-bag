@@ -24,7 +24,12 @@ SMODS.Joker {
             }
         end
         if context.end_of_round and not context.blueprint then
-            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
+            SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "xmult",
+                    scalar_value = "xmult_mod",
+                    no_message = true
+                })
             if card.ability.extra.xmult > card.ability.extra.xmult_limit then
                 card.ability.extra.xmult = 1
                 return {

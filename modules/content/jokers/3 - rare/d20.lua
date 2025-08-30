@@ -24,14 +24,13 @@ SMODS.Joker {
 			    if SMODS.pseudorandom_probability(card, 'gb_d20', G.GAME.probabilities.normal, card.ability.extra.odds) then
                     local valid_keys = {}
                     for _, enhancement_center in pairs(G.P_CENTER_POOLS["Enhanced"]) do
-                        if enhancement_center.key ~= 'm_stone' and not enhancement_center.overrides_base_rank then
+                        if enhancement_center.key ~= 'm_stone' 
+                        and (enhancement_center.in_pool() or true) then
                             valid_keys[#valid_keys + 1] = enhancement_center.key
                         end
                     end
                     playing_card:set_ability(
-                        pseudorandom_element(valid_keys, pseudoseed('d20')),
-                        nil,
-                        nil
+                        pseudorandom_element(valid_keys, pseudoseed('d20'))
                     )
                     playing_card:juice_up()
                     return {

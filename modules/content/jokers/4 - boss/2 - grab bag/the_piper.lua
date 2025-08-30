@@ -31,6 +31,7 @@ SMODS.Joker{
             if not SMODS.has_no_rank(context.destroy_card)
             and context.destroy_card.base.nominal
             and context.destroy_card.base.nominal > 0 then
+                context.destroy_card.getting_sliced = true
                 return {
                     remove = true,
                     dollars = math.floor(context.destroy_card.base.nominal / 3)

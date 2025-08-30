@@ -40,7 +40,7 @@ function reroll_gb_wanted_rank()
             valid_cards[#valid_cards + 1] = playing_card
         end
     end
-    local chosen_card = pseudorandom_element(valid_cards, 'gb_wanted' .. G.GAME.round_resets.ante)
+    local chosen_card = pseudorandom_element(valid_cards, pseudoseed('gb_wanted' .. G.GAME.round_resets.ante))
     if chosen_card then
         returned_rank = chosen_card.base.value
         returned_id = chosen_card.base.id

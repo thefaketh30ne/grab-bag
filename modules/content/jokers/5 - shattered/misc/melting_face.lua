@@ -8,7 +8,7 @@ SMODS.Joker {
             "for every scoring {C:attention}face{} card",
 		}
 	},
-	config = { extra = { mult = 2, chips = 15, faces = 0} },
+	config = { extra = { mult = 2, chips = 15, faces = 0 } },
 	blueprint_compat = true,
 	atlas = 'gb_ShatteredJokers',
 	pos = { x = 6, y = 0 },

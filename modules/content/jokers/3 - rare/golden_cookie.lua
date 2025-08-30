@@ -25,7 +25,13 @@ SMODS.Joker {
             }
         end
         if context.after and not context.blueprint then
-            card.ability.extra.xmult = card.ability.extra.xmult - card.ability.extra.xmult_mod
+            SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "xmult",
+                    scalar_value = "xmult_mod",
+                    operation = "-",
+                    no_message = true
+                })
             if card.ability.extra.xmult <= 1 then
                 G.E_MANAGER:add_event(Event({
                     func = function()

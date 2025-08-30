@@ -3,9 +3,9 @@ SMODS.Joker{
     loc_txt = {
         name = 'Hell Trees',
 		text = {
-            "Create an {V:1}Ephemeral Card{}",
+            "Create an {V:1}Ephemeral{} card",
             "when a hand is drawn",
-            "with {C:attention}no hands remaining{}"
+            "with {C:attention}1 hand remaining{}"
 		}
     },
 	rarity = 2,
@@ -13,7 +13,7 @@ SMODS.Joker{
 	pos = { x = 6, y = 2 },
 	cost = 6,
 	blueprint_compat = true,
-        loc_vars = function(self, info_queue, card)
+    loc_vars = function(self, info_queue, card)
         return {
             vars = {
                 colours = { HEX("8EA4B3") }

@@ -29,12 +29,12 @@ SMODS.Joker {
             card.ability.extra.card_to_destroy = nil
             if SMODS.pseudorandom_probability(card, 'gb_hadal_zone', 1, 2) then
                 card.ability.extra.card_to_destroy = pseudorandom_element(context.scoring_hand, pseudoseed('gb_hadal_zone'))
-                card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
-                return {
-                    message = localize('k_upgrade_ex'),
-                    colour = G.C.MULT,
-                    message_card = card,
-                }
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "xmult",
+                    scalar_value = "xmult_mod",
+                    message_colour = G.C.MULT
+                })
             end
         end 
         if context.joker_main then

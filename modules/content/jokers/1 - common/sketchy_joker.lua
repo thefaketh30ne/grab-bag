@@ -19,41 +19,23 @@ SMODS.Joker {
         return { vars = { card.ability.extra.chips_mod, card.ability.extra.chips, card.ability.extra.draw_tally, card.ability.extra.draws } }
 	end,
 	calculate = function(self, card, context)
-		if context.hand_drawn then
-			local upgraded = false
-			for _, playing_card in ipairs(context.hand_drawn) do
+		if context.hand_drawn
+		or context.other_drawn
+		and not context.blueprint then
+			for _, playing_card in ipairs(context.hand_drawn or context.other_drawn) do
 				card.ability.extra.draw_tally = card.ability.extra.draw_tally + 1
 				if card.ability.extra.draw_tally >= card.ability.extra.draws then
-					card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
+					SMODS.scale_card(card, {
+                		ref_table = card.ability.extra,
+                		ref_value = "chips",
+                		scalar_value = "chips_mod",
+                		message_colour = G.C.CHIPS
+            		})
 					card.ability.extra.draw_tally = card.ability.extra.draw_tally - card.ability.extra.draws
-					upgraded = true
 				end
 			end
-			if upgraded == true then
-				return {
-					message = localize('k_upgrade_ex'),
-                	colour = G.C.CHIPS
-				}
-			end
 		end
-		if context.other_drawn then
-			local upgraded = false
-			for _, playing_card in ipairs(context.other_drawn) do
-				card.ability.extra.draw_tally = card.ability.extra.draw_tally + 1
-				if card.ability.extra.draw_tally >= card.ability.extra.draws then
-					card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_mod
-					card.ability.extra.draw_tally = card.ability.extra.draw_tally - card.ability.extra.draws
-					upgraded = true
-				end
-			end
-			if upgraded == true then
-				return {
-					message = localize('k_upgrade_ex'),
-                	colour = G.C.CHIPS
-				}
-			end
-		end
-		if context.joker_main then
+		if context.joker_main then 
 			return {
 				chips = card.ability.extra.chips
 			}

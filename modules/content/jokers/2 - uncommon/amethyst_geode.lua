@@ -27,6 +27,6 @@ SMODS.Joker {
     end,
 
     in_pool = function(self, args)
-        return gb_is_suit_in_deck(suit_key)
+        return gb_is_suit_in_deck("gb_Eyes")
     end
 }

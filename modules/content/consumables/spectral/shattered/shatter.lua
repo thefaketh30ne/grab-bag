@@ -4,7 +4,7 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Shatter',
         text = {
-            "{C:attention}Shatters{} one random",
+            "{V:1}Shatters{} one random",
             "{C:attention}eligible{} Joker",
         }
     },
@@ -14,7 +14,7 @@ SMODS.Consumable {
     atlas = 'gb_Consumables',
     pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue, card)
-        return { vars = { colours = { HEX("6A4C77") } } }
+        return { vars = { colours = { HEX("834896") } } }
     end,
 
     can_use = function(self, card)
@@ -26,7 +26,7 @@ SMODS.Consumable {
     end,
     
     use = function(self, card, area, copier)
-        local outgoing_joker_key = pseudorandom_element(gb_find_eligible_shatters(), "gb_shatter")
+        local outgoing_joker_key = pseudorandom_element(gb_find_eligible_shatters(), pseudoseed("gb_shatter"))
         local outgoing_joker = SMODS.find_card(outgoing_joker_key)[1]
         -- Find the corresponding shattered joker
         local incoming_joker_key = GB_SHATTERED_TABLE[outgoing_joker_key]

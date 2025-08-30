@@ -12,7 +12,6 @@ ASPL.FUNC = {}
 ASPL.G = {}
 
 GB = {}
-GB.G = {}
 
 ASPL.G.MODPATH = SMODS.current_mod.path
 local NFS = require("nativefs")

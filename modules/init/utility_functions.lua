@@ -61,10 +61,46 @@ end
 
 function gb_find_eligible_shatters()
     local eligible_jokers = {}
-    for _, joker in ipairs(G.jokers.cards) do
-        if GB_SHATTERED_TABLE[joker.config.center.key] then
-            eligible_jokers[#eligible_jokers + 1] = joker.config.center.key
+    if G.jokers and G.jokers.cards then
+        for _, joker in ipairs(G.jokers.cards) do
+            if GB_SHATTERED_TABLE[joker.config.center.key] then
+                eligible_jokers[#eligible_jokers + 1] = joker.config.center.key
+            end
         end
     end
     return eligible_jokers
+end
+
+function gb_apply_hex(card_table, hex_key, cards_to_hex)
+    local unhexed_cards = {}
+    for _, playing_card in ipairs(card_table) do
+        table.insert(unhexed_cards, playing_card)
+    end
+    if #unhexed_cards > 0 then
+        for i = 1, cards_to_hex do
+            local hex_index = pseudorandom("gb_hex", 1, #unhexed_cards)
+            card_to_hex = unhexed_cards[hex_index]
+            table.remove(unhexed_cards, hex_index)
+            GB.set_hex(card_to_hex, hex_key)
+        end
+    end
+end
+
+function gb_tally_enhancements(cards, enhancement_key)
+    local tally = 0
+    for _, playing_card in ipairs(cards) do
+        if SMODS.has_enhancement(playing_card, enhancement_key) then
+            tally = tally + 1
+        end
+    end
+    return tally
+end
+
+function gb_contains_enhancement(cards, enhancement_key)
+    for _, playing_card in ipairs(cards) do
+        if SMODS.has_enhancement(playing_card, enhancement_key) then
+            return true
+        end
+    end
+    return false
 end

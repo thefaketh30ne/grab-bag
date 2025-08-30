@@ -30,11 +30,12 @@ SMODS.Joker {
             end
 			if tally >= 2 then
 				card.ability.extra.activates = true
-				card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
-				return {
-					message = localize('k_upgrade_ex'),
-                	colour = G.C.MULT
-				}
+				SMODS.scale_card(card, {
+                	ref_table = card.ability.extra,
+                	ref_value = "xmult",
+                	scalar_value = "xmult_mod",
+                	message_colour = G.C.MULT
+            	})
 			end
 		end
         if context.joker_main then
