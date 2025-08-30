@@ -9,7 +9,7 @@
 	"badge_colour": "834896",
 	"badge_text_colour": "EE8FDC",
 	"display_name": "Grab Bag",
-	"version": "0.8.30rc1",
+	"version": "0.8.31p1",
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-0827)" 
 	]
