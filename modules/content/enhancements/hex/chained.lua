@@ -5,7 +5,7 @@ SMODS.Enhancement {
 		text = {
 			"{C:chips}+#1#{} Chips for every",
             "{C:attention}Chained{} card in {C:attention}full deck",
-            "{C:inactive}(Currently{C:chips}+#1#{C:inactive} Chips)"
+            "{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
 		}
 	},
     atlas = 'gb_Enhancements',
