@@ -185,6 +185,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
 	reset_gb_head_card()
 	reset_gb_club_card()
 	reset_gb_window_card()
+	reset_gb_black_book_rank()
 end
 
 -- atlas definitions
