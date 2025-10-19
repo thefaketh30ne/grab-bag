@@ -12,7 +12,11 @@ SMODS.Enhancement {
     pos = { x = 1, y = 0 },
     config = { bonus = 0, extra = { chips_mod = 20 } },
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.chips_mod, card.ability.extra.chips_mod * gb_tally_enhancements(G.playing_cards, "m_gb_chained") } }
+        if G.playing_cards then
+            return { vars = { card.ability.extra.chips_mod, card.ability.extra.chips_mod * gb_tally_enhancements(G.playing_cards, "m_gb_chained") } }
+        else
+            return { vars = { card.ability.extra.chips_mod, 0 } }
+        end
     end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play then
