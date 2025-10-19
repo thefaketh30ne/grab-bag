@@ -37,7 +37,7 @@ payload = '''G.hand.highlighted[i].ability.discarded_this_ante = true'''
 target = "functions/state_events.lua"
 match_indent = true
 pattern = '''v.ability.played_this_ante = nil'''
-position = "after"
+position = "before"
 payload = '''v.ability.discarded_this_ante = nil'''
 
 # shame patch 1/2
