@@ -4,10 +4,10 @@ SMODS.Joker {
 		name = 'Counterfeit Joker',
 		text = {
 			"Gives {C:mult}+#1#{} Mult,",
-			"lose {C:red}-$#2#{} at end of round",
+			"lose {C:red}$#2#{} at end of round",
 		}
 	},
-	config = { extra = { mult = 15, money = 1 } },
+	config = { extra = { mult = 15, money = 2 } },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 2, y = 2 },
