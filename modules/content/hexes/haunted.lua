@@ -27,7 +27,7 @@ GB.Hex {
                 G.deck.config.card_limit = G.deck.config.card_limit + 1
                 table.insert(G.playing_cards, copy_card)
                 G.deck:emplace(copy_card)
-                copy_card:start_materialize(nil, _first_dissolve)
+                copy_card:start_materialize(nil, first_dissolve)
                 first_dissolve = true
                 new_cards[#new_cards + 1] = copy_card
                 SMODS.calculate_context({ playing_card_added = true, cards = new_cards })
