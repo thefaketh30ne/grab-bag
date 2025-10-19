@@ -21,7 +21,7 @@ SMODS.Blind {
         end
         if not blind.disabled
         and context.selling_card
-        and context.card.ability.set == 'Joker' 
+        and context.card.ability.set == 'Joker'
         and to_big(G.GAME.blind.chips) > to_big(self.config.extra.base_blind_chips * 2) then
             G.GAME.blind.chips = G.GAME.blind.chips - self.config.extra.base_blind_chips * 2
             G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)

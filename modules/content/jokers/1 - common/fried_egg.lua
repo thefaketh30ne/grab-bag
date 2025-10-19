@@ -21,7 +21,7 @@ SMODS.Joker {
         return card.ability.extra.dollars
     end,
     calculate = function(self, card, context)
-        if context.gb_selling_joker then
+        if context.selling_card and context.card.ability.set == 'Joker' then
             SMODS.scale_card(card, {
                 ref_table = card.ability.extra,
                 ref_value = "dollars",
@@ -53,9 +53,9 @@ SMODS.Joker {
                     message = 'Eaten!',
                     colour = G.C.FILTER
                 }
-            else     
+            else
                 return {
-                    message = '$' .. card.ability.extra.dollars,
+                    message = 'Downgraded!',
                     colour = G.C.FILTER
                 }
             end

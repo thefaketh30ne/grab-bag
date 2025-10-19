@@ -36,19 +36,3 @@ position = "after"
 payload = '''
 SMODS.calculate_context{cashed_out = true, cashout_dollars = G.GAME.current_round.dollars}
 '''
-
-# fried egg
-
-[[patches]]
-[patches.pattern]
-target = "card.lua"
-match_indent = true
-pattern = '''G.CONTROLLER.locks.selling_card = true'''
-position = "after"
-payload = '''
-for i=1, #G.jokers.cards do
-  if self.ability.set == 'Joker' then
-    eval_card(G.jokers.cards[i], {gb_selling_joker = true})
-  end
-end
-'''
