@@ -18,7 +18,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
         if context.joker_main then
-            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+            if #G.consumeables.cards == 0 then
 			    return {
                     xmult = card.ability.extra.xmult
                 }
