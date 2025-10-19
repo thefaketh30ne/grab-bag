@@ -44,7 +44,7 @@ SMODS.Joker {
             else
                 return {
                     message = "Bust!",
-                    colour - G.C.FILTER
+                    colour = G.C.FILTER
                 }
             end
         end

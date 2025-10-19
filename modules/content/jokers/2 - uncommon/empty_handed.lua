@@ -4,7 +4,7 @@ SMODS.Joker {
 		name = 'Empty Handed',
 		text = {
             "{X:mult,C:white}X#1#{} Mult if all",
-			"consumable slots are empty"
+			"consumable slots are {C:attention}empty"
 		}
 	},
 	config = { extra = { xmult = 2 } },

@@ -4,7 +4,7 @@ SMODS.Joker {
 		name = 'Black Book',
 		text = {
             "{C:mult}+#1#{} Mult if there are",
-			"no {C:attention}#2#{}s held in hand"
+			"no {C:attention}#2#s{} held in hand"
 		}
 	},
 	config = { extra = { mult = 12 } },
