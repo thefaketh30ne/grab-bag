@@ -5,8 +5,9 @@ SMODS.Enhancement {
 		text = {
 			"Gains {C:mult}+#1#{} Mult",
 			"when discarded",
-            "{C:green}#2# in #3#{} chance to be",
+            "{C:green}#3# in #4#{} chance to be",
             "{C:attention}destroyed{} after playing",
+            "{C:inactive}(Currently {C:mult}+#2# {C:inactive}Mult)"
 		}
 	},
     atlas = 'gb_Enhancements',
@@ -14,7 +15,12 @@ SMODS.Enhancement {
     config = { mult = 0, extra = { mult_mod = 10, odds = 8 } },
     loc_vars = function(self, info_queue, card)
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
-		return { vars = { card.ability.extra.mult_mod, new_numerator, new_denominator } }
+		return { vars = { 
+            card.ability.extra.mult_mod,
+            card.ability.mult,
+            new_numerator,
+            new_denominator
+        } }
     end,
     calculate = function(self, card, context)
         if context.discard and context.other_card == card then
