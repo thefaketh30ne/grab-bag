@@ -74,9 +74,16 @@ SMODS.ConsumableType {
 	shop_rate = 0.5,
     cards = {
         ['c_gb_apparition'] = true,
+		['c_gb_blasphemy'] = true,
+		['c_gb_chaos'] = true,
 		['c_gb_conceit'] = true,
+		['c_gb_debauchery'] = true,
+		['c_gb_evil_eye'] = true,
+		['c_gb_fealty'] = true,
+		['c_gb_hunger'] = true,
 		['c_gb_nihilism'] = true,
 		['c_gb_pestilence'] = true,
+		['c_gb_superstition'] = true,
 		['c_gb_tyranny'] = true,
 		['c_gb_war'] = true,
         },
@@ -176,7 +183,6 @@ GB_SHATTERED_TABLE["j_zany_joker"] = "j_gb_the_zany"
 SMODS.current_mod.set_ability_reset_keys = function() return
 {
 	"discarded_this_ante",
-	"honey_drawn"
 } 
 end
 

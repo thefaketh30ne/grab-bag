@@ -34,7 +34,7 @@ SMODS.Enhancement {
         end
         if context.destroy_card
         and context.destroy_card == card
-        and context.card_area == G.play
+        and context.cardarea == G.play
         and SMODS.pseudorandom_probability(card, 'gb_macabre', 1, card.ability.extra.odds) then
             return {
                 remove = true
