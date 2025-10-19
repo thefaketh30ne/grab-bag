@@ -15,7 +15,7 @@ GB.Hex {
         label = "Paranoid",
     },
     calculate = function(self, card, context)
-        if context.debuff_hand and context.cardarea == G.play then
+        if context.before and context.cardarea == G.play then
             local tally = 0
             for _, playing_card in ipairs(context.full_hand) do
                 if GB.has_hex(playing_card, "paranoid") == true then

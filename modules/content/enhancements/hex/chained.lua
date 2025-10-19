@@ -19,7 +19,7 @@ SMODS.Enhancement {
         end
     end,
     calculate = function(self, card, context)
-        if G.deck then
+        if context.before then
             card.ability.bonus = card.ability.extra.chips_mod * gb_tally_enhancements(G.playing_cards, "m_gb_chained")
         end
     end,
