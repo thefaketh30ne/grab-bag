@@ -47,7 +47,7 @@ pattern = '''local dollar_UI = G.HUD:get_UIE_by_ID('dollar_text_UI')
     mod = mod or 0'''
 position = "after"
 payload = '''
-if SMODS.find_card('j_gb_money_laundering') and mod > 0 then
+if #SMODS.find_card('j_gb_money_laundering') > 0 and mod > 0 then
     mod = math.min(10, mod * 2)
 end
 '''
