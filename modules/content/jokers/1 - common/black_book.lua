@@ -31,7 +31,7 @@ SMODS.Joker {
 }
 
 function reset_gb_black_book_rank()
-    G.GAME.current_round.gb_gb_black_book_card = { rank = 'Ace' }
+    G.GAME.current_round.gb_black_book_card = { rank = 'Ace' }
     local valid_black_book_cards = {}
     for _, playing_card in ipairs(G.playing_cards) do
         if not SMODS.has_no_rank(playing_card) then
