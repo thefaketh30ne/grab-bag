@@ -4,7 +4,8 @@ SMODS.Joker {
 		name = 'Black Book',
 		text = {
             "{C:mult}+#1#{} Mult if there are",
-			"no {C:attention}#2#s{} held in hand"
+			"no {C:attention}#2#s{} held in hand",
+			"{C:inactive,s:0.85}(Rank resets at end of round){}"
 		}
 	},
 	config = { extra = { mult = 12 } },
@@ -25,6 +26,14 @@ SMODS.Joker {
 			end
 			return {
 				mult = card.ability.extra.mult
+			}
+		end
+		if context.cashed_out
+		and context.main_eval
+		and not context.blueprint then
+			return {
+				message = localize((G.GAME.current_round.gb_black_book_card or {}).rank or 'Ace', 'ranks'),
+				colour = G.C.FILTER
 			}
 		end
 	end

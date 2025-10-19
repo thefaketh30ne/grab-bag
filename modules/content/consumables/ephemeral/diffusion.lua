@@ -22,7 +22,7 @@ SMODS.Consumable {
             table.insert(eligible_cards, playing_card)
         end
         for _, v in ipairs(eligible_cards) do
-            if SMODS.pseudorandom_probability(blind, 'gb_diffusion', 1, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, 'gb_diffusion', 1, card.ability.extra.odds) then
                 G.playing_card = (G.playing_card and G.playing_card + 1) or 1
                 local copy_card = copy_card(v, nil, nil, G.playing_card)
                 copy_card.playing_card = G.playing_card
