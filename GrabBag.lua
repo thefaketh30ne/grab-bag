@@ -13,6 +13,15 @@ ASPL.G = {}
 
 GB = {}
 
+GB.C = {
+    GB_PRIMARY = HEX('b461c4'),
+    GB_SECONDARY = HEX('ee8fdc'),
+    SET = {  
+    },
+    SECONDARY_SET = {     
+    }
+}
+
 ASPL.G.MODPATH = SMODS.current_mod.path
 local NFS = require("nativefs")
 
@@ -56,3 +65,18 @@ function ASPL.FUNC.RequireFolderRecursive(path)
 end
 
 ASPL.FUNC.RequireFolderRecursive("modules")
+
+local oldfunc = Game.main_menu
+Game.main_menu = function(change_context)
+    local ret = oldfunc(change_context)
+    -- make the title screen use different background colors
+    G.SPLASH_BACK:define_draw_steps({{
+        shader = 'splash',
+        send = {
+            { name = 'time',       ref_table = G.TIMERS,  ref_value = 'REAL_SHADER' },
+            { name = 'vort_speed', val = 0.4 },
+            { name = 'colour_1',   ref_table = GB.C, ref_value = 'GB_PRIMARY' },
+            { name = 'colour_2',   ref_table = GB.C, ref_value = 'GB_SECONDARY' },
+        }
+    }})
+end
