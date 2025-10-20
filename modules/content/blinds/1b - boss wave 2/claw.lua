@@ -1,7 +1,7 @@
 SMODS.Blind {
-    key = "crane",
+    key = "claw",
     loc_txt = {
-        name = "The Crane",
+        name = "The Claw",
         text = {
             "Unenhance all cards",
             "held in hand",
@@ -11,9 +11,9 @@ SMODS.Blind {
     dollars = 5,
     mult = 2,
     atlas = "gb_Blinds",
-    pos = { y = 23 },
+    pos = { y = 22 },
     boss = { min = 1 },
-    boss_colour = HEX("515968"),
+    boss_colour = HEX("5b6851"),
     calculate = function(self, blind, context)
         if not blind.disabled then
             if context.after then
