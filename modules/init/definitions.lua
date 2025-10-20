@@ -194,6 +194,15 @@ function SMODS.current_mod.reset_game_globals(run_start)
 	reset_gb_black_book_rank()
 end
 
+GB.JOKER_KEYS = {}
+for _, center in pairs(G.P_CENTERS) do
+	local center_key = center.key
+	print(center_key)
+	if center_key then
+    	table.insert(GB.JOKER_KEYS, center_key)
+	end
+end
+
 -- atlas definitions
 
 SMODS.Atlas({
