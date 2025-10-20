@@ -2,15 +2,15 @@
 	"id": "GrabBag",
 	"name": "Grab Bag",
 	"author": ["Th30ne"],
-	"description": "Adds 120 new Jokers, 20 new Blinds, 2 new consumable sets, and more.",
+	"description": "Adds 130 new Jokers, 20 new Blinds, 2 new consumable sets, and more.",
 	"prefix": "gb",
 	"main_file": "GrabBag.lua",
 	"priority": 0,
 	"badge_colour": "834896",
 	"badge_text_colour": "EE8FDC",
 	"display_name": "Grab Bag",
-	"version": "0.8.31p1",
+	"version": "0.8.32p1",
 	"dependencies": [
-		"Steamodded (>=1.0.0~BETA-0827)" 
+		"Steamodded (>=1.0.0~BETA-1016c)" 
 	]
 }
