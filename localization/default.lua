@@ -24,6 +24,14 @@ return {
         dictionary = {
             gb_page = "Page"
         },
+        v_text = {
+            ch_c_gb_no_uncommon = {
+                "{C:uncommon}Uncommon{} Jokers no longer spawn naturally"
+            },
+            ch_c_gb_no_rare = {
+                "{C:rare}Rare{} Jokers no longer spawn naturally"
+            }
+        },
         suits_singular = {
             gb_Eyes = "Eye",
         },

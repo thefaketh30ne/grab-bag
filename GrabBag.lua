@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field, duplicate-set-field
 gb_config = SMODS.current_mod.config
 
 SMODS.current_mod.optional_features = {
@@ -16,9 +17,9 @@ GB = {}
 GB.C = {
     GB_PRIMARY = HEX('b461c4'),
     GB_SECONDARY = HEX('ee8fdc'),
-    SET = {  
+    SET = {
     },
-    SECONDARY_SET = {     
+    SECONDARY_SET = {
     }
 }
 
