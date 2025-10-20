@@ -19,10 +19,14 @@ SMODS.Blind {
             localize(suit, 'suits_plural')
         } }
     end,
+    collection_loc_vars = function(self)
+        return { vars = { "[most numerous suit]" } }
+    end,
     calculate = function(self, blind, context)
         if not blind.disabled then
-            if context.destroy_card and
-            context.destroy_card.base.suit == gb_most_numerous_suit(G.playing_cards) then
+            if context.destroy_card
+            and context.cardarea == G.play
+            and context.destroy_card.base.suit == gb_most_numerous_suit(G.playing_cards) then
                 return {
                     remove = true
                 }

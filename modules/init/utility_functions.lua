@@ -108,7 +108,11 @@ end
 function gb_most_numerous_suit(cards)
     local suit_tally = {}
     for _, playing_card in ipairs(cards) do
-        suit_tally[playing_card.base.suit] = ((suit_tally[playing_card.base.suit]) + 1 or 0)
+        if suit_tally[playing_card.base.suit] then
+            suit_tally[playing_card.base.suit] = (suit_tally[playing_card.base.suit]) + 1
+        else
+            suit_tally[playing_card.base.suit] = 1
+        end
     end
     local most_numerous = "Spades"
     local highest_count = 0
