@@ -63,7 +63,7 @@ pattern = '''G.GAME.round_resets.blind_states.Boss = 'Defeated''''
 position = "after"
 payload = '''G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE = 0'''
 
-# calculate
+# cull
 [[patches]]
 [patches.pattern]
 target = "functions/state_events.lua"
@@ -77,3 +77,21 @@ position = "after"
 payload = '''
 SMODS.calculate_context({consumeable_used = true})
 '''
+
+# curve
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+match_indent = true
+pattern = '''
+draw_card(G.hand, G.discard, i*100/highlighted_count, 'down', false, G.hand.highlighted[i])
+'''
+position = "at"
+payload = '''
+if gb_discard_into_deck then
+    draw_card(G.hand, G.deck, i*100/highlighted_count, 'down', false, G.hand.highlighted[i])
+else
+    draw_card(G.hand, G.discard, i*100/highlighted_count, 'down', false, G.hand.highlighted[i])
+end
+'''
+
