@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil
 local max_config_page = 2
 local GrabBag = SMODS.current_mod
 
