@@ -12,6 +12,7 @@ SMODS.Joker{
     config = { extra = { odds = 6, mult = 8 } },
     rarity = 1,
     cost = 6,
+    blueprint_compat = true,
     eternal_compat = false,
     atlas = 'gb_Jokers',
     pos = { x = 7, y = 4 },
