@@ -116,9 +116,10 @@ function gb_most_numerous_suit(cards)
     end
     local most_numerous = "Spades"
     local highest_count = 0
-    for suit_key, tally in pairs(suit_tally) do
-        if tally > highest_count then
+    for suit_key, frequency in pairs(suit_tally) do
+        if frequency > highest_count then
             most_numerous = suit_key
+            highest_count = frequency
         end
     end
     return most_numerous
