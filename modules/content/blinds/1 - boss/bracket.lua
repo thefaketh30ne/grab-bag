@@ -8,7 +8,7 @@ SMODS.Blind {
         }
     },
     dollars = 5,
-    mult = 8,
+    mult = 16,
     atlas = "gb_Blinds",
     pos = { y = 29 },
     boss = { min = 3 },

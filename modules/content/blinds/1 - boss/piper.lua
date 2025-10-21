@@ -17,7 +17,9 @@ SMODS.Blind {
         if not blind.disabled then
             if context.before then
                 local chosen_card = pseudorandom_element(context.full_hand, pseudoseed("gb_piper"))
-                chosen_card.ability.piper_destroy = true
+                if chosen_card then
+                    chosen_card.ability.piper_destroy = true
+                end
             end
             if context.destroy_card and context.destroy_card.ability.piper_destroy == true then
                 return {
