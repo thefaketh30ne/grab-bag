@@ -5,7 +5,7 @@ SMODS.Blind {
         text = {
             "Selling a Joker",
             "reduces score",
-            "requirement by 2X Base",
+            "requirement by [2X Base]",
         }
     },
     dollars = 8,
