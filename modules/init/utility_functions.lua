@@ -124,3 +124,7 @@ function gb_most_numerous_suit(cards)
     end
     return most_numerous
 end
+
+function gb_is_number(card)
+    return ( ( card:get_id() >= 2 and card:get_id() <= 10 ) and true or false )
+end
