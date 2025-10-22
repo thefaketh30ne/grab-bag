@@ -5,6 +5,8 @@ squidguset for the effect for Gem Deck,
 SDM_0 for working on the Shatter consumable code,
 AutumnMood for the Eyes suit ability box patch,
 JoyousSpring and the VanillaRemade contributors,
+IcyEthics for adding Blockbuster compatibility,
+Maximilien for playtesting,
 and the modding community in the Balatro Discord for the continued support!
 
 Special thanks to ViperDemon for feedback, ideas, playtesting, and making all of the music you hear in this mod!
