@@ -3,8 +3,11 @@ SMODS.Joker {
     loc_txt = {
         name = 'D20',
         text = {
+            "Whenever a card is drawn,",
             "{C:green}#1# in #2#{} chance to",
-            "{C:attention}enhance{} a drawn card",
+            "add a random {C:attention}Seal{}",
+            "{C:green}#1# in #2#{} chance to",
+            "temporarily debuff it",
         }
     },
     config = { extra = { odds = 20 } },
@@ -21,24 +24,29 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.hand_drawn or context.other_drawn then
 		    for _, playing_card in ipairs(context.hand_drawn or context.other_drawn) do
-			    if SMODS.pseudorandom_probability(card, 'gb_d20', G.GAME.probabilities.normal, card.ability.extra.odds) then
-                    local valid_keys = {}
-                    for _, enhancement_center in pairs(G.P_CENTER_POOLS["Enhanced"]) do
-                        if enhancement_center.key ~= 'm_stone' 
-                        and (enhancement_center.in_pool() or true) then
-                            valid_keys[#valid_keys + 1] = enhancement_center.key
-                        end
-                    end
-                    playing_card:set_ability(
-                        pseudorandom_element(valid_keys, pseudoseed('d20'))
-                    )
-                    playing_card:juice_up()
-                    return {
-                        message = "Enhanced!",
-                        colour = G.C.FILTER
-                    }
+			    if SMODS.pseudorandom_probability(
+                    card, 
+                    'gb_d20_success', 
+                    G.GAME.probabilities.normal, 
+                    card.ability.extra.odds
+                ) then
+                    playing_card:set_seal(SMODS.poll_seal({ guaranteed = true, type_key = 'gb_d20' }))
+                    SMODS.calculate_effect({ message = "Critical Success!", colour = G.C.GREEN })
+                elseif SMODS.pseudorandom_probability(
+                    card, 
+                    'gb_d20_failure', 
+                    G.GAME.probabilities.normal, 
+                    card.ability.extra.odds - G.GAME.probabilities.normal
+                ) then
+                    SMODS.debuff_card(playing_card, true, "gb_d20")
+                    SMODS.calculate_effect({ message = "Critical Failure!", colour = G.C.RED })
                 end
 		    end
+        end
+        if context.end_of_round and context.main_eval then
+            for _, playing_card in ipairs(G.playing_cards) do
+                SMODS.debuff_card(playing_card, "reset", "gb_d20")
+            end
         end
     end
 }
