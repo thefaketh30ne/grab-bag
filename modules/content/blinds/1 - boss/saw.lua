@@ -16,6 +16,9 @@ SMODS.Blind {
     loc_vars = function(self)
         return { vars = { localize(G.GAME.current_round.most_played_poker_hand, 'poker_hands') } }
     end,
+    collection_loc_vars = function(self)
+        return { vars = { "[most played poker hand]" } }
+    end,
     calculate = function(self, blind, context)
         if not blind.disabled then
             if context.pre_discard then
