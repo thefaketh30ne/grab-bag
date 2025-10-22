@@ -15,6 +15,7 @@ SMODS.Joker {
 	pos = { x = 3, y = 8 },
 	cost = 4,
 	blueprint_compat = true,
+    eternal_compat = false,
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.repetitions, card.ability.extra.repetitions_mod } }
 	end,
