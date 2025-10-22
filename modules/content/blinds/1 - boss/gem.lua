@@ -14,12 +14,6 @@ SMODS.Blind {
     boss = { min = 1 },
     boss_colour = HEX("9688d5"),
     config = { extra = { suit = "Diamonds", hand_played = true } },
-    loc_vars = function(self)
-        return { vars = { localize(self.config.extra.suit, 'suits_singular') } }
-    end,
-    collection_loc_vars = function(self)
-        return { vars = { "[suit]" } }
-    end,
     calculate = function(self, blind, context)
         if context.setting_blind then
             self.config.extra.base_blind_chips = G.GAME.blind.chips / G.GAME.blind.mult
