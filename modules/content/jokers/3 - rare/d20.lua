@@ -17,6 +17,7 @@ SMODS.Joker {
     pos = { x = 9, y = 4 },
     blueprint_compat = true,
     soul_pos = { x = 8, y = 4 },
+
     loc_vars = function(self, info_queue, card)
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return { vars = { new_numerator, new_denominator } }
@@ -26,20 +27,30 @@ SMODS.Joker {
 		    for _, playing_card in ipairs(context.hand_drawn or context.other_drawn) do
 			    if SMODS.pseudorandom_probability(
                     card, 
-                    'gb_d20_success', 
-                    G.GAME.probabilities.normal, 
+                    'gb_d20_success',
+                    G.GAME.probabilities.normal,
                     card.ability.extra.odds
                 ) then
                     playing_card:set_seal(SMODS.poll_seal({ guaranteed = true, type_key = 'gb_d20' }))
-                    SMODS.calculate_effect({ message = "Critical Success!", colour = G.C.GREEN })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.calculate_effect({ message = "Critical Success!", colour = G.C.GREEN, message_card = card })
+                            return true
+                        end
+                    }))
                 elseif SMODS.pseudorandom_probability(
-                    card, 
-                    'gb_d20_failure', 
-                    G.GAME.probabilities.normal, 
+                    card,
+                    'gb_d20_failure',
+                    G.GAME.probabilities.normal,
                     card.ability.extra.odds - G.GAME.probabilities.normal
                 ) then
                     SMODS.debuff_card(playing_card, true, "gb_d20")
-                    SMODS.calculate_effect({ message = "Critical Failure!", colour = G.C.RED })
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.calculate_effect({ message = "Critical Failure!", colour = G.C.RED, message_card = card })
+                            return true
+                        end
+                    }))
                 end
 		    end
         end
