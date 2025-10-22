@@ -38,7 +38,7 @@ SMODS.Blind {
                 if playing_card.base.suit == self.config.extra.suit then
                     SMODS.debuff_card(playing_card, true, "gb_gem")
                 else
-                    SMODS.debuff_card(playing_card, false, "gb_gem")
+                    SMODS.debuff_card(playing_card, "reset", "gb_gem")
                 end
             end
             self.config.extra.hand_played = nil
@@ -55,12 +55,12 @@ SMODS.Blind {
     end,
     disable = function(self)
         for _, playing_card in ipairs(G.playing_cards) do
-            SMODS.debuff_card(playing_card, false, "gb_gem")
+            SMODS.debuff_card(playing_card, "reset", "gb_gem")
         end
     end,
     defeat = function(self)
         for _, playing_card in ipairs(G.playing_cards) do
-            SMODS.debuff_card(playing_card, false, "gb_gem")
+            SMODS.debuff_card(playing_card, "reset", "gb_gem")
         end
     end
 }

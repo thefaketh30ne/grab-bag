@@ -21,7 +21,6 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.before and context.main_eval and G.GAME.current_round.hands_played == 0 and not context.blueprint then
             context.scoring_hand[1]:set_seal(SMODS.poll_seal({ guaranteed = true, type_key = 'gb_candle' }))
-            context.scoring_hand[1]:juice_up()
             card.ability.extra.rounds_left = card.ability.extra.rounds_left - 1
             if card.ability.extra.rounds_left > 0 then
                 return {
