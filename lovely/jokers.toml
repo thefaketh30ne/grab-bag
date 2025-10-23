@@ -10,7 +10,7 @@ priority = 0
 target = "functions/misc_functions.lua"
 match_indent = true
 pattern = '''elseif card.config.center.set == 'Spectral' then  G.GAME.consumeable_usage_total.spectral = G.GAME.consumeable_usage_total.spectral + 1'''
-position = "after"
+position = "before"
 payload = '''
 elseif card.config.center.set == 'Ephemeral' then G.GAME.consumeable_usage_total.ephemeral = G.GAME.consumeable_usage_total.ephemeral + 1
 '''
