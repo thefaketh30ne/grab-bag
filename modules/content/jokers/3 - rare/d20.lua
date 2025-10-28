@@ -56,7 +56,7 @@ SMODS.Joker {
         end
         if context.end_of_round and context.main_eval then
             for _, playing_card in ipairs(G.playing_cards) do
-                SMODS.debuff_card(playing_card, "reset", "gb_d20")
+                SMODS.debuff_card(playing_card, false, "gb_d20")
             end
         end
     end
