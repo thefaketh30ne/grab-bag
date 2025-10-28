@@ -23,7 +23,7 @@ GB.Hex {
                 end
             end
             print(tally)
-            if tally == 1 then
+            if tally == 1 and to_big(G.GAME.hands[G.GAME.last_hand_played].level) > to_big(1) then
                 return {
                     level_up = -1
                 }
