@@ -26,7 +26,6 @@ SMODS.Consumable {
             copy_card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
             G.hand:emplace(copy_card)
             copy_card:set_edition('e_gb_temporary', true, true)
-            SMODS.debuff_card(copy_card, "prevent_debuff", "source")
         end
     end,
     can_use = function(self, card)

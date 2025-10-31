@@ -29,7 +29,7 @@ SMODS.Blind {
         end
         if context.end_of_round then
             for _, playing_card in ipairs(G.playing_cards) do
-                SMODS.debuff_card(playing_card, "reset", "gb_final_pentacle")
+                SMODS.debuff_card(playing_card, false, "gb_final_pentacle")
             end
         end
     end

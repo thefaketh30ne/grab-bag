@@ -28,7 +28,6 @@ SMODS.Consumable {
                     playing_card.playing_card = G.playing_card
                     playing_card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
                     G.hand:emplace(playing_card)
-                    SMODS.debuff_card(playing_card, "prevent_debuff", "source")
                     return true
                 end
             }))
