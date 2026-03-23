@@ -17,7 +17,7 @@ GB.Hex {
 		return { vars = { new_numerator, new_denominator } }
     end,
     calculate = function(self, card, context)
-        if context.modify_scoring_hand and context.other_card == card then
+        if context.modify_scoring_hand and context.other_card == card and context.in_scoring then
             if SMODS.pseudorandom_probability(card, 'slothful', 1, card.ability[self.key].extra.odds) then
                 return {
                     remove_from_hand = true
