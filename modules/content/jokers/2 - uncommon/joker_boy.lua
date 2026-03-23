@@ -24,8 +24,8 @@ SMODS.Joker {
             new_mult = 2 ^ math.ceil(math.log(mult) * ln2_inverse)
             return {
                 message = "Retro!",
-                chip_mod = new_chips - to_number(hand_chips),
-                mult_mod = new_mult - to_number(mult),
+                chip_mod = new_chips - hand_chips,
+                mult_mod = new_mult - mult,
                 colour = G.C.FILTER
             }
         end
