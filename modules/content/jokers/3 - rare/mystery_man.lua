@@ -18,15 +18,13 @@ SMODS.Joker {
         return { vars = { card.ability.extra.mult } }
     end,
     calculate = function(self, card, context)
-        if context.before
-        and context.cardarea == G.play
-        and context.other_card:get_id() == 6 then
-            context.other_card.ability.perma_mult = (context.other_card.ability.perma_mult or 0) + card.ability.extra.mult
-            return {
-                message = localize('k_upgrade_ex'),
-                message_card = context.other_card,
-                colour = G.C.MULT
-            }
+        if context.before then
+            for _, v in ipairs(context.scoring_hand) do
+                if v:get_id() == 6 then
+                    v.ability.perma_mult = (v.ability.perma_mult or 0) + card.ability.extra.mult
+                    SMODS.calculate_effect({message = localize('k_upgrade_ex'), colour = G.C.MULT}, v)
+                end
+            end
         end
     end
 }
