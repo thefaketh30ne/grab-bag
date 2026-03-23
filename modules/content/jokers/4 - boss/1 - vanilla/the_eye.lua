@@ -21,26 +21,23 @@ SMODS.Joker{
     end,
     calculate = function(self, card, context)
         if context.before
+        and context.main_eval
         and not context.blueprint
-        and G.GAME.hands[context.scoring_name] and (G.GAME.hands[context.scoring_name].played_this_round > 1) then
+        and G.GAME.hands[context.scoring_name] and G.GAME.hands[context.scoring_name].played_this_round > 1 then
             card.ability.extra.xmult = 1
             return {
                 message = localize("k_reset"),
                 colour = G.C.FILTER
             }
         end
-        if context.before and not context.blueprint and not (G.GAME.hands[context.scoring_name].played_this_round > 1) then
+
+        if context.joker_main and context.main_eval and not G.GAME.hands[context.scoring_name].played_this_round > 1 then
             SMODS.scale_card(card, {
                 ref_table = card.ability.extra,
                 ref_value = "xmult",
                 scalar_value = "xmult_mod",
                 message_colour = G.C.MULT
             })
-        end
-        if context.joker_main then
-            return {
-                xmult = card.ability.extra.xmult,
-            }
         end
     end,
 
