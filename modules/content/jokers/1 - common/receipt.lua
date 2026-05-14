@@ -21,7 +21,7 @@ SMODS.Joker {
 	end,
 	calculate = function(self, card, context)
 		if context.money_altered
-		and context.money_altered < 0
+		and context.amount and context.amount < 0
 		and context.from_shop == true then
 			SMODS.scale_card(card, {
                 ref_value = "chips",
@@ -29,7 +29,7 @@ SMODS.Joker {
 	            scalar_value = "chips_mod",
                 scalar_table = card.ability.extra,
                 operation = function(ref_table, ref_value, initial, change)
-	                ref_table[ref_value] = initial - context.money_altered * card.ability.extra.chips_mod
+	                ref_table[ref_value] = initial - context.amount * card.ability.extra.chips_mod
                 end,
             })
 		end
