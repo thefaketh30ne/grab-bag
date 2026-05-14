@@ -11,6 +11,7 @@ SMODS.Back {
         },
     },
     apply = function(self, back)
+        G.GAME.starting_params.easy_spectra = true
         G.E_MANAGER:add_event(Event({
             func = function()
                 local cards_to_remove = {}
