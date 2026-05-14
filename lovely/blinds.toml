@@ -95,3 +95,13 @@ else
 end
 '''
 
+# platinum pike
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+match_indent = true
+pattern = "G.GAME.current_round.discards_used = G.GAME.current_round.discards_used + 1"
+position = "after"
+payload = '''
+SMODS.calculate_context({ gb_after_discard = true })
+'''
