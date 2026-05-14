@@ -1,0 +1,17 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+match_indent = true
+pattern = 'new_card:set_base(other.config.card)'
+position = "after"
+payload = '''
+for k, _ in pairs(new_card and new_card.ability or {}) do
+    if GB.HEX_LOOKUP_KEYS[k] then
+        new_card.ability[k] = nil
+    end
+end'''
