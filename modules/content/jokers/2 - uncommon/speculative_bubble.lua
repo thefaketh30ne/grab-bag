@@ -21,6 +21,8 @@ SMODS.Joker{
 	atlas = 'gb_Jokers',
 	pos = { x = 8, y = 0 },
 	cost = 7,
+    eternal_compat = false,
+    perishable_compat = false,
 	blueprint_compat = false,
         loc_vars = function(self, info_queue, card)
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, card.ability.extra.base_numerator, card.ability.extra.odds)
