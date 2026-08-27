@@ -17,7 +17,7 @@ SMODS.Blind {
     calculate = function(self, blind, context)
         if not blind.disabled then
             if context.after then
-                for _, playing_card in ipairs(G.hand.cards) do
+                for _, playing_card in ipairs(G.play.cards) do
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             assert(SMODS.change_base(

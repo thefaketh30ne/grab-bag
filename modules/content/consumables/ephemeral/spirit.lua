@@ -5,7 +5,7 @@ SMODS.Consumable {
         name = 'Spirit',
         text = {
             "Adds {C:attention}#1#{} {C:dark_edition}Temporary{}",
-            "same-suited {C:attention}Face{} cards to hand",
+            "same-suited {C:attention}face{} cards to hand",
         }
     },
     config = {extra = { cards_to_create = 3 }},
