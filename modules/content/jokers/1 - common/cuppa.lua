@@ -9,7 +9,7 @@ SMODS.Joker {
             "{C:attention}Boss Blind{} is defeated",
 		}
 	},
-	config = { extra = { repetitions = 3, repetitions_mod = 1 } },
+	config = { extra = { repetitions = 4, repetitions_mod = 1 } },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 3, y = 8 },

@@ -8,7 +8,7 @@ SMODS.Joker {
             "when a Joker is {C:attention}sold",
 		}
 	},
-	config = { extra = { dollars = 7, dollars_mod = 1 } },
+	config = { extra = { dollars = 6, dollars_mod = 1 } },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 4, y = 8 },
