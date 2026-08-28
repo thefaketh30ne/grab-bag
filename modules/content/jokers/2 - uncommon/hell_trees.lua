@@ -4,7 +4,7 @@ SMODS.Joker{
         name = 'Hell Trees',
 		text = {
             "Create an {V:1}Ephemeral{} card",
-            "when a hand is drawn",
+            "when cards are drawn",
             "with {C:attention}1 hand remaining{}"
 		}
     },

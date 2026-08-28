@@ -11,7 +11,7 @@ SMODS.Enhancement {
     always_scores = true,
     atlas = 'gb_Enhancements',
     pos = { x = 3, y = 0 },
-    config = { bonus = 0, extra = { chips_mod = 10 } },
+    config = { bonus = 0, extra = { chips_mod = 15 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips_mod } }
     end,

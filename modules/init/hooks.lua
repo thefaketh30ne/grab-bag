@@ -44,15 +44,15 @@ SMODS.Rarity:take_ownership('Rare',
 true )
 
 -- obsessive hex hook
-local original_can_discard = G.FUNCS.can_discard
-G.FUNCS.can_discard = function(e)
-    original_can_discard(e)
-    for _, playing_card in ipairs(G.hand.highlighted) do
-        local hex_key, _ = GB.get_hex(playing_card)
-        if hex_key == "gb_obsessive_hex" then
-            e.config.colour = G.C.UI.BACKGROUND_INACTIVE
-            e.config.button = nil
-            break
-        end
-    end
-end
+--local original_can_discard = G.FUNCS.can_discard
+--G.FUNCS.can_discard = function(e)
+--    original_can_discard(e)
+--    for _, playing_card in ipairs(G.hand.highlighted) do
+--        local hex_key, _ = GB.get_hex(playing_card)
+--        if hex_key == "gb_obsessive_hex" then
+--            e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+--            e.config.button = nil
+--            break
+--        end
+--    end
+--end

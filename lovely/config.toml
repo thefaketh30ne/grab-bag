@@ -1,0 +1,18 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+match_indent = true
+pattern = '''check_and_set_high_score('most_money', G.GAME.dollars)'''
+position = "after"
+payload = '''
+G.GAME.gb_enable_ephemerals = gb_config.enable_ephemerals
+G.GAME.gb_enable_hexes = gb_config.enable_hexes
+G.GAME.gb_enable_shatter = gb_config.enable_shatter
+G.GAME.gb_enable_eyes = gb_config.enable_eyes
+'''
+

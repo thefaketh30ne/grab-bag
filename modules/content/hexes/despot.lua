@@ -3,26 +3,27 @@ GB.Hex {
     atlas = 'gb_Hexes',
     pos = { x = 4, y = 0 },
     badge_colour = HEX("807519"),
+    config = { extra = { dollars = 2 } },
     loc_txt = {
         name = "Despot",
         text = {
-            "When played, {C:attention}randomise",
-            "suit and rank of a",
-            "random card held in hand"
+            "When played, lose {C:red}$#1#{}",
+
         },
         label = "Despot",
     },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability[self.key].extra.dollars } }
+    end,
     calculate = function(self, card, context)
         if context.before and context.cardarea == G.play then
-            local card_to_randomise = pseudorandom_element(G.hand.cards, pseudoseed("gb_despot"))
-            if card_to_randomise then
-                assert(SMODS.change_base(
-                    card_to_randomise,
-                    pseudorandom_element(SMODS.Suits, pseudoseed("gb_despot")).key,
-                    pseudorandom_element(SMODS.Ranks, pseudoseed("gb_despot")).key
-                ))
-                card_to_randomise:juice_up()
-            end
+            ease_dollars(-card.ability[self.key].extra.dollars)
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    card:juice_up()
+                    return true
+                end
+            }))
         end
     end
 }
