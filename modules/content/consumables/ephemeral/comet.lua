@@ -4,14 +4,15 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Comet',
         text = {
-            "Adds {C:attention}#1#{} {C:dark_edition}Temporary{} cards",
-            "with {C:blue}Blue Seals{} to hand",
+            "Adds {C:attention}#1#{} {C:dark_edition}Temporary{} card",
+            "with a {C:blue}Blue Seal{} to hand",
         }
     },
-    config = {extra = { cards_to_create = 2 }},
+    config = {extra = { cards_to_create = 1 }},
     atlas = 'gb_Ephemerals',
     pos = { x = 3, y = 1 },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_SEALS["Blue"]
         return { vars = { self.config.extra.cards_to_create } }
     end,
     use = function(self, card, area, copier)

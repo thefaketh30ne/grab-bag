@@ -12,6 +12,7 @@ SMODS.Consumable {
     atlas = 'gb_Ephemerals',
     pos = { x = 4, y = 1 },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_SEALS["Gold"]
         return { vars = { self.config.extra.cards_to_create } }
     end,
     use = function(self, card, area, copier)
