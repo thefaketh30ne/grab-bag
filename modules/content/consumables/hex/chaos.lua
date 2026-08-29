@@ -22,7 +22,7 @@ SMODS.Consumable {
             "macabre",
             "chained",
             "ashen",
-            "alloyed"
+            "scarred"
         }
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
