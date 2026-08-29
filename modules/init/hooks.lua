@@ -43,6 +43,23 @@ SMODS.Rarity:take_ownership('Rare',
     },
 true )
 
+-- paranoid hex hook
+local original_can_play = G.FUNCS.can_play
+G.FUNCS.can_play = function(e)
+    original_can_play(e)
+    local paranoid_cards = 0
+    for _, playing_card in ipairs(G.hand.highlighted) do
+        local hex_key, _ = GB.get_hex(playing_card)
+        if hex_key == "gb_paranoid_hex" then
+            paranoid_cards = paranoid_cards + 1
+        end
+    end
+    if paranoid_cards > 1 then
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
+end
+
 -- obsessive hex hook
 --local original_can_discard = G.FUNCS.can_discard
 --G.FUNCS.can_discard = function(e)
