@@ -6,26 +6,27 @@ GB.Hex {
     loc_txt = {
         name = "Unstable",
         text = {
-            "If {C:attention}3{} or more {C:attention}Unstable",
-            "cards are held in hand,",
-            "{C:attention}permanently debuff{} all",
-            "cards held in hand"
+            "When played, debuff",
+            "another scoring card"
         },
         label = "Unstable",
     },
     calculate = function(self, card, context)
-        if context.hand_drawn or context.other_drawn then
-            local tally = 0
-            for _, playing_card in ipairs(G.hand.cards) do
-                local hex_key, _ = GB.get_hex(playing_card)
-                if hex_key == "gb_unstable_hex" then
-                    tally = tally + 1
+        if context.before and context.cardarea == G.play then
+            local eligible_cards = {}
+            for _, playing_card in ipairs(context.scoring_hand) do
+                if playing_card ~= card and not playing_card.debuff then
+                    eligible_cards[#eligible_cards + 1] = playing_card
                 end
             end
-            if tally >= 3 then
-                for _, playing_card in ipairs(G.hand.cards) do
-                    playing_card.ability.perma_debuff = true
-                end
+            if eligible_cards then
+                local chosen_card = pseudorandom_element(eligible_cards)
+                SMODS.debuff_card(chosen_card, true, "gb_unstable")
+            end
+        end
+        if context.end_of_round then
+            for _, playing_card in ipairs(G.playing_cards) do
+                SMODS.debuff_card(playing_card, false, "gb_unstable")
             end
         end
     end
