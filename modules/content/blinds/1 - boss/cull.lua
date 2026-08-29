@@ -15,11 +15,10 @@ SMODS.Blind {
     boss_colour = HEX("aa6db8"),
     calculate = function(self, blind, context)
         if not blind.disabled then
-            if context.consumeable_used then
-                G.GAME.blind.chips = G.GAME.blind.chips * 2
-                G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
-                play_sound("cancel")
-                SMODS.juice_up_blind()
+            if context.using_consumeable then
+                return {
+                    xblindsize = 2
+                }
             end
         end
     end,

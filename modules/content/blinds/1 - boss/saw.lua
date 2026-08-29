@@ -23,6 +23,7 @@ SMODS.Blind {
         if not blind.disabled then
             if context.pre_discard then
                 SMODS.smart_level_up_hand(
+                    nil,
                     G.GAME.current_round.most_played_poker_hand,
                     false,
                     -1

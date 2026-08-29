@@ -27,7 +27,7 @@ SMODS.Consumable {
             "macabre",
             "chained",
             "ashen",
-            "alloyed"
+            "scarred"
         }
         local chosen_enhancement = pseudorandom_element(enhancement_keys, pseudoseed("gb_evil_eye"))
         chosen_enhancement = "m_gb_" .. chosen_enhancement
