@@ -9,7 +9,7 @@ SMODS.Enhancement {
 	},
     atlas = 'gb_Enhancements',
     pos = { x = 5, y = 0 },
-    config = { extra = { zblind_size = 0.9 } },
+    config = { extra = { x_blind_size = 0.9 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.x_blind_size } }
     end,
