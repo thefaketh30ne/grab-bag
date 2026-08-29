@@ -31,6 +31,7 @@ SMODS.Joker {
                     and suits_and_ranks[a_index][2] == suits_and_ranks[b_index][2]
                     and a_index ~= b_index then
                         duplicate = true
+                        break
                     end
                 end
             end

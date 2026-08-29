@@ -8,10 +8,11 @@ SMODS.Consumable {
             "{C:attention}Stone Cards{} to hand",
         }
     },
-    config = {extra = { cards_to_create = 5 }},
+    config = {extra = { cards_to_create = 3 }},
     atlas = 'gb_Ephemerals',
     pos = { x = 0, y = 0 },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
         return { vars = { self.config.extra.cards_to_create } }
     end,
     use = function(self, card, area, copier)
