@@ -4,11 +4,10 @@ SMODS.Joker{
         name = 'Triforce',
 		text = {
             "{X:mult,C:white}X#1#{} Mult if played hand",
-            "is a {C:attention}Three of a Kind",
-            "with {C:attention}#2#{} different suits"
+            "has exactly {C:attention}#2#{} suits"
 		}
     },
-    config = { extra = { xmult = 3, suits = 3 } },
+    config = { extra = { xmult = 2, suits = 3 } },
 	rarity = 2,
 	atlas = 'gb_Jokers',
 	pos = { x = 6, y = 5 },
