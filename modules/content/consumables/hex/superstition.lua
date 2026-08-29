@@ -8,8 +8,8 @@ SMODS.Consumable {
             "level up {C:attention}most played poker hand{}",
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Obsessive"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Obsessive"
         } }
     },
     config = { extra = { hex_to_apply = "obsessive" } },

@@ -8,8 +8,8 @@ SMODS.Consumable {
             "become {C:attention}Ashen{} cards",
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Cowardly"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Cowardly"
         } }
     },
     config = { extra = { mod_conv = 'm_gb_ashen', hex_to_apply = "cowardly" } },

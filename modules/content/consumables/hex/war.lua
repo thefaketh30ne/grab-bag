@@ -8,8 +8,8 @@ SMODS.Consumable {
             "become {C:attention}Scarred{} cards",
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Unstable"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Unstable"
         } }
     },
     config = { extra = { mod_conv = 'm_gb_scarred', hex_to_apply = "unstable" } },

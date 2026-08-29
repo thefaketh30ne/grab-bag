@@ -8,7 +8,7 @@ SMODS.Consumable {
             "a random {C:attention}Hex Enhancement{}",
         },
         {
-            "An equal number of cards",
+            "That many cards in",
             "in {C:attention}full deck{} gain",
             "a random {C:attention}Curse"
         } }

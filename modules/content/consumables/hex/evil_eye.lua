@@ -9,8 +9,8 @@ SMODS.Consumable {
             "{C:attention}Hex Enhancement{}"
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Paranoid"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Paranoid"
         } }
     },
     config = { extra = { hex_to_apply = "paranoid" } },

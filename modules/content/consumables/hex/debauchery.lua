@@ -8,8 +8,8 @@ SMODS.Consumable {
             "create a {C:attention}Tag",
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Slothful"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Slothful"
         } }
     },
     config = { extra = { hex_to_apply = "slothful" } },

@@ -8,7 +8,7 @@ SMODS.Consumable {
             "become {C:attention}Macabre{} cards",
         },
         {
-            "An equal number of cards",
+            "That many cards in",
             "in {C:attention}full deck{} become {C:attention}Haunted"
         } }
     },
