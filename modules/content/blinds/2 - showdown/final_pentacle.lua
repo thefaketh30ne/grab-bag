@@ -18,6 +18,9 @@ SMODS.Blind {
         local new_numerator, new_denominator = SMODS.get_probability_vars(self, 1, 2)
         return { vars = { new_numerator, new_denominator } }
     end,
+    collection_loc_vars = function(self)
+        return { vars = { 1, 2 } }
+    end,
     calculate = function(self, blind, context)
         if not blind.disabled and context.before then
             for _, playing_card in ipairs(context.scoring_hand) do
