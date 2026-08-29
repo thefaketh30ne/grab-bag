@@ -21,7 +21,7 @@ SMODS.Joker {
 		return { vars = { card.ability.extra.cards_left, new_numerator, new_denominator } }
 	end,
     calculate = function(self, card, context)
-        if context.before and not context.blueprint and context.main_eval then
+        if context.before and context.main_eval then
             for _, playing_card in ipairs(context.full_hand) do
                 if SMODS.pseudorandom_probability(card, 'gb_24_carrots', 1, card.ability.extra.odds) then
                     playing_card:set_ability('m_gold', nil, true)
