@@ -17,8 +17,7 @@ SMODS.Joker{
         return { vars = { card.ability.extra.xmult, card.ability.extra.suits } }
     end,
     calculate = function(self, card, context)
-        if context.joker_main 
-        and context.scoring_name == "Three of a Kind"
+        if context.joker_main
         and gb_count_suits(context.scoring_hand) == card.ability.extra.suits then
             return {
                 xmult = card.ability.extra.xmult
