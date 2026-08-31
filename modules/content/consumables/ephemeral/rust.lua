@@ -8,7 +8,7 @@ SMODS.Consumable {
             "{C:attention}Steel Cards{} to hand",
         }
     },
-    config = {extra = { cards_to_create = 3 }},
+    config = {extra = { cards_to_create = 2 }},
     atlas = 'gb_Ephemerals',
     pos = { x = 4, y = 0 },
     loc_vars = function(self, info_queue, card)
