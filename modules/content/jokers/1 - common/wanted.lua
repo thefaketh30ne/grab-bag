@@ -38,6 +38,9 @@ function reroll_gb_wanted_rank()
     local returned_rank = "Ace"
     local returned_id = 14
     local valid_cards = {}
+    if not G.playing_cards then
+        return returned_rank, returned_id
+    end
     for _, playing_card in ipairs(G.playing_cards) do
         if not SMODS.has_no_rank(playing_card) then
             valid_cards[#valid_cards + 1] = playing_card
