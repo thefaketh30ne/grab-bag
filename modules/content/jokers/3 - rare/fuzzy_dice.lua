@@ -5,13 +5,13 @@ SMODS.Joker {
 		text = {
             "Scored cards gain",
             "{C:chips}+#1#{} Chips {C:attention}permanently{}",
-            "Increases by {C:chips}+#2#{} when",
-            "shop is {C:attention}rerolled"
+            "Increases by {C:chips}+#2#{} chips",
+            "when shop is {C:attention}rerolled"
 		}
 	},
 	rarity = 3,
 	atlas = 'Jokers',
-    config = { extra = { chips = 2, chips_mod = 2 } },
+    config = { extra = { chips = 1, chips_mod = 1 } },
 	pos = { x = 9, y = 7 },
 	cost = 8,
 	blueprint_compat = true,
