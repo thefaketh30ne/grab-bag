@@ -192,6 +192,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
 	reset_gb_club_card()
 	reset_gb_window_card()
 	reset_gb_black_book_rank()
+	reset_gb_wanted_rank()
 end
 
 -- atlas definitions
@@ -199,6 +200,15 @@ end
 SMODS.Atlas({
     key = 'gb_Blinds',
     path = 'Blinds.png',
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 21,
+    px = 34,
+    py = 34
+})
+
+SMODS.Atlas({
+    key = 'gb_ShatteredBlinds',
+    path = 'ShatteredBlinds.png',
     atlas_table = 'ANIMATION_ATLAS',
     frames = 21,
     px = 34,
