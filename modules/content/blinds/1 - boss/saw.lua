@@ -21,7 +21,7 @@ SMODS.Blind {
     end,
     calculate = function(self, blind, context)
         if not blind.disabled then
-            if context.pre_discard then
+            if context.pre_discard and G.GAME.current_round.most_played_poker_hand > 1 then
                 SMODS.smart_level_up_hand(
                     nil,
                     G.GAME.current_round.most_played_poker_hand,
