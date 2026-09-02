@@ -23,7 +23,7 @@ SMODS.Blind {
                             assert(SMODS.change_base(
                                 playing_card,
                                 playing_card.rank,
-                                pseudorandom_element(SMODS.Suits, pseudoseed("gb_stand")).key,
+                                pseudorandom_element(SMODS.Suits, pseudoseed("gb_stand")).key
                             ))
                             playing_card:juice_up()
                             return true
