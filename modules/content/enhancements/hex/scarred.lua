@@ -30,7 +30,7 @@ SMODS.Enhancement {
                     scalar_value = "x_mult_mod",
                     no_message = true
                 })
-                SMODS.copy_card(card)
+                SMODS.copy_card(card, nil, nil, nil, nil, G.hand)
             end
         end
     end,
