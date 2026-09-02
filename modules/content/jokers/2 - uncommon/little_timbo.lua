@@ -7,7 +7,7 @@ SMODS.Joker{
             "{C:red}#2#{} Joker slot",
 		}
     },
-    config = { extra = { xblind_size = 0.5, joker_slot = -1 } },
+    config = { extra = { x_blind_size = 0.5, joker_slot = -1 } },
 	rarity = 2,
 	atlas = 'gb_Jokers',
 	pos = { x = 2, y = 0 },
