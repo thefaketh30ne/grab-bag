@@ -3,8 +3,8 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Receipt',
 		text = {
-			"This Joker gains {C:chips}+#1#{} Chips",
-			"for every {C:money}$1{} spent",
+			"{C:chips}+#1#{} Chips for",
+			"every {C:money}$1{} spent",
 			"in the {C:attention}previous shop",
 			"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
 		}
