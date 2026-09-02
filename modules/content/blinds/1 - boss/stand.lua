@@ -3,7 +3,7 @@ SMODS.Blind {
     loc_txt = {
         name = "The Stand",
         text = {
-            "Randomise rank and suit",
+            "Randomise suit",
             "of all played cards",
             "after scoring"
         }
@@ -22,8 +22,7 @@ SMODS.Blind {
                         func = function()
                             assert(SMODS.change_base(
                                 playing_card,
-                                pseudorandom_element(SMODS.Suits, pseudoseed("gb_bolt")).key,
-                                pseudorandom_element(SMODS.Ranks, pseudoseed("gb_bolt")).key
+                                pseudorandom_element(SMODS.Ranks, pseudoseed("gb_stand")).key
                             ))
                             playing_card:juice_up()
                             return true
