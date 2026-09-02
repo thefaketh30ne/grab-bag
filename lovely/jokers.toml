@@ -51,3 +51,25 @@ if #SMODS.find_card('j_gb_money_laundering') > 0 and mod > 0 then
     mod = math.min(10, mod * 2)
 end
 '''
+
+# pontoon / indicator highlight display (patch ripped from bunco)
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = 'self.highlighted = is_higlighted'
+position = 'after'
+match_indent = true
+payload = '''
+if G.jokers ~= nil then
+    for _, joker in ipairs(G.jokers.cards) do
+        if (joker.config.center.key == 'j_gb_pontoon' 
+        or joker.config.center.key == 'j_gb_indicator_paper')
+        and not joker.debuff 
+        and is_higlighted 
+        and self.area == G.hand then
+            joker:calculate_joker({highlight_card = true})
+        end
+    end
+end
+
+'''

@@ -20,6 +20,26 @@ SMODS.Joker {
         return { vars = { card.ability.extra.xmult, card.ability.extra.threshold } }
     end,
     calculate = function(self, card, context)
+        if context.highlight_card and (G.STATE == G.STATES.SELECTING_HAND) then
+            local rank_sum = 0
+            local evaluating_hand = G.hand.highlighted
+            for _, playing_card in pairs(evaluating_hand) do
+                if not SMODS.has_no_rank(playing_card) then
+                    if playing_card:get_id() == 14 then
+                        rank_sum = rank_sum + 1
+                    end
+                    rank_sum = rank_sum + playing_card.base.nominal
+                end
+            end
+            local average_rank = rank_sum / #evaluating_hand
+            card_eval_status_text(
+                card,
+                'extra',
+                nil, nil, nil,
+                {message = string.format("%.1f", average_rank), colour = G.C.FILTER, instant = true}
+            )
+        end
+        
         if context.joker_main then
             local rank_sum = 0
             for _, playing_card in pairs(context.full_hand) do
