@@ -18,10 +18,10 @@ SMODS.Joker {
     	return { vars = { new_numerator, new_denominator } }
 	end,
     calculate = function(self, card, context)
-        if context.buying_card and context.card ~= card then
+        if context.money_altered and context.from_shop == true then
             if SMODS.pseudorandom_probability(card, 'gb_coupon', 1, card.ability.extra.odds) then
                 return {
-                    dollars = context.card.cost,
+                    dollars = context.amount,
                     message = "Refunded!",
                     colour = G.C.MONEY
                 }
