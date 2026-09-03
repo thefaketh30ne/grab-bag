@@ -19,7 +19,7 @@ GB.Hex {
                     eligible_cards[#eligible_cards + 1] = playing_card
                 end
             end
-            if eligible_cards then
+            if #eligible_cards > 0 then
                 local chosen_card = pseudorandom_element(eligible_cards)
                 SMODS.debuff_card(chosen_card, true, "gb_unstable")
             end
