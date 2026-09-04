@@ -7,7 +7,7 @@ SMODS.Joker {
 			"purchases in the {C:attention}Shop{}",
 		}
 	},
-	config = { extra = { odds = 3 } },
+	config = { extra = { odds = 5 } },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 1, y = 1 },
