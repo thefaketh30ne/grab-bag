@@ -10,7 +10,7 @@ SMODS.Consumable {
         {
             "That many cards in",
             "in {C:attention}full deck{} gain",
-            "a random {C:attention}Curse"
+            "a random {C:attention}Hex"
         } }
     },
     atlas = 'gb_HexCards',
