@@ -23,7 +23,7 @@ SMODS.Joker {
 		and context.amount < 0 then
             if SMODS.pseudorandom_probability(card, 'gb_coupon', 1, card.ability.extra.odds) then
                 return {
-                    dollars = context.amount,
+                    dollars = -context.amount,
                     message = "Refunded!",
                     colour = G.C.MONEY
                 }
