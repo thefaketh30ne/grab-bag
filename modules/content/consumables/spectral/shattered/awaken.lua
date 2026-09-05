@@ -51,5 +51,8 @@ SMODS.Consumable {
             return true
         end
         }))
+    end,
+    in_pool = function(self, args)
+        return G.GAME.gb_enable_eyes
     end
 }
