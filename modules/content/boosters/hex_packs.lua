@@ -26,6 +26,9 @@ SMODS.Booster {
     ease_background_colour = function(self)
         ease_colour(G.C.DYN_UI.MAIN, HEX("9493aa"))
         ease_background_colour({ new_colour = HEX('4f5767'), special_colour = HEX("9493aa"), contrast = 2 })
+    end,
+    get_weight = function(self)
+        return ((G.GAME and G.GAME.gb_enable_hexes) and 1 or 0)
     end
 }
 
@@ -56,6 +59,9 @@ SMODS.Booster {
     ease_background_colour = function(self)
         ease_colour(G.C.DYN_UI.MAIN, HEX("9493aa"))
         ease_background_colour({ new_colour = HEX('4f5767'), special_colour = HEX("9493aa"), contrast = 2 })
+    end,
+    get_weight = function(self)
+        return ((G.GAME and G.GAME.gb_enable_hexes) and 1 or 0)
     end
 }
 
@@ -86,6 +92,9 @@ SMODS.Booster {
     ease_background_colour = function(self)
         ease_colour(G.C.DYN_UI.MAIN, HEX("9493aa"))
         ease_background_colour({ new_colour = HEX('4f5767'), special_colour = HEX("9493aa"), contrast = 2 })
+    end,
+    get_weight = function(self)
+        return ((G.GAME and G.GAME.gb_enable_hexes) and 0.3 or 0)
     end
 }
 
@@ -116,5 +125,8 @@ SMODS.Booster {
     ease_background_colour = function(self)
         ease_colour(G.C.DYN_UI.MAIN, HEX("9493aa"))
         ease_background_colour({ new_colour = HEX('4f5767'), special_colour = HEX("9493aa"), contrast = 2 })
+    end,
+    get_weight = function(self)
+        return ((G.GAME and G.GAME.gb_enable_hexes) and 0.1 or 0)
     end
 }

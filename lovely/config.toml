@@ -14,5 +14,8 @@ G.GAME.gb_enable_ephemerals = gb_config.enable_ephemerals
 G.GAME.gb_enable_hexes = gb_config.enable_hexes
 G.GAME.gb_enable_shatter = gb_config.enable_shatter
 G.GAME.gb_enable_eyes = gb_config.enable_eyes
+G.GAME.gb_enable_boss_jokers = gb_config.enable_boss_jokers
+G.GAME.ephemeral_rate = ((G.GAME and G.GAME.gb_enable_hexes) and 1 or 0)
+G.GAME.hex_rate = ((G.GAME and G.GAME.gb_enable_hexes) and 0.3 or 0)
 '''
 

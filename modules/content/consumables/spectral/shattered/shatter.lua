@@ -22,7 +22,7 @@ SMODS.Consumable {
     end,
 
     in_pool = function(self, args)
-        return (#gb_find_eligible_shatters() > 0)
+        return (#gb_find_eligible_shatters() > 0) and G.GAME.gb_enable_shatter
     end,
     
     use = function(self, card, area, copier)

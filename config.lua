@@ -4,5 +4,6 @@ return {
 	["enable_ephemerals"] = true,
 	["enable_hexes"] = true,
 	["enable_shatter"] = true,
-	["enable_eyes"] = true
+	["enable_eyes"] = true,
+	["enable_boss_jokers"] = true
 }

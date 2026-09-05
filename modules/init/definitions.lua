@@ -11,7 +11,10 @@ SMODS.Rarity {
 	pools = { ["Joker"] = { rate = 0.02 } },
     default_weight = 0.02,
 	get_weight = function(self, weight, object_type)
-		if G.GAME.GB_DEFEATED_BLINDS and G.GAME.GB_DEFEATED_BLIND_COUNT >= 1 then
+		if G.GAME.GB_DEFEATED_BLINDS 
+		and G.GAME.GB_DEFEATED_BLIND_COUNT >= 1
+		and G.GAME.gb_enable_boss_jokers
+		then
 			return 0.02
 		else
 			return 0
@@ -71,7 +74,7 @@ SMODS.ConsumableType {
     secondary_colour = HEX('807ead'),
     collection_rows = { 7, 6 },
     default = 'c_gb_nihilism',
-	shop_rate = 0.5,
+	shop_rate = 0.3,
     cards = {
         ['c_gb_apparition'] = true,
 		['c_gb_blasphemy'] = true,
@@ -118,7 +121,7 @@ SMODS.Suit {
 	ui_pos = { x = 0, y = 0 },
 
 	in_pool = function(self, args)
-		return gb_is_suit_in_deck("gb_Eyes")
+		return G.GAME.gb_enable_eyes and gb_is_suit_in_deck("gb_Eyes")
 	end
 }
 

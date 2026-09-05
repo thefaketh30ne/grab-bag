@@ -51,6 +51,16 @@ return {
                     "The Eyes Suit can appear."
                 }
             },
+            gb_boss_jokers_name = {
+                text = {
+                    "Enable Boss Jokers"
+                }
+            },
+            gb_boss_jokers_desc = {
+                text = {
+                    "Boss Jokers can appear."
+                }
+            }
         },
         Other = {
             card_mult = {
