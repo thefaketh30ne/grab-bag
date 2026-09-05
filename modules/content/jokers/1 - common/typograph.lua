@@ -19,6 +19,7 @@ SMODS.Joker {
         if G.jokers and G.jokers.cards[#G.jokers.cards] then
             local joker_name = G.localization.descriptions.Joker[G.jokers.cards[#G.jokers.cards].config.center.key].name
             if joker_name then
+                joker_name = (type(joker_name) == 'table' and joker_name[1] or joker_name)
                 for i = 1, #joker_name do
                     local c = joker_name:sub(i,i)
                     if c ~= " " then
@@ -35,6 +36,7 @@ SMODS.Joker {
             if G.jokers and G.jokers.cards[#G.jokers.cards] then
                 local joker_name = G.localization.descriptions.Joker[G.jokers.cards[#G.jokers.cards].config.center.key].name
                 if joker_name then
+                    joker_name = (type(joker_name) == 'table' and joker_name[1] or joker_name)
                     for i = 1, #joker_name do
                         local c = joker_name:sub(i,i)
                         if c ~= " " then
