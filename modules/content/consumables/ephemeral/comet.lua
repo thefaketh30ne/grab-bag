@@ -4,14 +4,15 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Comet',
         text = {
-            "Adds {C:attention}#1#{} {C:dark_edition}Temporary{} cards",
-            "with {C:blue}Blue Seals{} to hand",
+            "Adds {C:attention}#1#{} {C:dark_edition}Temporary{} card",
+            "with a {C:blue}Blue Seal{} to hand",
         }
     },
-    config = {extra = { cards_to_create = 2 }},
+    config = {extra = { cards_to_create = 1 }},
     atlas = 'gb_Ephemerals',
     pos = { x = 3, y = 1 },
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_SEALS["Blue"]
         return { vars = { self.config.extra.cards_to_create } }
     end,
     use = function(self, card, area, copier)
@@ -28,17 +29,12 @@ SMODS.Consumable {
                     playing_card.playing_card = G.playing_card
                     playing_card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
                     G.hand:emplace(playing_card)
-                    SMODS.debuff_card(playing_card, "prevent_debuff", "source")
                     return true
                 end
             }))
         end
     end,
     can_use = function(self, card)
-        if G.hand and G.GAME.blind.in_blind then
-            return true
-        else
-            return false
-        end
-    end,
+        return (G.hand and G.GAME.blind.in_blind)
+    end
 }

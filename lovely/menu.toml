@@ -1,0 +1,30 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''
+local card = Card(  card_pos.x + G.ROOM.T.w/2 - G.CARD_W*card_size/2,
+                    card_pos.y + G.ROOM.T.h/2 - G.CARD_H*card_size/2,
+                    card_size*G.CARD_W, card_size*G.CARD_H, pseudorandom_element(G.P_CARDS), G.P_CENTERS.c_base)
+'''
+position = "at"
+payload = '''
+local card
+local centers = {}
+for _, v in pairs(G.P_CENTERS) do
+    centers[#centers+1] = v
+end
+local card_proto
+while not (card_proto and card_proto.original_mod and card_proto.original_mod.id == 'GrabBag') do
+    card_proto = centers[math.random(1, #centers)]
+end
+    card = Card(  card_pos.x + G.ROOM.T.w/2 - G.CARD_W*card_size/2,
+                        card_pos.y + G.ROOM.T.h/2 - G.CARD_H*card_size/2,
+                        card_size*G.CARD_W, card_size*G.CARD_H, G.P_CARDS.empty, card_proto,{bypass_discovery_center = true, bypass_discovery_ui = true})
+'''
+match_indent = true
+times = 1

@@ -30,11 +30,13 @@ SMODS.Joker {
         end
         if context.pseudorandom_result and not context.blueprint then
             if context.result then
-                card.ability.extra.current_increase = 0
-                return {
-                    message = localize("k_reset"),
-                    colour = G.C.GREEN
-                }
+                if card.ability.extra.current_increase ~= 0 then
+                    card.ability.extra.current_increase = 0
+                    return {
+                        message = localize("k_reset"),
+                        colour = G.C.GREEN
+                    }
+                end
             else
                 SMODS.scale_card(card, {
                     ref_table = card.ability.extra,

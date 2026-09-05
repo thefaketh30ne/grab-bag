@@ -4,10 +4,10 @@ SMODS.Joker {
 		name = 'Coupon',
 		text = {
 			"{C:green}#1# in #2# chance{} to refund",
-			"cards purchased in the {C:attention}Shop{}",
+			"purchases in the {C:attention}Shop{}",
 		}
 	},
-	config = { extra = { odds = 3 } },
+	config = { extra = { odds = 5 } },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 1, y = 1 },
@@ -18,11 +18,12 @@ SMODS.Joker {
     	return { vars = { new_numerator, new_denominator } }
 	end,
     calculate = function(self, card, context)
-        if context.buying_card and context.card ~= card then
+        if context.money_altered
+		and context.from_shop == true
+		and context.amount < 0 then
             if SMODS.pseudorandom_probability(card, 'gb_coupon', 1, card.ability.extra.odds) then
                 return {
-                    dollars = context.card.cost,
-                    message = "Refunded!",
+                    dollars = -context.amount,
                     colour = G.C.MONEY
                 }
             end

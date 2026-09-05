@@ -20,11 +20,12 @@ SMODS.Joker {
     calculate = function(self, card, context)
         local ln2_inverse = 1 / math.log(2)
 	    if context.joker_main then
-            hand_chips = 2 ^ math.ceil(math.log(hand_chips) * ln2_inverse)
-            mult = 2 ^ math.ceil(math.log(mult) * ln2_inverse)
-            update_hand_text({delay = 0}, {chips = hand_chips, mult = mult})
+            new_chips = 2 ^ math.ceil(math.log(hand_chips) * ln2_inverse)
+            new_mult = 2 ^ math.ceil(math.log(mult) * ln2_inverse)
             return {
                 message = "Retro!",
+                chip_mod = new_chips - hand_chips,
+                mult_mod = new_mult - mult,
                 colour = G.C.FILTER
             }
         end

@@ -5,14 +5,14 @@ SMODS.Consumable {
         name = 'War',
         text = { {
             "Selected cards",
-            "become {C:attention}Alloyed{} cards",
+            "become {C:attention}Scarred{} cards",
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Unstable"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Unstable"
         } }
     },
-    config = { extra = { mod_conv = 'm_gb_alloyed', hex_to_apply = "unstable" } },
+    config = { extra = { mod_conv = 'm_gb_scarred', hex_to_apply = "unstable" } },
     atlas = 'gb_HexCards',
     pos = { x = 2, y = 0 },
     loc_vars = function(self, info_queue, card)

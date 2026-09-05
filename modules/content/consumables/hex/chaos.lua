@@ -8,9 +8,9 @@ SMODS.Consumable {
             "a random {C:attention}Hex Enhancement{}",
         },
         {
-            "An equal number of cards",
+            "That many cards in",
             "in {C:attention}full deck{} gain",
-            "a random {C:attention}Curse"
+            "a random {C:attention}Hex"
         } }
     },
     atlas = 'gb_HexCards',
@@ -22,7 +22,7 @@ SMODS.Consumable {
             "macabre",
             "chained",
             "ashen",
-            "alloyed"
+            "scarred"
         }
         G.E_MANAGER:add_event(Event({
             trigger = 'after',

@@ -12,6 +12,7 @@ SMODS.Joker {
     config = { extra = { xmult = 1, xmult_mod = 0.25, card_to_destroy = nil } },
     rarity = 1,
     atlas = 'gb_Jokers',
+    blueprint_compat = true,
     pos = { x = 9, y = 5 },
     soul_pos = { x = 8, y = 5 },
     cost = 6,

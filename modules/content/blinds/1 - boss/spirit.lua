@@ -19,7 +19,7 @@ SMODS.Blind {
         return { vars = { new_numerator, new_denominator } }
     end,
     collection_loc_vars = function(self)
-        return { vars = { '1' } }
+        return { vars = { '1', '3' } }
     end,
     calculate = function(self, blind, context)
         if not blind.disabled then

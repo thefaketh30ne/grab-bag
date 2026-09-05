@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 -- allstar deck take_ownership
 
 gb_common_get_weight = SMODS.Rarities["Common"].get_weight
@@ -14,16 +15,61 @@ SMODS.Rarity:take_ownership('Common',
     },
 true )
 
--- obsessive hex hook
-local original_can_discard = G.FUNCS.can_discard 
-G.FUNCS.can_discard = function(e)
-    original_can_discard(e)
+-- slim pickings challenge take_ownership of uncommon and rare
+gb_uncommon_get_weight = SMODS.Rarities["Uncommon"].get_weight
+gb_rare_get_weight = SMODS.Rarities["Rare"].get_weight
+
+SMODS.Rarity:take_ownership('Uncommon',
+    {
+        get_weight = function(self, weight, object_type) 
+            if G.GAME.modifiers["gb_no_uncommon"] == true then
+                return 0
+            else
+                return gb_uncommon_get_weight(self, weight, object_type)
+            end
+        end
+    },
+true )
+
+SMODS.Rarity:take_ownership('Rare',
+    {
+        get_weight = function(self, weight, object_type) 
+            if G.GAME.modifiers["gb_no_rare"] == true then
+                return 0
+            else 
+                return gb_rare_get_weight(self, weight, object_type)
+            end
+        end
+    },
+true )
+
+-- paranoid hex hook
+local original_can_play = G.FUNCS.can_play
+G.FUNCS.can_play = function(e)
+    original_can_play(e)
+    local paranoid_cards = 0
     for _, playing_card in ipairs(G.hand.highlighted) do
         local hex_key, _ = GB.get_hex(playing_card)
-        if hex_key == "gb_obsessive_hex" then
-            e.config.colour = G.C.UI.BACKGROUND_INACTIVE
-            e.config.button = nil
-            break
+        if hex_key == "gb_paranoid_hex" then
+            paranoid_cards = paranoid_cards + 1
         end
     end
+    if paranoid_cards > 1 then
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
 end
+
+-- obsessive hex hook
+--local original_can_discard = G.FUNCS.can_discard
+--G.FUNCS.can_discard = function(e)
+--    original_can_discard(e)
+--    for _, playing_card in ipairs(G.hand.highlighted) do
+--        local hex_key, _ = GB.get_hex(playing_card)
+--        if hex_key == "gb_obsessive_hex" then
+--            e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+--            e.config.button = nil
+--            break
+--        end
+--    end
+--end

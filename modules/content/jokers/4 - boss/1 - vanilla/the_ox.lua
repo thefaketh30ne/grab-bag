@@ -34,7 +34,7 @@ SMODS.Joker{
             end
             if not lower then
                 return {
-                    dollars = -dollars_loss
+                    dollars = -card.ability.extra.dollars_loss
                 }
             end
         end

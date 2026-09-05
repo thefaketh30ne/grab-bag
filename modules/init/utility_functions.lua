@@ -104,3 +104,27 @@ function gb_contains_enhancement(cards, enhancement_key)
     end
     return false
 end
+
+function gb_most_numerous_suit(cards)
+    local suit_tally = {}
+    for _, playing_card in ipairs(cards) do
+        if suit_tally[playing_card.base.suit] then
+            suit_tally[playing_card.base.suit] = (suit_tally[playing_card.base.suit]) + 1
+        else
+            suit_tally[playing_card.base.suit] = 1
+        end
+    end
+    local most_numerous = "Spades"
+    local highest_count = 0
+    for suit_key, frequency in pairs(suit_tally) do
+        if frequency > highest_count then
+            most_numerous = suit_key
+            highest_count = frequency
+        end
+    end
+    return most_numerous
+end
+
+function gb_is_number(card)
+    return ( ( card:get_id() >= 2 and card:get_id() <= 10 ) and true or false )
+end

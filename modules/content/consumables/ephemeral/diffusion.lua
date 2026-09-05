@@ -22,7 +22,7 @@ SMODS.Consumable {
             table.insert(eligible_cards, playing_card)
         end
         for _, v in ipairs(eligible_cards) do
-            if SMODS.pseudorandom_probability(blind, 'gb_diffusion', 1, card.ability.extra.odds) then
+            if SMODS.pseudorandom_probability(card, 'gb_diffusion', 1, card.ability.extra.odds) then
                 G.playing_card = (G.playing_card and G.playing_card + 1) or 1
                 local copy_card = copy_card(v, nil, nil, G.playing_card)
                 copy_card.playing_card = G.playing_card
@@ -32,15 +32,10 @@ SMODS.Consumable {
                 copy_card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
                 G.hand:emplace(copy_card)
                 copy_card:set_edition('e_gb_temporary', true, true)
-                SMODS.debuff_card(copy_card, "prevent_debuff", "source")
             end
         end
     end,
     can_use = function(self, card)
-        if G.hand and G.GAME.blind.in_blind then
-            return true
-        else
-            return false
-        end
+        return (G.hand and G.GAME.blind.in_blind)
     end
 }

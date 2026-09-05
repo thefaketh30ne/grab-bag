@@ -45,6 +45,12 @@ GB.HEX_KEYS = {
         "inflexible",
         "slothful",
     }
+    
+GB.HEX_LOOKUP_KEYS = { }
+for _, v in ipairs(GB.HEX_KEYS) do
+    GB.HEX_LOOKUP_KEYS['gb_' .. v .. '_hex'] = true
+end
+
 
 local function hexes_ui()
     local hexes = {}

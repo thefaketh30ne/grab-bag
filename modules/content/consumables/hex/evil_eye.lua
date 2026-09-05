@@ -9,8 +9,8 @@ SMODS.Consumable {
             "{C:attention}Hex Enhancement{}"
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Paranoid"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Paranoid"
         } }
     },
     config = { extra = { hex_to_apply = "paranoid" } },
@@ -27,7 +27,7 @@ SMODS.Consumable {
             "macabre",
             "chained",
             "ashen",
-            "alloyed"
+            "scarred"
         }
         local chosen_enhancement = pseudorandom_element(enhancement_keys, pseudoseed("gb_evil_eye"))
         chosen_enhancement = "m_gb_" .. chosen_enhancement

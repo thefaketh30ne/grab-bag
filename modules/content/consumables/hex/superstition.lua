@@ -5,18 +5,30 @@ SMODS.Consumable {
         name = 'Superstition',
         text = { {
             "For each selected card,",
-            "level up {C:attention}most played poker hand{}",
+            "level up {C:attention}#1#{}",
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Obsessive"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Obsessive"
         } }
     },
     config = { extra = { hex_to_apply = "obsessive" } },
     atlas = 'gb_HexCards',
     pos = { x = 8, y = 0 },
+    collection_loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = GB.hex_tooltip(card.ability.extra.hex_to_apply)
+        return { vars = { "[most played poker hand]" } }
+    end,
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = GB.hex_tooltip(card.ability.extra.hex_to_apply)
+        local most_played_hand, play_tally = "nothing", 0
+        for _, handname in ipairs(G.handlist) do
+            if SMODS.is_poker_hand_visible(handname) and G.GAME.hands[handname].played > play_tally then
+                most_played_hand = handname
+                play_tally = G.GAME.hands[handname].played
+            end
+        end
+        return { vars = { most_played_hand } }
     end,
     use = function(self, card, area, copier)
         local most_played_hand, play_tally = nil, 0

@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil
 local max_config_page = 2
 local GrabBag = SMODS.current_mod
 
@@ -102,15 +103,47 @@ GrabBag.config_tab = function()
 
     local root_nodes = {} --This is called "root"_nodes because it was originally supposed to be put inside G.UIT.ROOT immediately. But uh, I realized it's not too optimized but I'm lazy to change its name :3
     if G.gb_config_page == 1 then
+        --The first and second are keys to your localization file. The forth one is the config in your config.lua.
         root_nodes = {
-            GrabBag.create_checkbox_config("gb_custom_music_name", "gb_custom_music_desc", nil, "custom_music"), --The first and second are keys to your localization file. The forth one is the config in your config.lua.
-        }
+            GrabBag.create_checkbox_config(
+            "gb_custom_music_name",
+            "gb_custom_music_desc",
+            nil,
+            "custom_music"
+        ),
+            GrabBag.create_checkbox_config(
+            "gb_enable_ephemerals_name",
+            "gb_enable_ephemerals_desc",
+            nil,
+            "enable_ephemerals"
+        ),
+            GrabBag.create_checkbox_config(
+            "gb_enable_hexes_name",
+            "gb_enable_hexes_desc",
+            nil,
+            "enable_hexes"
+        ),
+            GrabBag.create_checkbox_config(
+            "gb_enable_shatter_name",
+            "gb_enable_shatter_desc",
+            nil,
+            "enable_shatter"
+        ),
+            GrabBag.create_checkbox_config(
+            "gb_enable_eyes_name",
+            "gb_enable_eyes_desc",
+            nil,
+            "enable_eyes"
+        )}
     elseif G.gb_config_page == 2 then --next page
-        --[[
         root_nodes = {
-            GrabBag.create_checkbox_config("gb_joyful", "gb_joyful", nil, "enable"),
-        }
-        ]]
+            GrabBag.create_checkbox_config(
+            "gb_boss_jokers_name",
+            "gb_boss_jokers_desc",
+            nil,
+            "enable_boss_jokers"
+        )}
+
     end
     root_nodes[#root_nodes+1] = {n = G.UIT.R, config = {align = "cm", padding = 0.02}, nodes = { --Page turning stuff. This is always added to root_nodes.
         {n = G.UIT.C, config = {align = "cm", minw = 0.5, minh = 0.5, padding = 0.1, r = 0.1, hover = true, colour = G.C.RED, shadow = true, button = "gb_previous_config_page"}, nodes = {

@@ -8,8 +8,8 @@ SMODS.Consumable {
             "become {C:attention}Chained{} cards",
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Despot"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Despot"
         } }
     },
     config = { extra = { mod_conv = 'm_gb_chained', hex_to_apply = "despot" } },

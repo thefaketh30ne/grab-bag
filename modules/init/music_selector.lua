@@ -1,7 +1,6 @@
 music_pitch = 1
 music_volume = 0.35
 
-print(gb_config.custom_music)
 if gb_config.custom_music ~= true then
     return
 end

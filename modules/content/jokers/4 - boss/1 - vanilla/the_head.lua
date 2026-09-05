@@ -39,7 +39,7 @@ SMODS.Joker{
         end
         if context.debuff_card
         and context.debuff_card.area ~= G.jokers
-        and context.debuff_card:is_suit(card.ability.extra.debuffed_suit) then
+        and context.debuff_card:is_suit(card.ability.extra.debuffed_suit, true) then
             return {
                 debuff = true
             }

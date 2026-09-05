@@ -19,6 +19,7 @@ SMODS.Blind {
                 return false
             end
         end
+        self.triggered = true
         return true
     end,
     in_pool = function(self)

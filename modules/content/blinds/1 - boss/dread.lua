@@ -15,6 +15,7 @@ SMODS.Blind {
     boss_colour = HEX("5d6385"),
     debuff_hand = function(self, cards, hand, handname, check)
         if gb_count_suits(cards) > 2 then
+            self.triggered = true
             return true
         else
             return false

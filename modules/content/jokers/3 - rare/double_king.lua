@@ -45,7 +45,7 @@ SMODS.Joker {
 		end
 		if context.destroy_card then
 			if card.ability.extra.activates then
-				for _, playing_card in ipairs(context.scoring_hand) do
+				for _, playing_card in ipairs(context.full_hand) do
 					if playing_card:get_id() == 13 and context.destroy_card == playing_card and not card.ability.extra.king_removed then
 						card.ability.extra.king_removed = true
 						return { remove = true }

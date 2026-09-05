@@ -17,6 +17,9 @@ SMODS.Joker{
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.money, localize((card.ability.extra.rank or 'Ace'), "ranks") } }
     end,
+    set_ability = function(self, card, initial, delay_sprites)
+        card.ability.extra.rank, card.ability.extra.id = reroll_gb_wanted_rank()
+    end,
     calculate = function(self, card, context)
         if context.joker_main and not context.blueprint then
             for _, playing_card in ipairs(context.scoring_hand) do
@@ -35,6 +38,9 @@ function reroll_gb_wanted_rank()
     local returned_rank = "Ace"
     local returned_id = 14
     local valid_cards = {}
+    if not G.playing_cards then
+        return returned_rank, returned_id
+    end
     for _, playing_card in ipairs(G.playing_cards) do
         if not SMODS.has_no_rank(playing_card) then
             valid_cards[#valid_cards + 1] = playing_card

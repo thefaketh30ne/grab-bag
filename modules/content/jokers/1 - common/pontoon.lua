@@ -20,6 +20,42 @@ SMODS.Joker{
 		return { vars = { card.ability.extra.mult, card.ability.extra.chips, card.ability.extra.rank_count } }
 	end,
     calculate = function(self, card, context)
+        if context.highlight_card and (G.STATE == G.STATES.SELECTING_HAND) then
+            local rank_sum = 0
+            local ace_count = 0
+            for _, playing_card in pairs(G.hand.highlighted) do
+                if not SMODS.has_no_rank(playing_card) then
+                    rank_sum = rank_sum + playing_card.base.nominal
+                end
+                if playing_card:get_id() == 14 then
+                    ace_count = ace_count + 1
+                end
+            end
+            local message_sent = false
+            for i = 1, ace_count + 1 do
+                if rank_sum <= 21 then
+                    card_eval_status_text(
+                        card,
+                        'extra',
+                        nil, nil, nil,
+                        {message = rank_sum .. "", colour = G.C.FILTER, instant = true}
+                    )
+                    message_sent = true
+                    break
+                else
+                    rank_sum = rank_sum - 10
+                end
+            end
+            if message_sent == false then
+                card_eval_status_text(
+                    card,
+                    'extra',
+                    nil, nil, nil,
+                    {message = "Bust!", colour = G.C.RED, instant = true}
+                )
+            end
+        end
+        
         if context.joker_main then
             local rank_sum = 0
             local ace_count = 0

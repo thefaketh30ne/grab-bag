@@ -36,4 +36,7 @@ SMODS.Joker{
             }
         end
     end,
+    in_pool = function(self, args)
+        return G.GAME.gb_enable_ephemerals
+    end
 }

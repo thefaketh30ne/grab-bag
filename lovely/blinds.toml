@@ -37,7 +37,7 @@ payload = '''G.hand.highlighted[i].ability.discarded_this_ante = true'''
 target = "functions/state_events.lua"
 match_indent = true
 pattern = '''v.ability.played_this_ante = nil'''
-position = "after"
+position = "before"
 payload = '''v.ability.discarded_this_ante = nil'''
 
 # shame patch 1/2
@@ -63,5 +63,45 @@ pattern = '''G.GAME.round_resets.blind_states.Boss = 'Defeated''''
 position = "after"
 payload = '''G.GAME.GB_BLINDS_SKIPPED_THIS_ANTE = 0'''
 
+# cull
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+match_indent = true
+pattern = '''
+if self.ability.consumeable.max_highlighted then
+    update_hand_text({immediate = true, nopulse = true, delay = 0}, {mult = 0, chips = 0, level = '', handname = ''})
+end
+'''
+position = "after"
+payload = '''
+SMODS.calculate_context({consumeable_used = true})
+'''
 
+# curve
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+match_indent = true
+pattern = '''
+draw_card(G.hand, G.discard, i*100/highlighted_count, 'down', false, G.hand.highlighted[i])
+'''
+position = "at"
+payload = '''
+if gb_discard_into_deck then
+    draw_card(G.hand, G.deck, i*100/highlighted_count, 'down', false, G.hand.highlighted[i])
+else
+    draw_card(G.hand, G.discard, i*100/highlighted_count, 'down', false, G.hand.highlighted[i])
+end
+'''
 
+# platinum pike
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+match_indent = true
+pattern = "G.GAME.current_round.discards_used = G.GAME.current_round.discards_used + 1"
+position = "after"
+payload = '''
+SMODS.calculate_context({ gb_after_discard = true })
+'''

@@ -7,7 +7,7 @@ SMODS.Joker {
             "and give {X:mult,C:white}X#1#{} Mult",
         }
     },
-    config = { extra = { xmult = 1.5, retriggers = 1} },
+    config = { extra = { xmult = 1.25, retriggers = 1} },
     rarity = 3,
     atlas = 'gb_Jokers',
     pos = { x = 9, y = 2 },

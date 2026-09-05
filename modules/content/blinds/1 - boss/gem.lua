@@ -1,0 +1,66 @@
+SMODS.Blind {
+    key = "gem",
+    loc_txt = {
+        name = "The Gem",
+        text = {
+            "Debuffs a random",
+            "Suit every hand"
+        }
+    },
+    dollars = 5,
+    mult = 2,
+    atlas = "gb_Blinds",
+    pos = { y = 33 },
+    boss = { min = 1 },
+    boss_colour = HEX("9688d5"),
+    config = { extra = { suit = "Diamonds", hand_played = true } },
+    calculate = function(self, blind, context)
+        if context.setting_blind then
+            self.config.extra.base_blind_chips = G.GAME.blind.chips / G.GAME.blind.mult
+            self.config.extra.hand_played = true
+        end
+        if context.press_play then
+            self.config.extra.hand_played = true
+        end
+        if context.hand_drawn
+        and not blind.disabled
+        and self.config.extra.hand_played then
+            local suit_tally = {}
+            for _, playing_card in ipairs(G.playing_cards) do
+                suit_tally[playing_card.base.suit] = playing_card.base.suit
+            end
+            suit_tally[self.config.extra.suit] = nil
+            local chosen_suit = pseudorandom_element(suit_tally, pseudoseed("gb_gem"))
+            if chosen_suit then
+                self.config.extra.suit = chosen_suit
+            end
+            for _, playing_card in ipairs(G.playing_cards) do
+                if playing_card.base.suit == self.config.extra.suit then
+                    SMODS.debuff_card(playing_card, true, "gb_gem")
+                else
+                    SMODS.debuff_card(playing_card, false, "gb_gem")
+                end
+            end
+            self.config.extra.hand_played = nil
+            G.E_MANAGER:add_event(Event({
+                func = (function()
+                    attention_text({
+                        scale = 1.4, text = self.config.extra.suit, hold = 2, align = 'cm', offset = {x = 0, y = -2.7},major = G.play
+                    })
+                    return true
+                end)
+            }))
+        end
+
+    end,
+    disable = function(self)
+        for _, playing_card in ipairs(G.playing_cards) do
+            SMODS.debuff_card(playing_card, false, "gb_gem")
+        end
+    end,
+    defeat = function(self)
+        for _, playing_card in ipairs(G.playing_cards) do
+            SMODS.debuff_card(playing_card, false, "gb_gem")
+        end
+    end
+}

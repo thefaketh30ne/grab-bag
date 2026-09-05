@@ -8,8 +8,8 @@ SMODS.Consumable {
             "become {C:attention}Rotten{} cards",
         },
         {
-            "An equal number of cards",
-            "in {C:attention}full deck{} become {C:attention}Decaying"
+            "That many cards in",
+            "{C:attention}full deck{} gain {C:attention}Decaying"
         } }
     },
     config = { extra = { mod_conv = 'm_gb_rotten', hex_to_apply = "decaying" } },

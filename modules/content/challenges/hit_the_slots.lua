@@ -4,7 +4,7 @@ SMODS.Challenge {
         name = "Hit The Slots!"
     },
     jokers = {
-        { id = 'j_gb_jackpot', eternal = true },
+        { id = 'j_gb_gamblers_fallacy', eternal = true },
         { id = 'j_gb_misfortune', eternal = true },
     },
     rules = {

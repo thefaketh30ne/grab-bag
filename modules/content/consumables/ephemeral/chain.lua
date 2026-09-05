@@ -29,7 +29,6 @@ SMODS.Consumable {
                     G.playing_card = (G.playing_card and G.playing_card + 1) or 1
                     playing_card.playing_card = G.playing_card
                     G.hand:emplace(playing_card)
-                    SMODS.debuff_card(playing_card, "prevent_debuff", "source")
                     return true
                 end
             }))
@@ -37,12 +36,8 @@ SMODS.Consumable {
         end
     end,
     can_use = function(self, card)
-        if G.hand and G.GAME.blind.in_blind then
-            return true
-        else
-            return false
-        end
-    end,
+        return (G.hand and G.GAME.blind.in_blind)
+    end
 }
 
 id_to_rank = function(id)

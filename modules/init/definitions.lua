@@ -11,7 +11,10 @@ SMODS.Rarity {
 	pools = { ["Joker"] = { rate = 0.02 } },
     default_weight = 0.02,
 	get_weight = function(self, weight, object_type)
-		if G.GAME.GB_DEFEATED_BLINDS and G.GAME.GB_DEFEATED_BLIND_COUNT >= 1 then
+		if G.GAME.GB_DEFEATED_BLINDS 
+		and G.GAME.GB_DEFEATED_BLIND_COUNT >= 1
+		and G.GAME.gb_enable_boss_jokers
+		then
 			return 0.02
 		else
 			return 0
@@ -71,12 +74,19 @@ SMODS.ConsumableType {
     secondary_colour = HEX('807ead'),
     collection_rows = { 7, 6 },
     default = 'c_gb_nihilism',
-	shop_rate = 0.5,
+	shop_rate = 0.3,
     cards = {
         ['c_gb_apparition'] = true,
+		['c_gb_blasphemy'] = true,
+		['c_gb_chaos'] = true,
 		['c_gb_conceit'] = true,
+		['c_gb_debauchery'] = true,
+		['c_gb_evil_eye'] = true,
+		['c_gb_fealty'] = true,
+		['c_gb_hunger'] = true,
 		['c_gb_nihilism'] = true,
 		['c_gb_pestilence'] = true,
+		['c_gb_superstition'] = true,
 		['c_gb_tyranny'] = true,
 		['c_gb_war'] = true,
         },
@@ -111,7 +121,7 @@ SMODS.Suit {
 	ui_pos = { x = 0, y = 0 },
 
 	in_pool = function(self, args)
-		return gb_is_suit_in_deck("gb_Eyes")
+		return G.GAME.gb_enable_eyes and gb_is_suit_in_deck("gb_Eyes")
 	end
 }
 
@@ -176,7 +186,6 @@ GB_SHATTERED_TABLE["j_zany_joker"] = "j_gb_the_zany"
 SMODS.current_mod.set_ability_reset_keys = function() return
 {
 	"discarded_this_ante",
-	"honey_drawn"
 } 
 end
 
@@ -185,6 +194,7 @@ function SMODS.current_mod.reset_game_globals(run_start)
 	reset_gb_head_card()
 	reset_gb_club_card()
 	reset_gb_window_card()
+	reset_gb_black_book_rank()
 end
 
 -- atlas definitions
@@ -192,6 +202,15 @@ end
 SMODS.Atlas({
     key = 'gb_Blinds',
     path = 'Blinds.png',
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 21,
+    px = 34,
+    py = 34
+})
+
+SMODS.Atlas({
+    key = 'gb_ShatteredBlinds',
+    path = 'ShatteredBlinds.png',
     atlas_table = 'ANIMATION_ATLAS',
     frames = 21,
     px = 34,
