@@ -1,0 +1,9 @@
+{
+    "name": "Grab_Bag",
+    "version_number": "0.9.0",
+    "website_url": "https://github.com/thefaketh30ne/grab-bag",
+    "description": "Grab Bag is a large content mod with 135+ Jokers, 2 new consumable sets and more.",
+    "dependencies": [
+        "Steamodded-Steamodded-26.829.0"
+    ]
+}
