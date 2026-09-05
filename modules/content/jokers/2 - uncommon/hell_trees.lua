@@ -5,7 +5,8 @@ SMODS.Joker{
 		text = {
             "Create an {V:1}Ephemeral{} card",
             "when cards are drawn",
-            "with {C:attention}1 hand remaining{}"
+            "with {C:attention}1 hand remaining{}",
+            "{C:inactive}(Must have room)"
 		}
     },
 	rarity = 2,
@@ -21,7 +22,9 @@ SMODS.Joker{
         }
     end,
     calculate = function(self, card, context)
-        if context.hand_drawn and G.GAME.current_round.hands_left == 1 then
+        if context.hand_drawn 
+        and G.GAME.current_round.hands_left == 1 
+        and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
             G.E_MANAGER:add_event(Event({
                 func = (function()
