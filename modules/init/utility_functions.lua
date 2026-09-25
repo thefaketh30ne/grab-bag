@@ -138,3 +138,13 @@ end
 function gb_is_number(card)
     return ( ( card:get_id() >= 2 and card:get_id() <= 10 ) and true or false )
 end
+
+function gb_get_number_of_hexes(card_table)
+    local tally = 0
+    for _, playing_card in ipairs(card_table) do
+        if GB.get_hex(playing_card) then
+            tally = tally + 1
+        end
+    end
+    return tally
+end
