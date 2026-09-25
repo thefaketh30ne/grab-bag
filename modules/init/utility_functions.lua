@@ -13,23 +13,28 @@ end
 function gb_count_suits(card_table, count_wilds)
     count_wilds = false or count_wilds
     local suits = {}
+    local suit_count = 0
     for _, card in ipairs(card_table) do
         if card.base.suit
-        and not suits[card.base.suit]
         and not SMODS.has_no_suit(card)
-        and not (SMODS.has_any_suit(card) and not count_wilds) then
+        and not SMODS.has_any_suit(card) then
             suits[card.base.suit] = true
         end
     end
-    local suit_count = 0
     for _, _ in pairs(suits) do
         suit_count = suit_count + 1
+    end
+    for _, playing_card in ipairs(card_table) do
+        if SMODS.has_any_suit(playing_card) and count_wilds then
+            suit_count = suit_count + 1
+        end
     end
     return suit_count
 end
 
 function gb_could_count_as_exactly_x_suits(card_table, x)
     return (gb_count_suits(card_table) <= x and gb_count_suits(card_table, true) >= x)
+    
 end
 
 function gb_is_score_on_fire()
