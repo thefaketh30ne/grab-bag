@@ -25,11 +25,12 @@ SMODS.Joker {
                     if SMODS.pseudorandom_probability(card, 'gb_rainbow_road', 1, card.ability.extra.odds) then
                         G.E_MANAGER:add_event(Event({
                             func = function()
-                                SMODS.calculate_effect({ 
-                                    message = "Level Up!",
-                                    colour = G.C.ATTENTION,
-                                    message_card = card
-                                })
+                                card_eval_status_text(
+                                    card,
+                                    'extra',
+                                    nil, nil, nil,
+                                    {message = "Level Up!", colour = G.C.FILTER, instant = true}
+                                )
                                 playing_card:juice_up()
                                 return true
                             end
