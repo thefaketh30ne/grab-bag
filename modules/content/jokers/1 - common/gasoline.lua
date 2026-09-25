@@ -3,11 +3,12 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Gasoline',
 		text = {
-			"Earn {C:money}$#1#{} if played hand",
-			"causes score to {C:attention}catch fire{}",
+			"Earn {C:money}$#1#{} at end of round,",
+			"{C:red}self-destruct{} if",
+			"score {C:attention}catches fire{}",
 		}
 	},
-	config = { extra = { dollars = 6 } },
+	config = { extra = { dollars = 8 } },
 	rarity = 1,
 	atlas = 'Jokers',
 	pos = { x = 3, y = 2 },
@@ -16,10 +17,16 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.dollars } }
 	end,
+	calc_dollar_bonus = function(self, card)
+        return card.ability.extra.dollars
+    end,
     calculate = function(self, card, context)
-        if context.final_scoring_step and gb_is_score_on_fire() then
+        if context.after and SMODS.last_hand_oneshot then
+			SMODS.destroy_cards(card, {
+				pinch_anim = true
+			})
 			return {
-                dollars = card.ability.extra.dollars
+				message = "Exploded!"
 			}
 		end
 	end
