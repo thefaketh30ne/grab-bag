@@ -25,7 +25,7 @@ SMODS.Joker {
                     if SMODS.pseudorandom_probability(card, 'gb_rainbow_road', 1, card.ability.extra.odds) then
                         G.E_MANAGER:add_event(Event({
                             func = function()
-                                card:juice_up()
+                                playing_card:juice_up()
                                 return true
                             end
                         }))
