@@ -29,10 +29,10 @@ SMODS.Joker {
                                 return true
                             end
                         }))
-                        return {
-                            level_up = true,
-                            message = localize('k_level_up_ex')
-                        }
+                        SMODS.upgrade_poker_hands({
+                            hands = context.scoring_hand,
+                            level_up = 1
+                        })
                     end
                 end
             end
