@@ -19,7 +19,7 @@ SMODS.Joker{
 	end,
     calculate = function(self, card, context)
         if context.before and context.scoring_hand[1] and not context.blueprint then
-            SMODS.debuff_card(context.scoring_hand[1], true, "gb_final_pentacle")
+            SMODS.debuff_card(context.scoring_hand[1], true, "gb_the_hand")
         end
         local index = nil
         if context.individual and context.cardarea == G.play then
