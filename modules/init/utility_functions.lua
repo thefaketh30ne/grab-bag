@@ -10,13 +10,14 @@ function gb_get_boss_joker_cost()
     return math.min(math.max(G.GAME.round_resets.blind_ante, 4), 10) or 4
 end
 
-function gb_count_suits(card_table)
+function gb_count_suits(card_table, count_wilds)
+    count_wilds = false or count_wilds
     local suits = {}
     for _, card in ipairs(card_table) do
         if card.base.suit
         and not suits[card.base.suit]
         and not SMODS.has_no_suit(card)
-        and not SMODS.has_any_suit(card) then
+        and not (SMODS.has_any_suit(card) and not count_wilds) then
             suits[card.base.suit] = true
         end
     end
@@ -25,6 +26,10 @@ function gb_count_suits(card_table)
         suit_count = suit_count + 1
     end
     return suit_count
+end
+
+function gb_could_count_as_exactly_x_suits(card_table, x)
+    return (gb_count_suits(card_table) <= x and gb_count_suits(card_table, true) >= x)
 end
 
 function gb_is_score_on_fire()
