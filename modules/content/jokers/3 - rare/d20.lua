@@ -17,7 +17,6 @@ SMODS.Joker {
     pos = { x = 9, y = 4 },
     blueprint_compat = true,
     soul_pos = { x = 8, y = 4 },
-
     loc_vars = function(self, info_queue, card)
         local new_numerator, new_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
         return { vars = { new_numerator, new_denominator } }
