@@ -20,7 +20,7 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.individual
         and context.cardarea == G.play
-        and next(context.poker_hands[context.scoring_name]) then
+        and next(context.poker_hands['Straight']) then
             for k, search_card in ipairs(context.scoring_hand) do
                 if context.other_card == search_card then
                     index = k
