@@ -5,7 +5,7 @@ SMODS.Joker {
 		text = {
 			"{C:attention}Wild Cards{} have a",
             "{C:green}#1# in #2# chance{} to {C:attention}level up",
-            "played {C:attention}poker hand{} when scored"
+            "played {C:attention}poker hand{} when played"
 		}
 	},
     blueprint_compat = true,
@@ -19,12 +19,23 @@ SMODS.Joker {
         return { vars = { numerator, denominator } }
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, "m_wild") and
-        SMODS.pseudorandom_probability(card, 'gb_rainbow_road', 1, card.ability.extra.odds) then
-            return {
-                level_up = true,
-                message = localize('k_level_up_ex')
-            }
+        if context.before then
+            for _, playing_card in ipairs(context.full_hand) do
+                if SMODS.has_enhancement(playing_card, "m_wild") then
+                    if SMODS.pseudorandom_probability(card, 'gb_rainbow_road', 1, card.ability.extra.odds) then
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                card:juice_up()
+                                return true
+                            end
+                        }))
+                        return {
+                            level_up = true,
+                            message = localize('k_level_up_ex')
+                        }
+                    end
+                end
+            end
         end
     end
 }
