@@ -18,10 +18,10 @@ SMODS.Joker {
         return { vars = { card.ability.extra.power } }
 	end,
     calculate = function(self, card, context)
-        local ln2_inverse = 1 / math.log(2)
 	    if context.joker_main then
-            new_chips = 2 ^ math.ceil(math.log(hand_chips) * ln2_inverse)
-            new_mult = 2 ^ math.ceil(math.log(mult) * ln2_inverse)
+            local ln2_inverse = 1 / math.log(2)
+            local new_chips = 2 ^ math.ceil(math.log(hand_chips) * ln2_inverse)
+            local new_mult = 2 ^ math.ceil(math.log(mult) * ln2_inverse)
             return {
                 message = "Retro!",
                 chip_mod = new_chips - hand_chips,
