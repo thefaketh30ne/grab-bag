@@ -4,8 +4,8 @@ SMODS.Joker {
 		name = 'Saint Jimbolaus',
 		text = {
 			"After {C:attention}#1#{} played hands,",
-            "create a {C:dark_edition}Negative Perishable",
-            "{C:common}Common{} Joker",
+            "create a {C:dark_edition}Negative",
+            "{C:attention}Perishable {C:common}Common{} Joker",
             "{C:inactive}({C:attention}#2#{C:inactive}/#1#)"
 		}
 	},
