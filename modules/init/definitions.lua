@@ -169,11 +169,11 @@ GB_SHATTERED_TABLE["j_droll_joker"] = "j_gb_the_droll"
 GB_SHATTERED_TABLE["j_jolly_joker"] = "j_gb_the_jolly"
 GB_SHATTERED_TABLE["j_mad_joker"] = "j_gb_the_mad"
 GB_SHATTERED_TABLE["j_zany_joker"] = "j_gb_the_zany"
+GB_SHATTERED_TABLE["j_shortcut"] = "j_gb_metro_lines"
+GB_SHATTERED_TABLE["j_raised_fist"] = "j_gb_revolution"
+GB_SHATTERED_TABLE["j_space_joker"] = "j_gb_parasite"
 	-- {"j_dusk", "j_gb_midnight"},
 	-- {"j_acrobat", "j_gb_midnight"},
-	-- {"j_raised_fist", "j_gb_revolution"},
-	-- {"j_shortcut", "j_gb_metro_lines},
-	-- {"j_space_joker", "j_gb_parasite"},
 	-- {"j_idol", "j_gb_alien_relic"},
 	-- {"j_ancient_joker", "j_gb_alien_relic"},
 	-- {"j_greedy_joker", "j_gb_sin"},
