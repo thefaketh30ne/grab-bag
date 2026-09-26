@@ -10,6 +10,15 @@ function gb_get_boss_joker_cost()
     return math.min(math.max(G.GAME.round_resets.blind_ante, 4), 10) or 4
 end
 
+function gb_get_boss_joker_key(blind_key)
+    local _, prefix_index = string.find(blind_key, "bl_gb_")
+    if not prefix_index then
+        _, prefix_index = string.find(blind_key, "bl_")
+    end
+    local boss_joker_key = string.sub(blind_key, prefix_index + 1)
+    return "j_gb_" .. boss_joker_key
+end
+
 function gb_count_suits(card_table, count_wilds)
     count_wilds = false or count_wilds
     local suits = {}
@@ -34,7 +43,6 @@ end
 
 function gb_could_count_as_exactly_x_suits(card_table, x)
     return (gb_count_suits(card_table) <= x and gb_count_suits(card_table, true) >= x)
-    
 end
 
 function gb_is_score_on_fire()
