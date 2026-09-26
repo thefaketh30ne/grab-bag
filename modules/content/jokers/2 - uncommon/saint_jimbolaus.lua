@@ -16,7 +16,7 @@ SMODS.Joker {
     pos = { x = 9, y = 8 },
     config = { extra = { counter = 0, threshold = 12 } },
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue + 1] = G.P_CENTERS.m_wild
+        info_queue[#info_queue + 1] = { key = "Perishable", set = 'Other' }
         return { vars = { card.ability.extra.threshold, card.ability.extra.counter } }
     end,
     calculate = function(self, card, context)
