@@ -16,14 +16,14 @@ SMODS.Joker {
 	cost = 4,
 	blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
-        card.ability.extra.mult = math.min(
+        card.ability.extra.mult = math.max(
 			0, (25 - G.GAME.dollars) * card.ability.extra.mult_mod
 		)
         return { vars = { card.ability.extra.mult_mod, card.ability.extra.mult } }
 	end,
 	calculate = function(self, card, context)
         if context.joker_main then
-            card.ability.extra.mult = math.min(
+            card.ability.extra.mult = math.max(
 				0, (25 - G.GAME.dollars) * card.ability.extra.mult_mod
 			)
 			return {
