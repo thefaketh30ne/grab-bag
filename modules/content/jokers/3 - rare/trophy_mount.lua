@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 SMODS.Joker {
     key = "trophy_mount",
     loc_txt = {
