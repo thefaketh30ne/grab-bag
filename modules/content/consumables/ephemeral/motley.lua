@@ -24,5 +24,8 @@ SMODS.Consumable {
             }
             G.GAME.joker_buffer = 0
         end
+    end,
+    can_use = function(self, card)
+        return true
     end
 }

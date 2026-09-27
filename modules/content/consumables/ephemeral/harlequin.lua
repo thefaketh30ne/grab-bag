@@ -22,5 +22,8 @@ SMODS.Consumable {
             key_append = 'gb_harlequin'
         }
         G.GAME.joker_buffer = 0
+    end,
+    can_use = function(self, card)
+        return true
     end
 }
