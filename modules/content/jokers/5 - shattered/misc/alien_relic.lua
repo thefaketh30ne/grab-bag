@@ -4,9 +4,11 @@ SMODS.Joker {
 		name = 'Alien Relic',
 		text = {
 			{"Played {V:1}#4#{} give",
-            "{X:mult,C:white}X#1#{} Mult when played"},
+            "{X:mult,C:white}X#1#{} Mult when played",
+            "{C:inactive}(Suit changes every round)"},
             {"Played {C:attention}#3#s{} give",
-            "{X:mult,C:white}X#2#{} Mult when played"}
+            "{X:mult,C:white}X#2#{} Mult when played",
+            "{C:inactive}(Rank changes every round)"},
 		}
 	},
     blueprint_compat = true,
