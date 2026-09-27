@@ -172,16 +172,16 @@ GB_SHATTERED_TABLE["j_zany_joker"] = "j_gb_the_zany"
 GB_SHATTERED_TABLE["j_shortcut"] = "j_gb_metro_lines"
 GB_SHATTERED_TABLE["j_raised_fist"] = "j_gb_revolution"
 GB_SHATTERED_TABLE["j_space_joker"] = "j_gb_parasite"
+GB_SHATTERED_TABLE["j_ancient_joker"] = "j_gb_alien_relic"
+GB_SHATTERED_TABLE["j_idol"] = "j_gb_alien_relic"
+GB_SHATTERED_TABLE["j_greedy_joker"] = "j_gb_sin"
+GB_SHATTERED_TABLE["j_wrathful_joker"] = "j_gb_sin"
+GB_SHATTERED_TABLE["j_lusty_joker"] = "j_gb_sin"
+GB_SHATTERED_TABLE["j_gluttenous_joker"] = "j_gb_sin"
+GB_SHATTERED_TABLE["j_castle"] = "j_gb_crumbling_castle"
 	-- {"j_dusk", "j_gb_midnight"},
 	-- {"j_acrobat", "j_gb_midnight"},
-	-- {"j_idol", "j_gb_alien_relic"},
-	-- {"j_ancient_joker", "j_gb_alien_relic"},
-	-- {"j_greedy_joker", "j_gb_sin"},
-	-- {"j_wrathful_joker", "j_gb_sin"},
-	-- {"j_lusty_joker", "j_gb_sin"},
-	-- {"j_gluttenous_joker", "j_gb_sin"},
 	-- {"j_gb_lobster_claw", "j_gb_toy_fish"},
-	-- {"j_castle", "j_gb_crumbling_castle"},
 
 SMODS.current_mod.set_ability_reset_keys = function() return
 {
