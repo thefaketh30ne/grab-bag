@@ -4,7 +4,7 @@ SMODS.Joker {
 		name = 'Crumbling Castle',
 		text = {
 			"Discarded {V:1}#2#{} are destroyed",
-            "and this Joker gains {C:chips}#1#{}",
+            "and this Joker gains {C:chips}+#1#{} Chips",
             "{C:inactive}(Currently {C:chips}+#3#{C:inactive} Chips)"
 		}
 	},
