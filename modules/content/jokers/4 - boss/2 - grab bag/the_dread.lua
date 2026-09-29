@@ -19,7 +19,7 @@ SMODS.Joker{
     config = { extra = { xmult = 3, suits = 2 } },
 
     calculate = function(self, card, context)
-        if context.joker_main and gb_count_suits(context.scoring_hand or {}) == card.ability.extra.suits then
+        if context.joker_main and gb_could_count_as_exactly_x_suits(card.ability.extra.suits) then
             return {
                 xmult = card.ability.extra.xmult
             }
